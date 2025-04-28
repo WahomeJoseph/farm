@@ -24,6 +24,7 @@ package-lock.json  # Only if using Yarn/pnpm
 
 # ====== [3] ENVIRONMENT FILES ======
 .env*.local
+.env.local
 .env
 .env.development
 .env.production
@@ -48,13 +49,10 @@ __snapshots__/
 # ====== [6] IDE & EDITOR ======
 .vscode/
 .idea/
-*.swp
-*.swo
-*.sublime-*
+!.vscode/extensions.json 
 
 # ====== [7] SYSTEM & TEMP ======
 .DS_Store
-Thumbs.db
 *.tmp
 *.temp
 *.bak

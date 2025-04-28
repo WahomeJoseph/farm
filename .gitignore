@@ -31,10 +31,13 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
-.env*
+.env*.local
 
 # vercel
 .vercel
+
+# dependency directories
+node_modules/
 
 # typescript
 *.tsbuildinfo

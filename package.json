@@ -10,6 +10,11 @@
     "lint": "next lint",
     "seed": "node utils/SeedProducts.js"
   },
+  "resolutions": {
+    "@auth/core": "latest",
+    "@auth/mongodb-adapter": "latest",
+    "mongodb": "^5.7.0"
+  },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.9.0",
     "@emotion/react": "^11.14.0",
@@ -29,11 +34,13 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "framer-motion": "^12.7.4",
+    "lodash": "^4.17.21",
+    "lodash.merge": "^4.6.2",
     "lucide-react": "^0.488.0",
     "mongodb": "^6.16.0",
     "mongoose": "^8.13.2",
     "next": "15.3.0",
-    "next-auth": "^4.24.7",
+    "next-auth": "^5.0.0-beta.27",
     "node-fetch": "^3.3.2",
     "nodemailer": "^6.10.1",
     "nodemon": "^3.1.9",
@@ -67,6 +74,8 @@
     "@types/yauzl": "^2.10.3",
     "eslint": "^9",
     "eslint-config-next": "15.3.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "tailwindcss": "^4"
   }
 }

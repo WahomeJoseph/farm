@@ -5,10 +5,8 @@ import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight, ArrowRight, X } from "lucide-react";
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 import { Socials } from "@/components/hero/Socials";
 import { FaPhone } from "react-icons/fa";
@@ -148,7 +146,7 @@ const featuredProducts = [
     name: "Piglets",
     description: "Different breeds of healthy, vaccinated piglets ready for rearing",
     price: "From KES 5,000",
-    image: "https://images.unsplash.com/photo-1537033206914-9d3551ff8103", 
+    image: "https://images.unsplash.com/photo-1537033206914-9d3551ff8103",
     link: "/shop?category=Piglets",
     category: "Piglets"
   },
@@ -172,7 +170,7 @@ const featuredProducts = [
     name: "Sows",
     description: "Different breeds of proven breeding sows with excellent mothering abilities",
     price: "From KES 40,000",
-    image: "https://images.unsplash.com/photo-1537033206914-9d3551ff8103", 
+    image: "https://images.unsplash.com/photo-1537033206914-9d3551ff8103",
     link: "/shop?category=Sows",
     category: "Sows"
   },
@@ -180,7 +178,7 @@ const featuredProducts = [
     name: "Manure",
     description: "Organic fertilizer for your crops",
     price: "KES 500/bag",
-    image: "https://media.istockphoto.com/id/1488312382/photo/a-manure-pile-in-the-country.jpg?s=612x612&w=0&k=20&c=4mVqE1JvZHiFq6aRRm80Q-pqqM9HePyxWs7VKFhdDc4=", 
+    image: "https://media.istockphoto.com/id/1488312382/photo/a-manure-pile-in-the-country.jpg?s=612x612&w=0&k=20&c=4mVqE1JvZHiFq6aRRm80Q-pqqM9HePyxWs7VKFhdDc4=",
     link: "/shop?category=Manure",
     category: "Manure"
   }
@@ -193,7 +191,7 @@ const galleryImages = [
 
 const slideVariants = {
   initial: (direction) => ({
-    x: direction > 0 ? "100%" : "-100%", 
+    x: direction > 0 ? "100%" : "-100%",
     y: direction > 0 ? 50 : -50,
     scale: 0.95,
     opacity: 1,
@@ -241,7 +239,7 @@ const childVariants = {
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [direction, setDirection] = useState(0); 
+  const [direction, setDirection] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -431,15 +429,13 @@ export default function Home() {
             <h2
               className="text-3xl md:text-4xl font-bold text-green-800 mb-3 tracking-tight"
               data-aos="fade-right"
-              data-aos-delay="100"
-            >
+              data-aos-delay="100">
               What Our Customers Say
             </h2>
             <p
               className="text-base text-gray-600 leading-relaxed"
               data-aos="fade-left"
-              data-aos-delay="200"
-            >
+              data-aos-delay="200">
               Hear from those who love Wahome Farm
             </p>
           </div>
@@ -450,8 +446,7 @@ export default function Home() {
                 key={index}
                 className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100"
                 data-aos="fade-up"
-                data-aos-delay={300 + index * 100}
-              >
+                data-aos-delay={300 + index * 100}>
                 <CardContent className="flex flex-col">
                   <div className="flex items-center mb-4">
                     <Image
@@ -476,8 +471,7 @@ export default function Home() {
             <Button
               asChild
               variant="outline"
-              className="border-green-600 text-green-600 hover:bg-green-50 hover:text-green-700 font-semibold rounded-full px-8 py-2 transition-colors duration-300"
-            >
+              className="border-green-600 text-green-600 hover:bg-green-50 hover:text-green-700 font-semibold rounded-full px-8 py-2 transition-colors duration-300">
               <Link href="/testimonials">Read More</Link>
             </Button>
           </div>
@@ -491,16 +485,14 @@ export default function Home() {
           <h2
             className="text-3xl md:text-4xl font-bold text-green-800 mb-6 tracking-tight"
             data-aos="fade-up"
-            data-aos-delay="100"
-          >
+            data-aos-delay="100">
             Our Commitment to Sustainability
           </h2>
           {/* Description */}
           <p
             className="text-lg text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed"
             data-aos="fade-up"
-            data-aos-delay="200"
-          >
+            data-aos-delay="200">
             At Wahome Farm, we prioritize the planet and climate. Our Organic certification, zero-waste operations, and water conservation systems ensure sustainable and ethical farming. By aligning with global sustainability goals and addressing local challenges, we support Kenya’s food security and environmental resilience. Join us in nurturing the Earth for future generations.
           </p>
           {/* Feature Cards */}
@@ -671,11 +663,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Newsletter & Farm Location Section */}
       <Newsletter />
 
       {/* CTA Banner */}
-      <section className="py-16 bg-gradient-to-r from-green-700 to-green-800 text-white text-center">
+      <section className="py-8 bg-gradient-to-b from-green-700 to-green-800 text-white text-center">
         <div className="container mx-auto px-4">
           <h2
             className="text-3xl md:text-4xl font-bold mb-4 tracking-tight"
@@ -716,10 +707,14 @@ export default function Home() {
                 className="flex items-center gap-2"
                 aria-label="Call Wahome Farm at +254 795969757">
                 <FaPhone className="w-5 h-5 text-green-800" aria-hidden="true" />
-                <span>Call Us</span>
+                <span>0711430249</span>
               </Link>
             </Button>
           </div>
+        </div>
+        <div className="mt-10 mb-0">
+          <p className="text-md mt-3 slide-in-left">Designed by <a href="https://joseph-wachira-portfolio.vercel.app/"><span className="text-[#9A2A2A] text-md">Wahome Joseph</span></a> </p>
+          <span className="text-sm slide-in-right">Coyright &copy; {new Date().getFullYear()} - All right reserved</span>
         </div>
       </section>
     </div>

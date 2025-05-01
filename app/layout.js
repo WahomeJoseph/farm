@@ -1,9 +1,8 @@
-"use client"
+// "use client"
 import "./globals.css";
-import { SessionProvider } from "next-auth/react";
 import StoreProvider from "./Provider";
 import { Navbar } from "@/components/nav/Nav";
-
+import { SessionProvider } from "next-auth/react";
 
 // export const metadata = {
 //   title: "Create Next App",
@@ -20,7 +19,6 @@ export default function RootLayout({ children }) {
             {children}
           </SessionProvider>
         </StoreProvider>
-
       </body>
     </html>
   );

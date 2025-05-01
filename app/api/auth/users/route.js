@@ -27,7 +27,7 @@ export async function POST(request) {
             return NextResponse.json({ message: "Password must be at least 8 characters long" }, { status: 400 });
         }
         console.log(`Raw password for: ${email} : ${password}`)
-        const existingUser = await User.findOne({ email })
+        const existingUser = await User.findOne({ email }).lean()
         if (existingUser) {
             return NextResponse.json(
                 { error: 'User email already exists!' },

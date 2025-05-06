@@ -11,6 +11,7 @@ import { FcGoogle } from 'react-icons/fc'
 import { toast } from 'sonner'
 import { TriangleAlert } from 'lucide-react'
 import Image from 'next/image'
+import axios from 'axios'
 
 export const SignUp = () => {
   const [form, setForm] = useState({
@@ -44,21 +45,18 @@ export const SignUp = () => {
 
     try {
       // Register user
-      const res = await fetch('/api/auth/users', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+      const res = await axios.post('http://localhost:3000/api/auth/register', {
           username: form.username,
           email: form.email,
           password: form.password,
-        }),
+      }, {
+        headers: { 'Content-Type': 'application/json' }
       })
       const data = await res.json()
 
       if (res.ok) {
         toast.success('Account registered successfully!', {
           duration: 4000,
-          icon: '🎉',
         })
 
         // Auto-login after registration
@@ -116,10 +114,10 @@ export const SignUp = () => {
 
   return (
     <div className='min-h-screen bg-transparent'>
-      <div className='flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8'>
-        <div className='w-full max-w-4xl bg-white shadow-xl rounded-xl overflow-hidden flex flex-col md:flex-row'>
+      <div className='flex items-center justify-center px-4 py-6 sm:px-6 lg:px-8'>
+        <div className='w-full max-w-4xl bg-white shadow-xl mt-20 rounded-xl overflow-hidden flex flex-col md:flex-row'>
           <div className="md:w-1/2 relative h-64 md:h-auto bg-green-100/30 flex flex-col items-center justify-center p-8">
-            <span className="text-[2rem] m-0 p-0 text-green-600 animate-pulse">𝒲𝑒𝓁𝒸𝑜𝓂𝑒 𝒯𝑜 𝒲𝒶𝒽𝑜𝓂𝑒 𝒫𝓇𝑒𝓂𝒾𝓊𝓂 𝒫𝒾𝑔𝓈. 𝐸𝓃𝒿𝑜𝓎 𝒪𝓊𝓇 𝒫𝓇𝑜𝒹𝓊𝒸𝑒</span>
+            <span className="text-[2rem] m-0 p-0 text-green-600">𝒲𝑒𝓁𝒸𝑜𝓂𝑒 𝒯𝑜 𝒲𝒶𝒽𝑜𝓂𝑒 𝒫𝓇𝑒𝓂𝒾𝓊𝓂 𝒫𝒾𝑔𝓈. 𝐸𝓃𝒿𝑜𝓎 𝒪𝓊𝓇 𝒫𝓇𝑜𝒹𝓊𝒸𝑒</span>
             <Image
               src="/sign-up.svg"
               alt="Wahome Premium Pigs Farm Illustration"

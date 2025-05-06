@@ -6,17 +6,11 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start index.js",
+    "start": "next start",
     "lint": "next lint",
     "seed": "node utils/SeedProducts.js"
   },
-  "resolutions": {
-    "@auth/core": "latest",
-    "@auth/mongodb-adapter": "latest",
-    "mongodb": "^5.7.0"
-  },
   "dependencies": {
-    "@auth/core": "^0.39.0",
     "@auth/mongodb-adapter": "^3.9.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
@@ -27,13 +21,12 @@
     "animejs": "^4.0.1",
     "aos": "^2.3.4",
     "axios": "^1.8.4",
+    "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "cors": "^2.8.5",
     "cypress": "^14.3.0",
     "dotenv": "^16.5.0",
-    "express": "^5.1.0",
     "framer-motion": "^12.7.4",
     "lodash": "^4.17.21",
     "lodash.merge": "^4.6.2",
@@ -44,7 +37,6 @@
     "next-auth": "^5.0.0-beta.27",
     "node-fetch": "^3.3.2",
     "nodemailer": "^6.10.1",
-    "nodemon": "^3.1.9",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-google-recaptcha": "^3.1.0",

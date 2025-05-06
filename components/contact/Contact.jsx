@@ -106,8 +106,8 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-transparent">
-      <div className="flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
-        <div className="w-full max-w-4xl bg-white shadow-xl rounded-xl overflow-hidden flex flex-col md:flex-row">
+      <div className="flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
+        <div className="w-full max-w-4xl bg-white shadow-xl mt-12 rounded-xl overflow-hidden flex flex-col md:flex-row">
           <div className="md:w-1/2 relative h-64 md:h-auto bg-green-100/30 flex flex-col items-center justify-center p-8">
             <span className="text-[2rem] m-0 p-0 text-green-600">𝑅𝑒𝒶𝒸𝒽 𝒪𝓊𝓉 𝓉𝑜 𝒲𝒶𝒽𝑜𝓂𝑒 𝒫𝓇𝑒𝓂𝒾𝓊𝓂 𝒫𝒾𝑔𝓈</span>
             <Image
@@ -308,8 +308,7 @@ export default function Contact() {
                   type="submit"
                   className="w-full bg-green-600 hover:bg-green-700 text-white"
                   size="lg"
-                  disabled={pending}
-                >
+                  disabled={pending}>
                   {pending
                     ? form.type === "tour"
                       ? "Submitting Booking..."
@@ -325,13 +324,6 @@ export default function Contact() {
                   {submitted}
                 </div>
               )}
-
-              <p className="text-center text-sm text-gray-600">
-                Back to{" "}
-                <Link href="/" className="text-green-600 hover:underline font-medium">
-                  Home
-                </Link>
-              </p>
             </CardContent>
           </Card>
         </div>

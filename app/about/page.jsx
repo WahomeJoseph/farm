@@ -3,23 +3,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Leaf } from "lucide-react";
+import { Leaf, CircleCheckBig } from "lucide-react";
 
 export default function About() {
   return (
     <div className="min-h-screen bg-transparent">
       <section className="relative h-96 md:h-[28rem] flex items-center justify-center overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1537033206914-9d3551ff8103?w=1600&auto=format&fit=crop&q=80"
+          src="https://media.istockphoto.com/id/1280715716/photo/germany-stuttgart-magical-orange-sunset-sky-above-ripe-grain-field-nature-landscape-in-summer.jpg?s=612x612&w=0&k=20&c=TukToGq-LkmpxvEXEomC3d11prf_hDRSwA7pYsLYG50="
           alt="Wahome Premium Farm"
           fill
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-green-800/50 flex items-center justify-center">
-          <div className="text-center text-white px-4">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">About Wahome Premium Pigs</h1>
-            <p className="text-lg md:text-xl max-w-2xl mx-auto">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white rounded backdrop-blur-xs p-4">
+            <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">About Wahome Premium Pigs</h1>
+            <p className="text-lg text-white md:text-xl max-w-2xl mx-auto">
               Discover our passion for sustainable, eco-friendly farming and premium pig rearing.
             </p>
           </div>
@@ -31,13 +31,13 @@ export default function About() {
         <div className="max-w-4xl mx-auto">
           <Card className="bg-white/95 shadow-xl border-none">
             <CardHeader>
-              <CardTitle className="text-2xl font-bold text-green-700 flex items-center">
+              <CardTitle className="text-2xl font-bold text-green-700 flex slide-in-right items-center">
                 <Leaf className="h-6 w-6 mr-2 text-green-600" />
                 Our Story
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed focus-in">
                 Founded in 2021, Wahome Premium Pigs began as a small farm with a vision to provide high-quality,
                 sustainably raised pigs to our local community. Over the years, we’ve grown into a trusted name in Kenyan
                 agriculture, combining traditional farming wisdom with modern techniques. Our commitment to animal welfare,
@@ -52,20 +52,27 @@ export default function About() {
         <div className="max-w-4xl mx-auto">
           <Card className="bg-white/95 shadow-xl border-none">
             <CardHeader>
-              <CardTitle className="text-2xl font-bold text-green-700 flex items-center">
+              <CardTitle className="text-2xl font-bold text-green-700 slide-in-right flex items-center">
                 <Leaf className="h-6 w-6 mr-2 text-green-600" />
                 Our Mission
               </CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="focus-in">
               <p className="text-gray-600 leading-relaxed mb-4">
                 At Wahome Premium Pigs, our mission is to:
               </p>
               <ul className="list-disc list-inside text-gray-600 space-y-2">
-                <li>Raise healthy, happy pigs using ethical and sustainable practices.</li>
-                <li>Promote environmental conservation through eco-friendly farming methods.</li>
-                <li>Empower our community by providing quality products and educational farm tours.</li>
-                <li>Inspire the next generation of farmers with innovation and passion.</li>
+                {[
+                  "Raise healthy, happy pigs using ethical and sustainable practices.",
+                  "Promote environmental conservation through eco-friendly farming methods.",
+                  "Empower our community by providing quality products and educational farm tours.",
+                  "Inspire the next generation of farmers with innovation and passion.",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center gap-2 text-sm font-medium">
+                    <CircleCheckBig className="text-amber-800"/>
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
             </CardContent>
           </Card>
@@ -74,10 +81,10 @@ export default function About() {
 
       <section className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-green-700 text-center mb-8">Meet Our Team</h2>
+          <h2 className="text-3xl font-bold text-green-700 text-center slide-in-right mb-8">Meet Our Team</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
             <Card className="bg-white/95 shadow-lg border-none">
-              <CardContent className="pt-6 text-center">
+              <CardContent className="pt-6 text-center focus-in">
                 <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
                   <Image
                     src="/john.jpeg"
@@ -140,7 +147,7 @@ export default function About() {
 
       {/* CTA Section */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-green-100">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center slide-in-left">
           <h2 className="text-3xl font-bold text-green-700 mb-4">Join Our Farm</h2>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
             Want to learn more about our farm or experience it firsthand? Contact us or book a farm tour today!

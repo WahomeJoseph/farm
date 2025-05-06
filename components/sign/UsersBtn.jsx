@@ -9,8 +9,8 @@ import { LogOut, ShoppingBag, User } from 'lucide-react'
 import { toast } from 'sonner'
 
 const UserButton = () => {
-  const router = useRouter()
   const { data: session, status } = useSession()
+  const router = useRouter()
 
   const avatarFallback =
     session?.user?.name?.charAt(0)?.toUpperCase() ||

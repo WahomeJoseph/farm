@@ -8,10 +8,11 @@ import { Loader } from '@/components/loader/Loader'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Search } from 'lucide-react'
+import { toast } from 'sonner'
 
 export default function Shop() {
   const router = useRouter()
-  const {data: session, status} = useSession()
+  const { data: session, status } = useSession()
 
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -22,6 +23,7 @@ export default function Shop() {
 
   useEffect(() => {
     if (status === 'unauthenticated') {
+      toast.success('Please sign in to access the shop', { duration: 3000 })
       router.push('/sign-in')
     } else if (status === 'authenticated') {
       async function fetchProducts() {
@@ -30,7 +32,7 @@ export default function Shop() {
           const result = await fetch('/api/products', { cache: 'no-store' })
           const data = await result.json()
           setProducts(data.products || [])
-  
+
         } catch (error) {
           console.error('Error fetching products:', error)
           setError('Failed to fetch products!')
@@ -46,11 +48,17 @@ export default function Shop() {
   const filteredProducts = products.filter((product) => {
     const matchCategory = selectedCategory === 'All' || product.category === selectedCategory
     const matchSearchTerm = product.name.toLowerCase().includes(searchTerm.toLowerCase())
-    return matchCategory && matchSearchTerm
+    const matchUserPreference = session?.user?.preferredCategory 
+    ? product.category === session.user.preferredCategory : true
+    return matchCategory && matchSearchTerm && matchUserPreference
   })
+
   return (
     <>
       <div className='min-h-screen bg-transparent py-12 px-4 sm:px-6 lg:px-8'>
+        {session && (
+          <div className='text-green-700 text-2.5rem text-center'>Welcome back {session.user.name} to our shop..</div>
+        )}
         <h1 className='text-3xl font-bold text-green-700 text-center mb-8'>Shop Our Products</h1>
         {error && (
           <p className='text-center text-red-600 mb-4' role='alert'>

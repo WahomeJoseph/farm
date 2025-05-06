@@ -17,7 +17,7 @@ const navLinks = [
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm">
+    <header className="fixed w-full h-30 z-50 backdrop-blur-lg shadow-xs transition-all duratio-300">
       <nav className="container mx-auto flex items-center justify-between px-4 py-2 md:px-6">
         <Link href="/" className="flex items-center space-x-2">
           <Image
@@ -27,9 +27,6 @@ export const Navbar = () => {
             width={120}
             height={120}
           />
-          {/* <span className="text-xl font-bold text-green-700 md:text-2xl">
-            𝒲𝒶𝒽𝑜𝓂𝑒 𝒫𝓇𝑒𝓂𝒾𝓊𝓂 𝒫𝒾𝑔𝓈
-          </span> */}
         </Link>
 
         <ul className="hidden md:flex items-center space-x-6">
@@ -37,7 +34,7 @@ export const Navbar = () => {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-md font-medium text-gray-700 hover:text-green-600 transition-colors">
+                className="text-md font-medium text-black hover:bg-green-100 cursor-pointer p-2 rounded-full hover:text-green-600 transition-colors">
                 {link.label}
               </Link>
             </li>

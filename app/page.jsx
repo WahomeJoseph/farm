@@ -11,6 +11,7 @@ import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 import { Socials } from "@/components/hero/Socials";
 import { FaPhone } from "react-icons/fa";
 import { Newsletter } from "@/components/hero/Newsletter";
+import { CircleCheckBig } from "lucide-react";
 
 // AOS Initializer
 export const AosInitializer = () => {
@@ -27,99 +28,74 @@ export const AosInitializer = () => {
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1537033206914-9d3551ff8103?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGlnfGVufDB8fDB8fHww",
+    image: "https://media.istockphoto.com/id/515449339/photo/pig-farm-in-highland-scotland.jpg?s=612x612&w=0&k=20&c=C4Bc0IItIYvlxs2I7HjwikikaifmavtdxGxArgRFgLo=",
     title: "Premium Livestock Breeding",
     description: "Wahome Farm specializes in ethically raised, antibiotic-free pigs with superior genetics for quality meat production.",
     highlights: [
-      "🏆 5* Best Breeding Rating",
-      "🧬 Superior Genetic Stock",
-      "🌿 100% Organic Feed"
+      "Best Breeding Rating",
+      "Carefully selected stock ensuring robust health and performance.",
+      "Raised on 100% organic, high-quality feed for optimal growth and sustainability"
     ],
-    cta: "View Breeding Stock",
+    cta: "View Our Breeding Stock",
     ctaLink: "/livestock",
-    badge: "🏅 Certified Breeder"
+    badge: "Certified Breeder"
   },
   {
-    image: "https://images.unsplash.com/photo-1537033206914-9d3551ff8103?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGlnfGVufDB8fDB8fHww",
-    title: "Farm-to-Table Products",
-    description: "Enjoy our organic pork cuts, artisanal sausages, and smoked meats - all processed on-site for maximum freshness.",
+    image: "https://media.istockphoto.com/id/685883666/photo/kids-petting-piglets.jpg?s=612x612&w=0&k=20&c=NzYQ753CjFdBJyl7T_GxtMXWNpi3lf5VIzhqpl6ciMA=",
+    title: "Educational Farm Experiences",
+    description: "Book a guided tour of our certified organic facilities and breeding programs.",
     highlights: [
-      "😊 100+ Happy Customers",
-      "⏳ Dry-aged for 21+ days",
-      "🚚 Direct nationwide shipping"
+      "Available monday to Saturday",
+      "Farm Tours are free for all",
+      "Learn about our breeding process"
     ],
-    cta: "Shop Now",
-    ctaLink: "/shop",
-    badge: "🛍️ Seasonal Special"
+    cta: "Schedule Your Visit",
+    ctaLink: "/book",
+    badge: "Tours Available",
+    availability: "green"
   },
   {
-    image: "https://images.unsplash.com/photo-1537033206914-9d3551ff8103?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGlnfGVufDB8fDB8fHww",
+    image: "https://media.istockphoto.com/id/1280715716/photo/germany-stuttgart-magical-orange-sunset-sky-above-ripe-grain-field-nature-landscape-in-summer.jpg?s=612x612&w=0&k=20&c=TukToGq-LkmpxvEXEomC3d11prf_hDRSwA7pYsLYG50=",
     title: "Certified Sustainable Farming",
     description: "Our USDA Organic certified practices ensure healthy animals and minimal environmental impact.",
     highlights: [
-      "✅ Organic Certified",
-      "♻️ Zero-Waste Operations",
-      "💧 Water conservation systems"
+      "Organic Certified",
+      "Zero-Waste Operations",
+      "Water conservation systems"
     ],
     cta: "Tour Our Facilities",
     ctaLink: "/tours",
-    badge: "🌎 Eco-Friendly"
+    badge: "Eco-Friendly"
   },
   {
-    image: "https://images.unsplash.com/photo-1537033206914-9d3551ff8103?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGlnfGVufDB8fDB8fHww",
-    title: "Summer Special: Pasture-Raised Pork",
-    description: "Limited-time 15% discount on all pasture-raised cuts. Order now for weekend BBQ!",
+    image: "https://media.istockphoto.com/id/543212762/photo/tractor-cultivating-field-at-spring.jpg?s=612x612&w=0&k=20&c=uJDy7MECNZeHDKfUrLNeQuT7A1IqQe89lmLREhjIJYU=",
+    title: "Our Commitment to Ethical Farming",
+    description: "To revolutionize African pork production through sustainable practices that benefit farmers, consumers, and the land.",
     highlights: [
-      "⏰ Offer ends August 31st",
-      "🔥 Best for grilling",
-      "📦 Free local delivery"
+      "Environmental: 1 tree planted per pig raised",
+      "Community: Training programs for local farmers",
+      "Research: Partnered with KARI since 2012"
     ],
-    cta: "Claim Discount",
-    ctaLink: "/summer-sale",
-    badge: "⏳ Limited Time"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1537033206914-9d3551ff8103?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGlnfGVufDB8fDB8fHww",
-    title: "Learn Sustainable Farming",
-    description: "Join our monthly workshops on pig husbandry and organic farming techniques.",
-    highlights: [
-      "🗓️ Every 2nd Saturday",
-      "👨‍🌾 Expert-led sessions",
-      "👪 Family-friendly"
-    ],
-    cta: "Register Now",
-    ctaLink: "/workshops",
-    badge: "🎓 Educational"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1537033206914-9d3551ff8103?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGlnfGVufDB8fDB8fHww",
-    title: "Join 200+ Satisfied Farmers",
-    description: "Hear from our partners who've improved their yields with our breeding stock.",
-    highlights: [
-      "📈 40% yield increase",
-      "🤲 Partnership program",
-      "📞 24/7 breeder support"
-    ],
-    cta: "Read Success Stories",
-    ctaLink: "/testimonials",
-    badge: "✅ Proven Results"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1537033206914-9d3551ff8103?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGlnfGVufDB8fDB8fHww",
-    title: "Wahome Premium Farm Since 2021",
-    description: "Three generations of sustainable farming excellence in the heart of the countryside.",
-    highlights: [
-      "🐷 500+ pigs annually",
-      "🌳 5-Acre organic pastures",
-      "👨‍👩‍👧‍👦 Family-owned & operated"
-    ],
-    cta: "Our Story",
+    cta: "Our Farming Philosophy", 
     ctaLink: "/about",
-    badge: "🕰️ Heritage"
-  }
+    badge: "Core Values",
+  },
+  {
+    image: "https://media.istockphoto.com/id/594468710/photo/sow-with-piglets-nursing.jpg?s=612x612&w=0&k=20&c=1ExTaFoOYaZQ-OUyApXcoYzClrGbnAkMblWII-thOCo=",
+    title: "Quality Livestock Available",
+    description: "Healthy, vaccinated animals ready for your farm operation.",
+    highlights: [
+      "Piglets: 8-10 weeks, weaned",
+      "Breeding gilts: 4-6 months",
+      "Performance-tested boars",
+      "Nationwide delivery options"
+    ],
+    cta: "Shop Now",
+    ctaLink: "/shop",
+    badge: "Now Available",
+  },
 ];
 
-// Sample testimonials and featured products (unchanged)
 const testimonials = [
   {
     name: "Jane Doe",
@@ -248,24 +224,13 @@ export default function Home() {
     }, 6000);
     return () => clearInterval(timer);
   }, []);
-
-  const prevSlide = () => {
-    setDirection(-1);
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const nextSlide = () => {
-    setDirection(1);
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
   return (
     <div className="min-h-screen bg-gray-50">
       <AosInitializer />
       <Socials />
 
       {/* Hero Slider Section */}
-      <section className="relative w-full h-[90vh] overflow-hidden focus">
+      <section aria-label="Hero Slider" className="relative w-full h-screen overflow-hidden focus-in">
         <AnimatePresence initial={false} custom={direction}>
           {slides.map(
             (slide, index) =>
@@ -282,50 +247,51 @@ export default function Home() {
                       src={slide.image}
                       alt={slide.title}
                       fill
-                      className="object-cover"
-                      priority={index < 5} />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-green-900/20 bg-green-800/40" />
+                      className="object-cover opacity-95"
+                      priority={index === 0}
+                      quality={90} />
                   </div>
-
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-green-900/20 bg-green-800/40" />
                   <div className="container flex justify-center mx-auto relative z-10 px-4">
                     <div
-                      className="max-w-[50rem] bg-white/10 backdrop-blur-md p-10 rounded-2xl shadow-xl border border-green-200/50"
+                      className="w-full bg-transparent p-10 rounded-2xl shadow-xl opacity-100 z-1000"
                       variants={contentVariants}
                       initial="hidden"
                       animate="visible">
                       {slide.badge && (
                         <span
-                          className="inline-block flex px-3 py-2 mb-4 text-xs font-semibold tracking-wider text-green-800 uppercase bg-green-300 rounded-full focus-in">
+                          className="inline-block flex px-3 py-2 mb-4 text-xs font-semibold tracking-wider text-green-800 uppercase bg-green-500 rounded-full focus-in">
                           {slide.badge}
                         </span>
                       )}
-                      <h1 className="text-[2rem] md:text-3xl font-bold mb-3 tracking-tight text-gray-900  focus-in">
+                      <h1 className="text-[2rem] md:text-3xl font-bold uppercase mb-3 tracking-tight text-gray-950 focus-in">
                         {slide.title}
                       </h1>
-                      <p className="text-md md:text-lg leading-relaxed text-gray-800 mb-6 focus-in">
+                      <p className="text-md p-2 w-1/2 backdrop-blur-sm bg-[#ddd6cb]/30 montserrat md:text-lg leading-relaxed rounded-sm bg-text-gray-900 mb-6 focus-in">
                         {slide.description}
                       </p>
-                      <ul className="flex gap-4 mb-6 focus-in">
-                        {slide.highlights.map((item, i) => (
-                          <li key={i} className="flex items-center text-base font-medium text-gray-800 focus-in">
-                            <span className="mr-3 text-2xl text-green-700">{item.split(" ")[0]}</span>
-                            <span>{item.split(" ").slice(1).join(" ")}</span>
+                      {/* highlights */}
+                      <ul className="flex flex-col gap-4 mb-6 focus-in">
+                        {slide.highlights.map((item, index) => (
+                          <li key={index} className="flex items-center space-x-2 text-base font-light text-gray-800 focus-in">
+                            <span>
+                              <CircleCheckBig className="text-amber-800"/>
+                            </span>
+                            <span className="text-[#ddd6cb] montserrat leading-relaxed">{item}</span>
                           </li>
                         ))}
                       </ul>
-
-                      <motion.div
-                        whileHover={{ scale: 1.05, boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)" }}
-                        whileTap={{ scale: 0.95 }}>
+                      {/* cta btn */}
+                      <div>
                         <Button
                           asChild
                           size="lg"
-                          className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white rounded-lg px-6 py-3 font-semibold flex items-center gap-2">
+                          className="px-6 py-5 bg-amber-800 hover:amber-900 text-white">
                           <Link href={slide.ctaLink}>
                             {slide.cta}
                           </Link>
                         </Button>
-                      </motion.div>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -333,6 +299,8 @@ export default function Home() {
           )}
         </AnimatePresence>
       </section>
+
+      {/* <CircleCheckBig /> */}
 
       {/* Welcome Section */}
       <section className="py-16 bg-white focus-in">
@@ -621,8 +589,7 @@ export default function Home() {
           <h2
             className="text-3xl md:text-4xl font-bold text-green-800 mb-10 text-center tracking-tight"
             data-aos="fade-up"
-            data-aos-delay="100"
-          >
+            data-aos-delay="100">
             Farm Gallery
           </h2>
           {/* Gallery Grid */}
@@ -653,8 +620,7 @@ export default function Home() {
             <Button
               asChild
               variant="outline"
-              className="border-green-600 text-green-600 hover:bg-green-50 hover:text-green-700 font-semibold rounded-full px-8 py-3 transition-colors duration-300"
-            >
+              className="border-green-600 text-green-600 hover:bg-green-50 hover:text-green-700 font-semibold rounded-full px-8 py-3 transition-colors duration-300">
               <Link href="/gallery" target="_blank">
                 Explore More
               </Link>
@@ -703,9 +669,9 @@ export default function Home() {
               variant="outline"
               className="bg-white text-green-800 hover:bg-gray-100 font-semibold rounded-full px-6 py-3 flex items-center gap-2 transition-all duration-300 hover:shadow-md focus:ring-2 focus:ring-green-600 focus:ring-offset-2">
               <Link
-                href="tel:+254795969757"
+                href="tel:+254711430249"
                 className="flex items-center gap-2"
-                aria-label="Call Wahome Farm at +254 795969757">
+                aria-label="Call Wahome Farm at 0711430249">
                 <FaPhone className="w-5 h-5 text-green-800" aria-hidden="true" />
                 <span>0711430249</span>
               </Link>

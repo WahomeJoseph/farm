@@ -34,7 +34,7 @@ export const Navbar = () => {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-md font-medium text-black hover:bg-green-100 cursor-pointer p-2 rounded-full hover:text-green-600 transition-colors">
+                className="text-md font-medium text-black hover:bg-green-100 cursor-pointer p-3 rounded-sm hover:text-green-600 transition-colors">
                 {link.label}
               </Link>
             </li>
@@ -45,6 +45,7 @@ export const Navbar = () => {
           <UserButton />
         </div>
 
+        {/* mobile menu */}
         <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
           <SheetTrigger asChild>
             <Button
@@ -52,20 +53,23 @@ export const Navbar = () => {
               size="icon"
               className="md:hidden"
               aria-label="Toggle mobile menu">
-              <Menu className="h-6 w-6" />
+              <Menu className="h-7 w-7 hover:text-green-600 hover:bg-green-100 transition-all" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[240px] sm:w-[300px]">
-            <div className="flex flex-col space-y-4 pt-4">
-              <Link
-                href="/"
-                className="flex items-center space-x-2"
-                onClick={() => setIsMobileMenuOpen(false)}>
-                <span className="text-lg font-bold text-green-700">
-                  𝒲𝒶𝒽𝑜𝓂𝑒 𝒫𝓇𝑒𝓂𝒾𝓊𝓂 𝒫𝒾𝑔𝓈
-                </span>
+          <SheetContent side="right" className="bg-white/90 w-[240px] sm:w-[300px]">
+            <div className="flex flex-col justify-center space-y-4 pt-4">
+              <Link 
+              href="/" 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center space-x-2">
+                <Image
+                  src='/logo-remove.png'
+                  alt="nav logo"
+                  priority
+                  width={120}
+                  height={120}
+                />
               </Link>
-
               <ul className="flex flex-col space-y-2">
                 {navLinks.map((link) => (
                   <li key={link.href}>
@@ -81,7 +85,7 @@ export const Navbar = () => {
                 ))}
               </ul>
 
-              <div className="py-2">
+              <div className="flex items-center justify-center">
                 <UserButton />
               </div>
 

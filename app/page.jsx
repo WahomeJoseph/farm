@@ -76,7 +76,7 @@ const slides = [
       "Community: Training programs for local farmers",
       "Research: Partnered with KARI since 2012"
     ],
-    cta: "Our Farming Philosophy", 
+    cta: "Our Farming Philosophy",
     ctaLink: "/about",
     badge: "Core Values",
   },
@@ -168,34 +168,39 @@ const galleryImages = [
 const slideVariants = {
   initial: (direction) => ({
     x: direction > 0 ? "100%" : "-100%",
-    y: direction > 0 ? 50 : -50,
+    opacity: 0,
     scale: 0.95,
-    opacity: 1,
   }),
   animate: {
     x: 0,
-    y: 0,
-    scale: 1,
     opacity: 1,
-    zIndex: 10,
+    scale: 1,
     transition: {
-      x: { type: "spring", stiffness: 100, damping: 20, duration: 0.8 },
-      y: { duration: 0.8, ease: "easeOut" },
-      scale: { duration: 0.8, ease: "easeOut" },
-    },
+      x: { 
+        type: "spring", 
+        stiffness: 300,
+        damping: 30,
+        duration: 0.6 
+      },
+      opacity: { duration: 0.6 },
+      scale: { duration: 0.6 }
+    }
   },
   exit: (direction) => ({
     x: direction > 0 ? "-100%" : "100%",
-    y: direction > 0 ? -50 : 50,
+    opacity: 0,
     scale: 0.95,
-    opacity: 1,
-    zIndex: 0,
     transition: {
-      x: { type: "spring", stiffness: 100, damping: 20, duration: 0.8 },
-      y: { duration: 0.8, ease: "easeOut" },
-      scale: { duration: 0.8, ease: "easeOut" },
-    },
-  }),
+      x: { 
+        type: "spring", 
+        stiffness: 300,
+        damping: 30,
+        duration: 0.6 
+      },
+      opacity: { duration: 0.3 },
+      scale: { duration: 0.6 }
+    }
+  })
 };
 
 const contentVariants = {
@@ -203,14 +208,8 @@ const contentVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut", staggerChildren: 0.2 },
+    transition: { duration: 0.5, ease: "easeOut", staggerChildren: 0.2 },
   },
-};
-
-const childVariants = {
-  hidden: { opacity: 0, y: 10, x: 10 },
-  visible: { opacity: 1, y: 0 },
-  duration: 0.8,
 };
 
 export default function Home() {
@@ -237,7 +236,7 @@ export default function Home() {
               currentSlide === index && (
                 <motion.div
                   key={index}
-                  className="absolute inset-0 flex items-center justify-center"
+                  className="absolute inset-0 flex items-center justify-center transition-all"
                   custom={direction}
                   initial="initial"
                   animate="animate"
@@ -256,7 +255,7 @@ export default function Home() {
                   {/* content */}
                   <div className="container flex justify-center items-center h-full mx-auto relative z-10 px-4">
                     <div
-                      className="w-full max-w-4xl bg-white/30 p-6 md:p-10 rounded-2xl shadow-xl"
+                      className="w-full max-w-4xl bg-white/40 p-6 md:p-10 rounded-2xl shadow-xl"
                       variants={contentVariants}
                       initial="hidden"
                       animate="visible">
@@ -277,7 +276,7 @@ export default function Home() {
                         {slide.highlights.map((item, index) => (
                           <li key={index} className="flex items-center space-x-2 text-base font-light text-gray-800 focus-in">
                             <span>
-                              <CircleCheckBig className="flex shrink-0 mt-1 text-amber-800" size={16}/>
+                              <CircleCheckBig className="flex shrink-0 mt-1 text-amber-800" size={16} />
                             </span>
                             <span className="text-gray-900 montserrat leading-relaxed">{item}</span>
                           </li>
@@ -309,13 +308,13 @@ export default function Home() {
             𝒲𝑒𝓁𝒸𝑜𝓂𝑒 𝒯𝑜 𝒲𝒶𝒽𝑜𝓂𝑒 𝒫𝓇𝑒𝓂𝒾𝓊𝓂 𝒫𝒾𝑔𝓈
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl leading-relaxed text-center mx-auto mb-8">
-            <ImQuotesLeft size={32} className="inline-block mb-4 mr-1 text-green-700" />
+            <ImQuotesLeft size={32} className="inline-block mb-5 mr-3 text-green-700" />
             At Wahome Premium Farm, we’re revolutionizing sustainable pig farming through ethical practices and premium quality. Our commitment extends beyond livestock to nourishing communities with farm-fresh goodness. Join our{" "}
-            <Link href="/newsletter" className="text-md text-green-700 hover:underline">
+            <Link href="/contact" className="text-md text-green-700 hover:underline">
               newsletter
             </Link>{" "}
             for seasonal recipes, farming tips, and exclusive offers!
-            <ImQuotesRight size={32} className="inline-block mt-4 ml-1 text-green-700" />
+            <ImQuotesRight size={32} className="inline-block mt-4 ml-3 text-green-700" />
           </p>
           <div data-aos="fade-up" data-aos-delay="300">
             <Button
@@ -323,7 +322,7 @@ export default function Home() {
               size="lg"
               variant="outline"
               className="border-green-600 text-green-600 hover:bg-green-100/20">
-              <Link href="/newsletter">Join Our Newsletter</Link>
+              <Link href="/contact">Join Our Newsletter</Link>
             </Button>
           </div>
         </div>
@@ -440,7 +439,7 @@ export default function Home() {
               asChild
               variant="outline"
               className="border-green-600 text-green-600 hover:bg-green-50 hover:text-green-700 font-semibold rounded-full px-8 py-2 transition-colors duration-300">
-              <Link href="/testimonials">Read More</Link>
+              <Link href="/about">Read More</Link>
             </Button>
           </div>
         </div>
@@ -503,7 +502,7 @@ export default function Home() {
               size="lg"
               className="bg-green-600 hover:bg-green-700 text-white font-semibold rounded-full px-8 py-3 transition-colors duration-300"
             >
-              <Link href="/sustainability">Learn More</Link>
+              <Link href="/about">Learn More</Link>
             </Button>
           </div>
         </div>
@@ -520,7 +519,7 @@ export default function Home() {
             Featured Products
           </h2>
           {/* Product Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 md:mx-20 sm:mx-10 lg:grid-cols-2 md:gap-14 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 md:mx-auto sm:mx-10 lg:grid-cols-2 md:gap-14 gap-8">
             {featuredProducts.map((product, index) => (
               <Card
                 key={index}
@@ -621,7 +620,7 @@ export default function Home() {
               asChild
               variant="outline"
               className="border-green-600 text-green-600 hover:bg-green-50 hover:text-green-700 font-semibold rounded-full px-8 py-3 transition-colors duration-300">
-              <Link href="/gallery" target="_blank">
+              <Link href="/about" target="_blank">
                 Explore More
               </Link>
             </Button>
@@ -653,21 +652,21 @@ export default function Home() {
             <Button
               asChild
               size="lg"
-              className="bg-white text-green-800 hover:bg-gray-100 font-semibold rounded-full px-8 py-3 transition-colors duration-300">
+              className="bg-white text-green-800 hover:bg-green-100 font-semibold rounded-full px-8 py-3 transition-colors duration-300">
               <Link href="/shop">Shop Now</Link>
             </Button>
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-green-800 font-semibold rounded-full px-8 py-3 transition-colors duration-300">
+              className="border-white text-white hover:bg-green-100 hover:text-green-800 font-semibold rounded-full px-8 py-3 transition-colors duration-300">
               <Link href="/contact">Contact Us</Link>
             </Button>
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="bg-white text-green-800 hover:bg-gray-100 font-semibold rounded-full px-6 py-3 flex items-center gap-2 transition-all duration-300 hover:shadow-md focus:ring-2 focus:ring-green-600 focus:ring-offset-2">
+              className="bg-white text-green-800 hover:bg-green-100 font-semibold rounded-full px-6 py-3 flex items-center gap-2 transition-all duration-300 hover:shadow-md focus:ring-2 focus:ring-green-600 focus:ring-offset-2">
               <Link
                 href="tel:+254711430249"
                 className="flex items-center gap-2"
@@ -678,8 +677,9 @@ export default function Home() {
             </Button>
           </div>
         </div>
-        <div className="mt-10 mb-0">
-          <p className="text-md mt-3 slide-in-left">Designed by <a href="https://joseph-wachira-portfolio.vercel.app/"><span className="text-[#9A2A2A] text-md">Wahome Joseph</span></a> </p>
+        <div
+          className="mt-10 mb-0">
+          <p className="text-md mt-3 slide-in-left">Designed by <a href="https://joseph-wachira-portfolio.vercel.app/"><span className="text-amber-800 text-md">Wahome Joseph</span></a> </p>
           <span className="text-sm slide-in-right">Coyright &copy; {new Date().getFullYear()} - All right reserved</span>
         </div>
       </section>

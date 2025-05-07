@@ -26,12 +26,6 @@ export default function OrderConfirmation() {
                 const response = await fetch(`/api/orders/${params?.id}`, {
                   next: {revalidate: 60}
                 });
-                    // headers: {
-                    //     ...(session?.user?.email && {
-                    //         'x-user-email': session.user.email,
-                    //     }),
-                    // },
-                
                 const data = await response.json();
                 console.log('API response:', data);
                 if (!response.ok) {
@@ -154,7 +148,7 @@ export default function OrderConfirmation() {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="flex items-center justify-between mb-8">
+                    className="flex items-center md:mt-20 sm:mt-12 justify-between mb-8">
                     <h1 className="text-3xl font-bold text-green-700">
                         Order Confirmation
                     </h1>
@@ -177,7 +171,7 @@ export default function OrderConfirmation() {
                         <CardHeader>
                             <CardTitle className="text-xl font-semibold text-green-700 flex items-center gap-2">
                                 <Package className="h-5 w-5 text-green-600" />
-                                Order #{order.id ? order.id.slice(-6) : 'Pending'}
+                                Order #{order.id ? order.id.slice(-6) : 'NA'}
                             </CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-6">
@@ -191,8 +185,7 @@ export default function OrderConfirmation() {
                                 <div>
                                     <p className="text-sm text-gray-500">Status</p>
                                     <div
-                                        className={`inline-flex items-center gap-2 px-3 py-1 rounded-full ${getStatusStyles(order.status).bg} ${getStatusStyles(order.status).text}`}
-                                    >
+                                        className={`inline-flex items-center gap-2 px-3 py-1 rounded-full ${getStatusStyles(order.status).bg} ${getStatusStyles(order.status).text}`}>
                                         {getStatusStyles(order.status).icon}
                                         {order.status}
                                     </div>

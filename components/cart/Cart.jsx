@@ -20,7 +20,7 @@ export const Cart = () => {
 
   const handleUpdateQuantity = (productId, quantity) => {
     if (quantity < 1) return
-    dispatch(updateQuantity({ id: productId, quantity }))
+    dispatch(updateQuantity({ productId, quantity: Number(quantity) }))
   }
 
   const handleRemoveItem = (productId) => {

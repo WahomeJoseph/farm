@@ -93,7 +93,7 @@ export const { auth, handlers, signIn } = NextAuth({
                         ...session.user,
                         id: token.sub || token.id,
                         email: token.email,
-                        username: token.username,
+                        name: token.name,
                     }
                 }
             },
@@ -110,6 +110,6 @@ export const { auth, handlers, signIn } = NextAuth({
         pages: {
             signIn: '/sign-in',
         },
-        debug: process.env.NODE_ENV === 'development',
+        // debug: process.env.NODE_ENV === 'development',
         trustHost: true,
     })

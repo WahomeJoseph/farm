@@ -249,3 +249,19 @@
     width: 100% !important;
   }
 }
+
+@media (max-width: 640px) {
+  .hero-content {
+    margin-top: 4rem; 
+    padding: 1.5rem;
+    width: 90%;
+  }
+  
+  .hero-text {
+    font-size: 1.25rem;
+  }
+  
+  .hero-description {
+    font-size: 0.875rem;
+  }
+}

@@ -72,8 +72,8 @@ export default function Orders() {
     return (
         <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
-                <div className="flex items-center justify-between mb-8">
-                    <h1 className="text-3xl font-bold text-gray-900">Your Orders</h1>
+                <div className="flex items-center justify-between mb-6 md:mt-22 sm:mt-12">
+                    <h1 className="text-3xl font-bold text-green-600">Your Orders</h1>
                     <Button asChild variant="link" className="text-green-600 hover:text-green-700">
                         <Link href="/shop">
                             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Shop
@@ -104,7 +104,7 @@ export default function Orders() {
                                 <CardHeader>
                                     <div className="flex justify-between items-center">
                                         <CardTitle className="text-lg font-semibold text-green-700">
-                                            Order #{order._id ? order._id.slice(-6) : 'NA'}
+                                            Order #{order.id ? order.id.slice(-6) : 'NA'}
                                         </CardTitle>
                                         <span
                                             className={`px-2 py-1 rounded text-white text-sm ${order.status === "Confirmed"
@@ -130,7 +130,8 @@ export default function Orders() {
                                         </div>
                                         <div>
                                             <p className="text-sm text-muted-foreground">Order ID</p>
-                                            <p className="font-medium">{order._id ? order._id.slice(-6) : 'NA'}</p>
+                                            {order.id}
+                                            {/* <p className="font-medium">{order._id ? order._id.slice(-6) : 'NA'}</p> */}
                                         </div>
                                     </div>
                                     <Separator />
@@ -181,12 +182,6 @@ export default function Orders() {
                                             ))}
                                         </div>
                                     </div>
-                                    <Button
-                                        asChild
-                                        variant="outline"
-                                        className="mt-4 w-full sm:w-auto">
-                                        <Link href={`/orders/${order._id}`}>View Order Details</Link>
-                                    </Button>
                                 </CardContent>
                             </Card>
                         ))}

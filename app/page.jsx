@@ -230,7 +230,7 @@ export default function Home() {
       <Socials />
 
       {/* Hero Slider Section */}
-      <section aria-label="Hero Slider" className="relative w-full h-screen overflow-hidden focus-in">
+      <section aria-label="Hero Slider" className="relative w-full md:pt-0 sm:pt-20 h-screen overflow-hidden focus-in">
         <AnimatePresence initial={false} custom={direction}>
           {slides.map(
             (slide, index) =>
@@ -251,20 +251,22 @@ export default function Home() {
                       priority={index === 0}
                       quality={90} />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-green-900/20 bg-green-800/40" />
-                  <div className="container flex justify-center mx-auto relative z-10 px-4">
+                  {/* overlay */}
+                  <div className="absolute inset-0 bg-black/20" />
+                  {/* content */}
+                  <div className="container flex justify-center items-center h-full mx-auto relative z-10 px-4">
                     <div
-                      className="w-full bg-transparent p-10 rounded-2xl shadow-xl opacity-100 z-1000"
+                      className="w-full max-w-4xl bg-white/30 p-6 md:p-10 rounded-2xl shadow-xl"
                       variants={contentVariants}
                       initial="hidden"
                       animate="visible">
                       {slide.badge && (
                         <span
-                          className="inline-block flex px-3 py-2 mb-4 text-xs font-semibold tracking-wider text-green-800 uppercase bg-green-500 rounded-full focus-in">
+                          className="inline-block flex px-3 py-1 mb-3 text-xs font-semi-bold tracking-wider text-green-800 uppercase bg-green-400 rounded-full focus-in">
                           {slide.badge}
                         </span>
                       )}
-                      <h1 className="text-[2rem] md:text-3xl font-bold uppercase mb-3 tracking-tight text-gray-950 focus-in">
+                      <h1 className="text-[2rem] md:text-[2.5rem] font-bold uppercase mb-3 tracking-tight text-gray-950 focus-in">
                         {slide.title}
                       </h1>
                       <p className="text-md p-2 w-1/2 backdrop-blur-sm bg-[#ddd6cb]/30 montserrat md:text-lg leading-relaxed rounded-sm bg-text-gray-900 mb-6 focus-in">
@@ -275,9 +277,9 @@ export default function Home() {
                         {slide.highlights.map((item, index) => (
                           <li key={index} className="flex items-center space-x-2 text-base font-light text-gray-800 focus-in">
                             <span>
-                              <CircleCheckBig className="text-amber-800"/>
+                              <CircleCheckBig className="flex shrink-0 mt-1 text-amber-800" size={16}/>
                             </span>
-                            <span className="text-[#ddd6cb] montserrat leading-relaxed">{item}</span>
+                            <span className="text-gray-900 montserrat leading-relaxed">{item}</span>
                           </li>
                         ))}
                       </ul>
@@ -300,12 +302,10 @@ export default function Home() {
         </AnimatePresence>
       </section>
 
-      {/* <CircleCheckBig /> */}
-
       {/* Welcome Section */}
       <section className="py-16 bg-white focus-in">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-[3rem] md:text-4xl font-bold text-green-700 mb-6">
+          <h2 className="md:text-[3rem] sm:text-[1.5rem] lg:text-[3rem] font-bold text-green-700 mb-6">
             𝒲𝑒𝓁𝒸𝑜𝓂𝑒 𝒯𝑜 𝒲𝒶𝒽𝑜𝓂𝑒 𝒫𝓇𝑒𝓂𝒾𝓊𝓂 𝒫𝒾𝑔𝓈
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl leading-relaxed text-center mx-auto mb-8">
@@ -520,7 +520,7 @@ export default function Home() {
             Featured Products
           </h2>
           {/* Product Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 mx-20 lg:grid-cols-2 md:gap-14 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 md:mx-20 sm:mx-10 lg:grid-cols-2 md:gap-14 gap-8">
             {featuredProducts.map((product, index) => (
               <Card
                 key={index}

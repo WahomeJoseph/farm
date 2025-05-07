@@ -13,6 +13,7 @@ export const { auth, handlers, signIn } = NextAuth({
         session: {
             strategy: 'jwt',
             maxAge: 60 * 60,
+            encrypt: true,
         },
         providers: [
             Google({

@@ -300,7 +300,7 @@ export default function OrderConfirmation() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
-                    className="mt-8 flex justify-center gap-4">
+                    className="mt-8 grid grid-cols-2 justify-center gap-4">
                     <Button
                         asChild
                         className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg rounded-lg shadow-md transition-transform hover:scale-105">

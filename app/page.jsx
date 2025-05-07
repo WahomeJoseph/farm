@@ -45,7 +45,7 @@ const slides = [
     title: "Educational Farm Experiences",
     description: "Book a guided tour of our certified organic facilities and breeding programs.",
     highlights: [
-      "Available monday to Saturday",
+      "Available Monday to Saturday",
       "Farm Tours are free for all",
       "Learn about our breeding process"
     ],
@@ -57,7 +57,7 @@ const slides = [
   {
     image: "https://media.istockphoto.com/id/1280715716/photo/germany-stuttgart-magical-orange-sunset-sky-above-ripe-grain-field-nature-landscape-in-summer.jpg?s=612x612&w=0&k=20&c=TukToGq-LkmpxvEXEomC3d11prf_hDRSwA7pYsLYG50=",
     title: "Certified Sustainable Farming",
-    description: "Our USDA Organic certified practices ensure healthy animals and minimal environmental impact.",
+    description: "Our SDGs Organic certified practices ensure healthy animals and minimal environmental impact.",
     highlights: [
       "Organic Certified",
       "Zero-Waste Operations",
@@ -220,7 +220,7 @@ export default function Home() {
     const timer = setInterval(() => {
       setDirection(1);
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000);
+    }, 15000);
     return () => clearInterval(timer);
   }, []);
   return (
@@ -261,7 +261,7 @@ export default function Home() {
                       animate="visible">
                       {slide.badge && (
                         <span
-                          className="inline-block flex px-3 py-1 mb-3 text-xs font-semi-bold tracking-wider text-green-800 uppercase bg-green-400 rounded-full focus-in">
+                          className="inline-block flex px-3 py-1 mb-3 text-xs font-semi-bold tracking-wider text-green-700 uppercase bg-green-400 rounded-full focus-in">
                           {slide.badge}
                         </span>
                       )}
@@ -304,10 +304,10 @@ export default function Home() {
       {/* Welcome Section */}
       <section className="py-16 bg-white focus-in">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="md:text-[3rem] sm:text-[1.5rem] lg:text-[3rem] font-bold text-green-700 mb-6">
+          <h2 className="md:text-[3rem] sm:text-[2.5rem] lg:text-[3rem] font-bold text-green-700 mb-6">
             𝒲𝑒𝓁𝒸𝑜𝓂𝑒 𝒯𝑜 𝒲𝒶𝒽𝑜𝓂𝑒 𝒫𝓇𝑒𝓂𝒾𝓊𝓂 𝒫𝒾𝑔𝓈
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl leading-relaxed text-center mx-auto mb-8">
+          <p className="text-lg text-gray-600 max-w-3xl font-light leading-relaxed text-center mx-auto mb-8">
             <ImQuotesLeft size={32} className="inline-block mb-5 mr-3 text-green-700" />
             At Wahome Premium Farm, we’re revolutionizing sustainable pig farming through ethical practices and premium quality. Our commitment extends beyond livestock to nourishing communities with farm-fresh goodness. Join our{" "}
             <Link href="/contact" className="text-md text-green-700 hover:underline">
@@ -334,13 +334,13 @@ export default function Home() {
           {/* Heading and Subheading */}
           <div className="text-center mb-12">
             <h2
-              className="text-3xl md:text-4xl font-bold text-green-800 mb-3 tracking-tight"
+              className="text-3xl md:text-4xl font-bold text-green-700 mb-3 tracking-tight"
               data-aos="fade-right"
               data-aos-delay="100">
               Our Services
             </h2>
             <p
-              className="text-base text-gray-600 leading-relaxed"
+              className="text-base text-gray-600 font-light leading-relaxed"
               data-aos="fade-left"
               data-aos-delay="200">
               Discover what we offer at Wahome Farm
@@ -372,7 +372,7 @@ export default function Home() {
                 data-aos-delay={300 + index * 100}>
                 <CardContent className="flex flex-col items-start text-left">
                   <h3 className="text-xl font-semibold text-gray-800 mb-3">{service.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">{service.description}</p>
+                  <p className="text-gray-600 font-light text-sm leading-relaxed mb-4">{service.description}</p>
                   <Button
                     asChild
                     variant="outline"
@@ -394,13 +394,13 @@ export default function Home() {
           {/* Heading and Subheading */}
           <div className="text-center mb-12">
             <h2
-              className="text-3xl md:text-4xl font-bold text-green-800 mb-3 tracking-tight"
+              className="text-3xl md:text-4xl font-bold text-green-700 mb-3 tracking-tight"
               data-aos="fade-right"
               data-aos-delay="100">
               What Our Customers Say
             </h2>
             <p
-              className="text-base text-gray-600 leading-relaxed"
+              className="text-base font-light text-gray-600 leading-relaxed"
               data-aos="fade-left"
               data-aos-delay="200">
               Hear from those who love Wahome Farm
@@ -425,10 +425,10 @@ export default function Home() {
                     />
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800">{testimonial.name}</h3>
-                      <p className="text-sm text-gray-500">{testimonial.role}</p>
+                      <p className="text-sm font-light text-gray-500">{testimonial.role}</p>
                     </div>
                   </div>
-                  <p className="text-gray-600 text-sm italic leading-relaxed">“{testimonial.quote}”</p>
+                  <p className="text-gray-600 text-sm font-semi-bold italic leading-relaxed">“{testimonial.quote}”</p>
                 </CardContent>
               </Card>
             ))}
@@ -450,14 +450,14 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           {/* Heading */}
           <h2
-            className="text-3xl md:text-4xl font-bold text-green-800 mb-6 tracking-tight"
+            className="text-3xl md:text-4xl font-bold text-green-700 mb-6 tracking-tight"
             data-aos="fade-up"
             data-aos-delay="100">
             Our Commitment to Sustainability
           </h2>
           {/* Description */}
           <p
-            className="text-lg text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed"
+            className="text-lg text-gray-600 max-w-3xl font-light mx-auto mb-10 leading-relaxed"
             data-aos="fade-up"
             data-aos-delay="200">
             At Wahome Farm, we prioritize the planet and climate. Our Organic certification, zero-waste operations, and water conservation systems ensure sustainable and ethical farming. By aligning with global sustainability goals and addressing local challenges, we support Kenya’s food security and environmental resilience. Join us in nurturing the Earth for future generations.
@@ -513,7 +513,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           {/* Heading */}
           <h2
-            className="text-3xl md:text-4xl font-bold text-green-800 mb-10 text-center tracking-tight"
+            className="text-3xl md:text-4xl font-bold text-green-700 mb-10 text-center tracking-tight"
             data-aos="fade-up"
             data-aos-delay="100">
             Featured Products
@@ -543,7 +543,7 @@ export default function Home() {
                   </div>
                   <div className="p-6">
                     <h3 className="text-lg font-semibold text-gray-800 mb-2">{product.name}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-2">
+                    <p className="text-gray-600 text-sm font-light leading-relaxed mb-4 line-clamp-2">
                       {product.description || "Experience the best of Wahome Farm with our premium products."}
                     </p>
                     <div className="flex items-center justify-between">
@@ -586,7 +586,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           {/* Heading */}
           <h2
-            className="text-3xl md:text-4xl font-bold text-green-800 mb-10 text-center tracking-tight"
+            className="text-3xl md:text-4xl font-bold text-green-700 mb-10 text-center tracking-tight"
             data-aos="fade-up"
             data-aos-delay="100">
             Farm Gallery
@@ -640,7 +640,7 @@ export default function Home() {
             Ready to Experience Wahome Premium Farm?
           </h2>
           <p
-            className="text-lg md:text-xl text-green-100 max-w-2xl mx-auto mb-8 leading-relaxed"
+            className="text-[1rem] font-light text-green-100 max-w-2xl mx-auto mb-8 leading-relaxed"
             data-aos="fade-up"
             data-aos-delay="200">
             Shop our organic products, book a farm tour, or join our workshops today!
@@ -652,21 +652,21 @@ export default function Home() {
             <Button
               asChild
               size="lg"
-              className="bg-white text-green-800 hover:bg-green-100 font-semibold rounded-full px-8 py-3 transition-colors duration-300">
+              className="bg-white text-green-700 hover:bg-green-100 font-semibold rounded-full px-8 py-3 transition-colors duration-300">
               <Link href="/shop">Shop Now</Link>
             </Button>
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-green-100 hover:text-green-800 font-semibold rounded-full px-8 py-3 transition-colors duration-300">
+              className="border-white text-white hover:bg-green-100 hover:text-green-700 font-semibold rounded-full px-8 py-3 transition-colors duration-300">
               <Link href="/contact">Contact Us</Link>
             </Button>
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="bg-white text-green-800 hover:bg-green-100 font-semibold rounded-full px-6 py-3 flex items-center gap-2 transition-all duration-300 hover:shadow-md focus:ring-2 focus:ring-green-600 focus:ring-offset-2">
+              className="bg-white text-green-700 hover:bg-green-100 font-semibold rounded-full px-6 py-3 flex items-center gap-2 transition-all duration-300 hover:shadow-md focus:ring-2 focus:ring-green-600 focus:ring-offset-2">
               <Link
                 href="tel:+254711430249"
                 className="flex items-center gap-2"
@@ -679,7 +679,7 @@ export default function Home() {
         </div>
         <div
           className="mt-10 mb-0">
-          <p className="text-md mt-3 slide-in-left">Designed by <a href="https://joseph-wachira-portfolio.vercel.app/"><span className="text-amber-800 text-md">Wahome Joseph</span></a> </p>
+          <p className="text-md mt-3 slide-in-left">Designed by <a href="https://joseph-wachira-portfolio.vercel.app/" target="blank"><span className="text-amber-800 text-md">Wahome Joseph</span></a> </p>
           <span className="text-sm slide-in-right">Coyright &copy; {new Date().getFullYear()} - All right reserved</span>
         </div>
       </section>

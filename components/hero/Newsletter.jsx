@@ -31,7 +31,7 @@ export const Newsletter = () => {
 
             setTimeout(() => {
                 setMessage(''),
-                setStatus(null)
+                    setStatus(null)
             }, 5000)
         } catch (error) {
             setStatus("error");
@@ -54,11 +54,11 @@ export const Newsletter = () => {
                         data-aos="fade-up"
                         data-aos-delay="100">
                         <CardContent className="text-center lg:text-left">
-                            <h2 className="text-3xl md:text-4xl font-bold text-green-800 mb-4 tracking-tight">
+                            <h2 className="text-3xl md:text-4xl font-bold text-green-700 mb-4 tracking-tight">
                                 Stay Connected
                             </h2>
                             <p className="text-base text-gray-600 mb-6 leading-relaxed">
-                                Subscribe for farm updates, exclusive recipes, farm events, and special discounts. Visit us in Kenya!
+                                Subscribe for farm updates, exclusive farm products, farm events, and farm tours. Visit us in our farm in Nyeri Kenya!
                             </p>
                             <form
                                 onSubmit={handleSubmit}
@@ -78,12 +78,12 @@ export const Newsletter = () => {
                                     className="bg-green-600 hover:bg-green-700 text-white font-semibold rounded-full px-6 py-2">
                                     {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
                                 </Button> <br />
-                                {message && (
-                                    <p className={`mt-4 text-sm ${status === "success" ? "text-green-600" : "text-red-600"}`}>
-                                        {message}
-                                    </p>
-                                )}
                             </form>
+                            {message && (
+                                <p className={`mt-4 text-sm ${status === "success" ? "text-green-600" : "text-red-600"}`}>
+                                    {message}
+                                </p>
+                            )}
                         </CardContent>
                     </Card>
 

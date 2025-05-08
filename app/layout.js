@@ -3,6 +3,13 @@ import StoreProvider from "./Provider";
 import { Navbar } from "@/components/nav/Nav";
 import { SessionProvider } from "next-auth/react";
 
+export const metadata = {
+  title: {
+    default: "Wahome Premium Pigs",
+  },
+  description: "Wahome Premium Pigs - Your source for premium pigs and farm products.",
+}
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="translated-ltr">

@@ -37,7 +37,7 @@ const slides = [
       "Raised on 100% organic, high-quality feed for optimal growth and sustainability"
     ],
     cta: "View Our Breeding Stock",
-    ctaLink: "/livestock",
+    ctaLink: "/shop",
     badge: "Certified Breeder"
   },
   {
@@ -50,7 +50,7 @@ const slides = [
       "Learn about our breeding process"
     ],
     cta: "Schedule Your Visit",
-    ctaLink: "/book",
+    ctaLink: "/contact",
     badge: "Tours Available",
     availability: "green"
   },
@@ -64,7 +64,7 @@ const slides = [
       "Water conservation systems"
     ],
     cta: "Tour Our Facilities",
-    ctaLink: "/tours",
+    ctaLink: "/contact",
     badge: "Eco-Friendly"
   },
   {
@@ -229,14 +229,14 @@ export default function Home() {
       <Socials />
 
       {/* Hero Slider Section */}
-      <section aria-label="Hero Slider" className="relative w-full md:pt-0 sm:pt-20 h-screen overflow-hidden focus-in">
+      <section aria-label="Hero Slider" className="relative w-full h-screen overflow-hidden focus-in">
         <AnimatePresence initial={false} custom={direction}>
           {slides.map(
             (slide, index) =>
               currentSlide === index && (
                 <motion.div
                   key={index}
-                  className="absolute inset-0 flex items-center justify-center transition-all"
+                  className="absolute inset-0 flex items-center md:pt-20 sm:pt-30 md:mt-0 sm:mt-30 justify-center transition-all"
                   custom={direction}
                   initial="initial"
                   animate="animate"
@@ -265,7 +265,7 @@ export default function Home() {
                           {slide.badge}
                         </span>
                       )}
-                      <h1 className="text-[2rem] md:text-[2.5rem] font-bold uppercase mb-3 tracking-tight text-gray-950 focus-in">
+                      <h1 className="text-[2rem] md:text-[2.5rem] font-bold capitalize mb-3 tracking-tight text-gray-900 focus-in">
                         {slide.title}
                       </h1>
                       <p className="text-md p-2 w-1/2 backdrop-blur-sm bg-[#ddd6cb]/30 montserrat md:text-lg leading-relaxed rounded-sm bg-text-gray-900 mb-6 focus-in">
@@ -310,7 +310,7 @@ export default function Home() {
           <p className="text-lg text-gray-600 max-w-3xl font-light leading-relaxed text-center mx-auto mb-8">
             <ImQuotesLeft size={32} className="inline-block mb-5 mr-3 text-green-700" />
             At Wahome Premium Farm, we’re revolutionizing sustainable pig farming through ethical practices and premium quality. Our commitment extends beyond livestock to nourishing communities with farm-fresh goodness. Join our{" "}
-            <Link href="/contact" className="text-md text-green-700 hover:underline">
+            <Link href="#newsletter" className="text-md text-green-700 hover:underline">
               newsletter
             </Link>{" "}
             for seasonal recipes, farming tips, and exclusive offers!
@@ -322,7 +322,7 @@ export default function Home() {
               size="lg"
               variant="outline"
               className="border-green-600 text-green-600 hover:bg-green-100/20">
-              <Link href="/contact">Join Our Newsletter</Link>
+              <Link href="#newsletter">Join Our Newsletter</Link>
             </Button>
           </div>
         </div>

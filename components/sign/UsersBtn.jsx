@@ -30,9 +30,7 @@ const UserButton = () => {
 
   return (
     <nav className='flex items-center'>
-      {status === 'loading' ? (
-        <span className='text-sm text-gray-600'>Loading...</span>
-      ) : session ? (
+      {session ? (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button

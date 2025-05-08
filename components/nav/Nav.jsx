@@ -16,8 +16,11 @@ const navLinks = [
 
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const closeNav = () => {
+    setIsMobileMenuOpen(false);
+  }
   return (
-    <header className="fixed top-0 w-full md:h-30 sm:h-20 z-50 backdrop-blur-xl shadow-xs transition-all duration-300">
+    <header className="fixed top-0 w-full md:h-30 sm:h-20 z-50 sm:backdrop-blur-0 md:backdrop-blur-xl shadow-xs transition-all duration-300">
       <nav className="container mx-auto flex items-center justify-between px-4 py-2 md:px-6">
         <Link href="/" className="flex items-center space-x-2">
           <Image
@@ -28,7 +31,6 @@ export const Navbar = () => {
             height={120}
           />
         </Link>
-
         <ul className="hidden md:flex items-center space-x-6">
           {navLinks.map((link) => (
             <li key={link.href}>
@@ -40,11 +42,9 @@ export const Navbar = () => {
             </li>
           ))}
         </ul>
-
         <div className="hidden md:block">
           <UserButton />
         </div>
-
         {/* mobile menu */}
         <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
           <SheetTrigger asChild>
@@ -77,7 +77,8 @@ export const Navbar = () => {
                       <Navlink
                         href={link.href}
                         className="block text-sm font-medium text-gray-700 hover:text-green-600 transition-colors py-2"
-                        onClick={() => setIsMobileMenuOpen(false)}>
+                        onClick={closeNav}
+                        >
                         {link.label}
                       </Navlink>
                     </SheetClose>
@@ -88,7 +89,6 @@ export const Navbar = () => {
               <div className="flex items-center justify-center">
                 <UserButton />
               </div>
-
             </div>
           </SheetContent>
         </Sheet>

@@ -13,7 +13,7 @@ import { redirect } from "next/dist/server/api-utils";
 
 export default function Contact() {
   const [form, setForm] = useState({
-    type: "inquiry",
+    type: "",
     name: "",
     email: "",
     phone: "",
@@ -108,7 +108,7 @@ export default function Contact() {
       <div className="flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
         <div className="w-full max-w-4xl bg-white shadow-xl pt-20 rounded-xl overflow-hidden flex flex-col md:flex-row">
           <div className="md:w-1/2 relative h-64 md:h-auto bg-green-100/30 flex flex-col items-center justify-center p-8">
-            <span className="text-[2rem] m-0 p-0 text-green-600">𝑅𝑒𝒶𝒸𝒽 𝒪𝓊𝓉 𝓉𝑜 𝒲𝒶𝒽𝑜𝓂𝑒 𝒫𝓇𝑒𝓂𝒾𝓊𝓂 𝒫𝒾𝑔𝓈</span>
+            <span className="text-[2rem] mt-12 p-0 text-green-600">𝑅𝑒𝒶𝒸𝒽 𝒪𝓊𝓉 𝓉𝑜 𝒲𝒶𝒽𝑜𝓂𝑒 𝒫𝓇𝑒𝓂𝒾𝓊𝓂 𝒫𝒾𝑔𝓈</span>
             <Image
               src="/contact-us.svg"
               alt="Wahome Premium Pigs Farm Illustration"
@@ -121,18 +121,18 @@ export default function Contact() {
 
           <Card className="md:w-1/2 bg-white/95 p-6 sm:p-8 border-none">
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-bold text-green-700">
+              <CardTitle className="text-[1.5rem] font-bold text-green-700">
                 Contact Us
               </CardTitle>
-              <CardDescription className="text-sm text-gray-600">
+              <CardDescription className="text-sm font-light text-gray-600">
                 Have any inquiries or want to book a farm tour? We'd love to hear from you.
               </CardDescription>
             </CardHeader>
 
             <CardContent className="space-y-6 px-4 sm:px-6">
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-2">
                 <div className="space-y-2">
-                  <Label className="text-sm font-medium text-gray-700">What would you like to do?</Label>
+                  <Label className="text-sm font-bold text-gray-700">What would you like to do?</Label>
                   <RadioGroup
                     value={form.type}
                     onValueChange={(value) => setForm({ ...form, type: value })}

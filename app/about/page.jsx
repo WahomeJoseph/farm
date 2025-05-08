@@ -5,6 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Leaf, CircleCheckBig } from "lucide-react";
 
+export async function generateMetadata() {
+  return {
+    title: 'About Us | Wahome Premium Pigs',
+    description: 'Learn about our sustainable farming practices and commitment to quality.',
+  }
+}
+
 export default function About() {
   return (
     <div className="min-h-screen bg-transparent">

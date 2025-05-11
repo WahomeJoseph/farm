@@ -89,7 +89,7 @@ export default function About() {
       <section className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-green-700 text-center slide-in-right mb-8">Meet Our Team</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
+          <div className="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-6">
             <Card className="bg-white/95 shadow-lg border-none">
               <CardContent className="pt-6 text-center focus-in">
                 <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
@@ -104,13 +104,13 @@ export default function About() {
                 </div>
                 <h3 className="text-lg font-semibold text-gray-800">John Wahome</h3>
                 <p className="text-sm text-gray-600">Owner Founder & Lead Farmer</p>
-                <p className="text-sm text-gray-500 mt-2">
-                  John’s passion for farming started in childhood, and he now leads our team with over 10 years of
-                  experience.
+                <p className="text-sm font-light text-gray-500 mt-2">
+                  John’s passion for farming started in childhood, and he now leads our team with over 5 years of
+                  experience. <br /> He drives our eco-friendly initiatives, from waste management to sustainable feed sourcing.
                 </p>
               </CardContent>
             </Card>
-            {/* <Card className="bg-white/95 shadow-lg border-none">
+            <Card className="bg-white/95 shadow-lg border-none">
               <CardContent className="pt-6 text-center">
                 <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
                   <Image
@@ -122,32 +122,14 @@ export default function About() {
                     priority
                   />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800">Mary Njeri</h3>
-                <p className="text-sm text-gray-600">Farm Manager</p>
-                <p className="text-sm text-gray-500 mt-2">
-                  Mary oversees daily operations, ensuring our pigs are raised with care and our farm runs smoothly.
+                <h3 className="text-lg font-semibold text-gray-800">John</h3>
+                <p className="text-sm text-gray-600">Farm Manager & Farm Hand</p>
+                <p className="text-sm font-light text-gray-500 mt-2">
+                  John’s oversees daily operations, ensuring our pigs are raised with care and our farm runs smoothly. 
+                  <br />  He ensure the pigs are fed and does basic veterinary work including pigs breeding and farrowing.
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-white/95 shadow-lg border-none">
-              <CardContent className="pt-6 text-center">
-                <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
-                  <Image
-                    src="/john.jpeg"
-                    alt="Peter Kamau"
-                    fill
-                    sizes="96px"
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-800">Peter Kamau</h3>
-                <p className="text-sm text-gray-600">Sustainability Lead</p>
-                <p className="text-sm text-gray-500 mt-2">
-                  Peter drives our eco-friendly initiatives, from waste management to sustainable feed sourcing.
-                </p>
-              </CardContent>
-            </Card> */}
           </div>
         </div>
       </section>

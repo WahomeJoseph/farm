@@ -13,6 +13,8 @@ import { FaPhone } from "react-icons/fa";
 import { Newsletter } from "@/components/hero/Newsletter";
 import { CircleCheckBig } from "lucide-react";
 
+console.log('Welcome To Wahome Premium Pigs')
+
 // AOS Initializer
 export const AosInitializer = () => {
   useEffect(() => {
@@ -98,10 +100,10 @@ const slides = [
 
 const testimonials = [
   {
-    name: "Jane Doe",
+    name: "John Doe",
     role: "Local Farmer",
     quote: "Wahome's breeding stock transformed our farm's yield. Their pigs are healthy and robust!",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=60",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=60",
   },
   {
     name: "John Smith",
@@ -236,7 +238,7 @@ export default function Home() {
               currentSlide === index && (
                 <motion.div
                   key={index}
-                  className="absolute inset-0 flex items-center md:pt-20 sm:pt-30 md:mt-0 sm:mt-30 justify-center transition-all"
+                  className="absolute inset-0 flex items-center md:pt-20 sm:pt-30 xs:pt-32 md:mt-0 sm:mt-30 xs:mt-40 justify-center transition-all"
                   custom={direction}
                   initial="initial"
                   animate="animate"

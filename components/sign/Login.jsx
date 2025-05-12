@@ -51,7 +51,7 @@ export const SignIn = () => {
       <div className='flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8'>
         <div className='w-full max-w-4xl bg-white shadow-xl mt-20 rounded-xl overflow-hidden flex flex-col md:flex-row'>
           <div className="md:w-1/2 relative h-64 md:h-auto bg-green-100/30 flex flex-col items-center justify-center p-8">
-            <span className="text-[2rem] mt-4 p-0 text-green-600">𝒲𝑒𝓁𝒸𝑜𝓂𝑒 𝐵𝒶𝒸𝓀 𝒯𝑜 𝒲𝒶𝒽𝑜𝓂𝑒 𝒫𝓇𝑒𝓂𝒾𝓊𝓂 𝒫𝒾𝑔𝓈</span>
+            <span className="flex-grow-1 text-[2rem] mt-6 p-8 text-green-600 flex">𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑩𝒂𝒄𝒌 𝑻𝒐 𝑾𝒂𝒉𝒐𝒎𝒆 𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑷𝒊𝒈𝒔</span>
             <Image
               src="/sign-in.svg"
               alt="Wahome Premium Pigs Farm Illustration"
@@ -63,12 +63,12 @@ export const SignIn = () => {
           </div>
 
           <Card className='md:w-1/2 bg-white/95 p-6 sm:p-8 border-none'>
-            <CardHeader className='text-center'>
+            <CardHeader className='text-center md:mt-0 sm:mt-3'>
               <CardTitle className='text-2xl font-bold text-green-700'>
-                Sign in to Wahome Premium Pigs
+                Login to your account
               </CardTitle>
-              <CardDescription className='text-sm text-gray-600'>
-                Access your account with email or Google
+              <CardDescription className='text-sm font-light text-gray-600'>
+                Access your account with your credentials
               </CardDescription>
             </CardHeader>
 

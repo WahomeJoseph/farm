@@ -76,7 +76,7 @@ export default function About() {
                   "Inspire the next generation of farmers with innovation and passion.",
                 ].map((item, index) => (
                   <li key={index} className="flex items-center gap-2 text-sm font-medium">
-                    <CircleCheckBig className="text-amber-800"/>
+                    <CircleCheckBig className="text-amber-600"/>
                     <span>{item}</span>
                   </li>
                 ))}

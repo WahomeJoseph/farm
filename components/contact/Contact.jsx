@@ -108,7 +108,7 @@ export default function Contact() {
       <div className="flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
         <div className="w-full max-w-4xl bg-white shadow-xl pt-20 rounded-xl overflow-hidden flex flex-col md:flex-row">
           <div className="md:w-1/2 relative h-64 md:h-auto bg-green-100/30 flex flex-col items-center justify-center p-8">
-            <span className="text-[2rem] mt-12 p-0 text-green-600">𝑅𝑒𝒶𝒸𝒽 𝒪𝓊𝓉 𝓉𝑜 𝒲𝒶𝒽𝑜𝓂𝑒 𝒫𝓇𝑒𝓂𝒾𝓊𝓂 𝒫𝒾𝑔𝓈</span>
+            <span className="text-[2rem] mt-12 p-0 text-green-600">𝑭𝒐𝒓 𝒂𝒏𝒚 𝑰𝒏𝒒𝒖𝒊𝒓𝒊𝒆𝒔, 𝑹𝒆𝒂𝒄𝒉 𝑶𝒖𝒕 𝑻𝒐 𝑾𝒂𝒉𝒐𝒎𝒆 𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑷𝒊𝒈𝒔</span>
             <Image
               src="/contact-us.svg"
               alt="Wahome Premium Pigs Farm Illustration"

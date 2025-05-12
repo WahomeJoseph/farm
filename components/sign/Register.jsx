@@ -96,7 +96,7 @@ export const SignUp = () => {
       <div className='flex items-center justify-center px-4 py-6 sm:px-6 lg:px-8'>
         <div className='w-full max-w-4xl bg-white shadow-xl mt-20 rounded-xl overflow-hidden flex flex-col md:flex-row'>
           <div className="md:w-1/2 relative h-64 md:h-auto bg-green-100/30 flex flex-col items-center justify-center p-8">
-            <span className="text-[2rem] mt-4 p-0 text-green-600">𝒲𝑒𝓁𝒸𝑜𝓂𝑒 𝒯𝑜 𝒲𝒶𝒽𝑜𝓂𝑒 𝒫𝓇𝑒𝓂𝒾𝓊𝓂 𝒫𝒾𝑔𝓈. 𝐸𝓃𝒿𝑜𝓎 𝒪𝓊𝓇 𝒫𝓇𝑜𝒹𝓊𝒸𝑒</span>
+            <span className="flex flex-grow-1 text-[2rem] mt-6 p-8 text-green-600">𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑻𝒐 𝑾𝒂𝒉𝒐𝒎𝒆 𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑷𝒊𝒈𝒔. 𝑬𝒏𝒋𝒐𝒚 𝑶𝒖𝒓 𝑷𝒓𝒐𝒅𝒖𝒄𝒆</span>
             <Image
               src="/sign-up.svg"
               alt="Wahome Premium Pigs Farm Illustration"
@@ -111,8 +111,8 @@ export const SignUp = () => {
               <CardTitle className='text-2xl font-bold text-green-700'>
                 Create Your Account
               </CardTitle>
-              <CardDescription className='text-sm text-gray-600'>
-                Sign up with email or Google
+              <CardDescription className='text-sm font-light text-gray-600'>
+                Sign up account with your credentials
               </CardDescription>
             </CardHeader>
 

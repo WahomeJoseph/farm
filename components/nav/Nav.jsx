@@ -20,7 +20,7 @@ export const Navbar = () => {
     setIsMobileMenuOpen(false);
   }
   return (
-    <header className="fixed top-0 w-full md:h-30 sm:h-20 z-50 sm:backdrop-blur-0 md:backdrop-blur-xl shadow-xs transition-all duration-300">
+    <header className="fixed top-0 w-full md:h-30 sm:h-20 z-50 sm:backdrop-blur-0 md:backdrop-blur-xl md:shadow-xs transition-all duration-300">
       <nav className="container mx-auto flex items-center justify-between px-4 py-2 md:px-6">
         <Link href="/" className="flex items-center space-x-2">
           <Image

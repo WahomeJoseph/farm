@@ -26,9 +26,8 @@ export const Newsletter = () => {
             if (!response.ok) throw new Error(data.message || "Subscription failed");
 
             setStatus("success");
-            setMessage("Subscribed successfully! Check your email for confirmation.");
             setEmail(" ");
-
+            setMessage("Subscribed successfully! Check your email for confirmation.");
             setTimeout(() => {
                 setMessage(''),
                     setStatus(null)

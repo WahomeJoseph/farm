@@ -40,7 +40,6 @@ const slides = [
     ],
     cta: "View Our Breeding Stock",
     ctaLink: "/shop",
-    badge: "Certified Breeder"
   },
   {
     image: "https://media.istockphoto.com/id/685883666/photo/kids-petting-piglets.jpg?s=612x612&w=0&k=20&c=NzYQ753CjFdBJyl7T_GxtMXWNpi3lf5VIzhqpl6ciMA=",
@@ -53,8 +52,6 @@ const slides = [
     ],
     cta: "Schedule Your Visit",
     ctaLink: "/contact",
-    badge: "Tours Available",
-    availability: "green"
   },
   {
     image: "https://media.istockphoto.com/id/1280715716/photo/germany-stuttgart-magical-orange-sunset-sky-above-ripe-grain-field-nature-landscape-in-summer.jpg?s=612x612&w=0&k=20&c=TukToGq-LkmpxvEXEomC3d11prf_hDRSwA7pYsLYG50=",
@@ -67,7 +64,6 @@ const slides = [
     ],
     cta: "Tour Our Facilities",
     ctaLink: "/contact",
-    badge: "Eco-Friendly"
   },
   {
     image: "https://media.istockphoto.com/id/543212762/photo/tractor-cultivating-field-at-spring.jpg?s=612x612&w=0&k=20&c=uJDy7MECNZeHDKfUrLNeQuT7A1IqQe89lmLREhjIJYU=",
@@ -80,7 +76,6 @@ const slides = [
     ],
     cta: "Our Farming Philosophy",
     ctaLink: "/about",
-    badge: "Core Values",
   },
   {
     image: "https://media.istockphoto.com/id/594468710/photo/sow-with-piglets-nursing.jpg?s=612x612&w=0&k=20&c=1ExTaFoOYaZQ-OUyApXcoYzClrGbnAkMblWII-thOCo=",
@@ -94,7 +89,6 @@ const slides = [
     ],
     cta: "Shop Now",
     ctaLink: "/shop",
-    badge: "Now Available",
   },
 ];
 
@@ -261,12 +255,6 @@ export default function Home() {
                       variants={contentVariants}
                       initial="hidden"
                       animate="visible">
-                      {slide.badge && (
-                        <span
-                          className="inline-block flex px-3 py-1 mb-3 text-xs font-semi-bold tracking-wider text-green-700 uppercase bg-green-400 rounded-full focus-in">
-                          {slide.badge}
-                        </span>
-                      )}
                       <h1 className="text-[2rem] md:text-[2.5rem] font-bold capitalize mb-3 tracking-tight text-gray-900 focus-in">
                         {slide.title}
                       </h1>

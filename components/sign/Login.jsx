@@ -7,9 +7,7 @@ import { signIn } from 'next-auth/react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardDescription, CardContent, CardTitle } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
 import { Input } from '@/components/ui/input'
-import { FcGoogle } from 'react-icons/fc'
 import { toast } from 'sonner'
 import { TriangleAlert } from 'lucide-react'
 
@@ -45,15 +43,6 @@ export const SignIn = () => {
       toast.error('An unexpected error occurred.', { duration: 3000 })
     } finally {
       setPending(false)
-    }
-  }
-
-  const handleProvider = async (e, provider) => {
-    e.preventDefault()
-    try {
-      await signIn(provider, { callbackUrl: '/' })
-    } catch (err) {
-      toast.error(`Failed to sign in with ${provider}`, { duration: 4000 })
     }
   }
 
@@ -142,27 +131,6 @@ export const SignIn = () => {
                   {pending ? 'Signing in...' : 'Sign in'}
                 </Button>
               </form>
-
-              {/* Separator */}
-              <div className='relative'>
-                <Separator className='my-4' />
-                <span className='absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-2 text-xs text-gray-500'>
-                  or continue with
-                </span>
-              </div>
-
-              {/* Social Login Button */}
-              <div className='flex justify-center'>
-                <Button
-                  variant='outline'
-                  size='lg'
-                  onClick={(e) => handleProvider(e, 'google')}
-                  disabled={pending}
-                  className='flex items-center gap-2 border-gray-300 hover:bg-green-100/30 w-full max-w-xs'>
-                  <FcGoogle className='h-5 w-5' />
-                  Google
-                </Button>
-              </div>
 
               {/* Sign Up Link */}
               <p className='text-center text-sm text-gray-600'>

@@ -6,8 +6,6 @@ import { signIn } from 'next-auth/react'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardDescription, CardContent, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { Separator } from '@/components/ui/separator'
-import { FcGoogle } from 'react-icons/fc'
 import { toast } from 'sonner'
 import { TriangleAlert } from 'lucide-react'
 import Image from 'next/image'
@@ -85,26 +83,6 @@ export const SignUp = () => {
       setError(errorMsg)
       toast.error(errorMsg, {
         duration: 5000,
-        icon: <TriangleAlert className='h-4 w-4' />,
-      })
-    } finally {
-      setPending(false)
-    }
-  }
-
-  const handleProvider = async (e, provider) => {
-    e.preventDefault()
-    setPending(true)
-    setError(null)
-    try {
-      await signIn(provider, { callbackUrl: '/shop' })
-      toast.success(`Signed in with ${provider} successfully!`, { duration: 3000 })
-    } catch (err) {
-      console.error(`Error signing in with ${provider}:`, err)
-      const errorMsg = `Failed to sign up with ${provider}. Please try again.`
-      setError(errorMsg)
-      toast.error(errorMsg, {
-        duration: 4000,
         icon: <TriangleAlert className='h-4 w-4' />,
       })
     } finally {
@@ -232,34 +210,12 @@ export const SignUp = () => {
                 </Button>
               </form>
 
-              {/* Separator */}
-              <div className='relative'>
-                <Separator className='my-4' />
-                <span className='absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-2 text-xs text-gray-500'>
-                  or sign up with
-                </span>
-              </div>
-
-              {/* Social Login Button */}
-              <div className='flex justify-center'>
-                <Button
-                  variant='outline'
-                  size='lg'
-                  onClick={(e) => handleProvider(e, 'google')}
-                  disabled={pending}
-                  className='flex items-center gap-2 border-gray-300 hover:bg-green-100/30 pointer-cursor w-full max-w-xs'>
-                  <FcGoogle className='h-5 w-5' />
-                  Google
-                </Button>
-              </div>
-
               {/* Sign In Link */}
               <p className='text-center text-sm text-gray-600'>
                 Already have an account?{' '}
                 <Link
                   href='/sign-in'
-                  className='text-green-600 hover:underline font-medium'
-                >
+                  className='text-green-600 hover:underline font-medium'>
                   Sign in
                 </Link>
               </p>

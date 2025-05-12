@@ -92,11 +92,11 @@ export const SignUp = () => {
   }
 
   return (
-    <div className='min-h-screen bg-transparent'>
-      <div className='flex items-center justify-center px-4 py-6 sm:px-6 lg:px-8'>
+    <div className='min-h-screen bg-transparent flex items-center justify-center px-4 py-6 sm:px-6 lg:px-8'>
         <div className='w-full max-w-4xl bg-white shadow-xl mt-20 rounded-xl overflow-hidden flex flex-col md:flex-row'>
-          <div className="md:w-1/2 relative h-64 md:h-auto bg-green-100/30 flex flex-col items-center justify-center p-8">
-            <span className="flex flex-grow-1 text-[2rem] mt-6 p-8 text-green-600">𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑻𝒐 𝑾𝒂𝒉𝒐𝒎𝒆 𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑷𝒊𝒈𝒔. 𝑬𝒏𝒋𝒐𝒚 𝑶𝒖𝒓 𝑷𝒓𝒐𝒅𝒖𝒄𝒆</span>
+          {/* image */}
+          <div className="w-full md:w-1/2 relative h-auto bg-green-100/30 flex flex-col items-center justify-center p-8">
+            <span className="flex flex-grow-1 text-[2rem] text-green-600">𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑻𝒐 𝑾𝒂𝒉𝒐𝒎𝒆 𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑷𝒊𝒈𝒔. 𝑬𝒏𝒋𝒐𝒚 𝑶𝒖𝒓 𝑷𝒓𝒐𝒅𝒖𝒄𝒆.</span>
             <Image
               src="/sign-up.svg"
               alt="Wahome Premium Pigs Farm Illustration"
@@ -107,7 +107,7 @@ export const SignUp = () => {
             />
           </div>
           <Card className='md:w-1/2 bg-white/95 p-6 sm:p-8 border-none'>
-            <CardHeader className='text-center md:mt-0 sm:mt-3'>
+            <CardHeader className='text-center'>
               <CardTitle className='text-2xl font-bold text-green-700'>
                 Create Your Account
               </CardTitle>
@@ -224,6 +224,5 @@ export const SignUp = () => {
           </Card>
         </div>
       </div>
-    </div>
   )
 }

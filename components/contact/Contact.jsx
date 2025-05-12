@@ -104,10 +104,10 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-transparent">
-      <div className="flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-transparent flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
         <div className="w-full max-w-4xl bg-white shadow-xl pt-20 rounded-xl overflow-hidden flex flex-col md:flex-row">
-          <div className="md:w-1/2 relative h-64 md:h-auto bg-green-100/30 flex flex-col items-center justify-center p-8">
+          {/* image */}
+          <div className="w-full md:w-1/2 relative h-auto bg-green-100/30 flex flex-col items-center justify-center p-8">
             <span className="text-[2rem] mt-12 p-0 text-green-600">𝑭𝒐𝒓 𝒂𝒏𝒚 𝑰𝒏𝒒𝒖𝒊𝒓𝒊𝒆𝒔, 𝑹𝒆𝒂𝒄𝒉 𝑶𝒖𝒕 𝑻𝒐 𝑾𝒂𝒉𝒐𝒎𝒆 𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑷𝒊𝒈𝒔</span>
             <Image
               src="/contact-us.svg"
@@ -121,7 +121,7 @@ export default function Contact() {
 
           <Card className="md:w-1/2 bg-white/95 p-6 sm:p-8 border-none">
             <CardHeader className="text-center">
-              <CardTitle className="text-[1.5rem] font-bold text-green-700">
+              <CardTitle className="text-2xl font-bold text-green-700">
                 Contact Us
               </CardTitle>
               <CardDescription className="text-sm font-light text-gray-600">
@@ -327,6 +327,5 @@ export default function Contact() {
           </Card>
         </div>
       </div>
-    </div>
   );
 }

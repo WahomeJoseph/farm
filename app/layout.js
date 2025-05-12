@@ -7,7 +7,7 @@ export const metadata = {
   title: {
     default: "Wahome Premium Pigs",
   },
-  description: "Wahome Premium Pigs - Your source for premium pigs and farm products.",
+  description: "Wahome Premium Pigs - Your source for premium pigs and quality farm products.",
 }
 
 export default function RootLayout({ children }) {

@@ -251,24 +251,24 @@ export default function Home() {
                   {/* content */}
                   <div className="container flex justify-center items-center h-full mx-auto relative z-10 px-4">
                     <div
-                      className="w-full max-w-4xl bg-white/40 p-6 md:p-10 rounded-2xl shadow-xl"
+                      className="w-full max-w-4xl bg-white/50 p-6 md:p-10 rounded-2xl shadow-xl"
                       variants={contentVariants}
                       initial="hidden"
                       animate="visible">
                       <h1 className="text-[2rem] md:text-[2.5rem] font-bold capitalize mb-3 tracking-tight text-gray-900 focus-in">
                         {slide.title}
                       </h1>
-                      <p className="text-md p-2 w-1/2 backdrop-blur-sm bg-[#ddd6cb]/30 montserrat md:text-lg leading-relaxed rounded-sm bg-text-gray-900 mb-6 focus-in">
+                      <p className="text-md p-2 w-full backdrop-blur-sm bg-[#ddd6cb]/30 montserrat md:text-lg leading-relaxed rounded-sm bg-text-gray-900 mb-6 focus-in">
                         {slide.description}
                       </p>
                       {/* highlights */}
-                      <ul className="flex flex-col gap-4 mb-6 focus-in">
+                      <ul className="flex flex-col gap-2 mb-6 focus-in">
                         {slide.highlights.map((item, index) => (
-                          <li key={index} className="flex items-center space-x-2 text-base font-light text-gray-800 focus-in">
+                          <li key={index} className="flex items-center space-x-2 focus-in">
                             <span>
                               <CircleCheckBig className="flex shrink-0 mt-1 text-amber-800" size={16} />
                             </span>
-                            <span className="text-gray-900 montserrat leading-relaxed">{item}</span>
+                            <span className="text-gray-950 font-semi-bold montserrat leading-relaxed">{item}</span>
                           </li>
                         ))}
                       </ul>

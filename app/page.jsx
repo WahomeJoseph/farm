@@ -294,8 +294,8 @@ export default function Home() {
       {/* Welcome Section */}
       <section className="py-16 bg-white focus-in">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="md:text-[3rem] sm:text-[2.5rem] text-[2rem] font-bold text-green-700 mb-6">
-            𝒲𝑒𝓁𝒸𝑜𝓂𝑒 𝒯𝑜 𝒲𝒶𝒽𝑜𝓂𝑒 𝒫𝓇𝑒𝓂𝒾𝓊𝓂 𝒫𝒾𝑔𝓈
+          <h2 className="md:text-[3rem] sm:text-[2.5rem] text-[2rem] font-bold text-green-700 mb-6 animate-marquee">
+          𝚆𝚎𝚕𝚌𝚘𝚖𝚎 𝚃𝚘 𝚆𝚊𝚑𝚘𝚖𝚎 𝙿𝚛𝚎𝚖𝚒𝚞𝚖 𝙿𝚒𝚐𝚜
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl font-light leading-relaxed text-center mx-auto mb-8">
             <ImQuotesLeft size={32} className="inline-block mb-5 mr-3 text-green-700" />

@@ -20,23 +20,24 @@ export const Navbar = () => {
     setIsMobileMenuOpen(false);
   }
   return (
-    <header className="fixed top-0 w-full md:h-30 sm:h-20 z-50 sm:backdrop-blur-0 md:backdrop-blur-xl md:shadow-xs transition-all duration-300">
-      <nav className="container mx-auto flex items-center justify-between px-4 py-2 md:px-6">
-        <Link href="/" className="flex items-center space-x-2">
+    <header className="fixed top-0 w-full h-20 md:h-28 z-50 md:bg-transparent bg:white/30 backdrop-blur-xl shadow-xs transition-all duration-300">
+      <nav className="container mx-auto flex items-center justify-between px-2 sm:px-4 md:px-6 py-2 max-w-7xl">
+        <Link href="/" className="flex items-center">
           <Image
             src='/logo-remove.png'
             alt="nav logo"
             priority
-            width={120}
-            height={120}
+            width={100}
+            height={100}
+            className="w-16 sm:w-20 md:w-24 h-auto"
           />
         </Link>
-        <ul className="hidden md:flex items-center space-x-6">
+        <ul className="hidden md:flex items-center space-x-4">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-md font-medium text-black hover:bg-green-100 cursor-pointer p-3 rounded-sm hover:text-green-600 transition-colors">
+                className="text-sm font-medium text-black hover:bg-green-100 cursor-pointer px-3 py-2 rounded-sm hover:text-green-600 transition-colors duration-300">
                 {link.label}
               </Link>
             </li>
@@ -53,32 +54,32 @@ export const Navbar = () => {
               size="icon"
               className="md:hidden"
               aria-label="Toggle mobile menu">
-              <Menu className="h-7 w-7 hover:text-green-600 hover:bg-green-100 transition-all" />
+              <Menu className="h-7 w-7 hover:text-amber-600 hover:bg-green-100 transition-all" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="bg-white/90 w-[240px] sm:w-[300px]">
-            <div className="flex flex-col justify-center space-y-4 pt-4">
-              <Link 
-              href="/" 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center space-x-2">
+          <SheetContent side="right" className="bg-white/90 w-3/4 max-w-[300px] border-l border-amber-600/20">
+            <div className="flex flex-col space-y-4 pt-4">
+              <Link
+                href="/"
+                onClick={closeNav}
+                className="flex items-center">
                 <Image
                   src='/logo-remove.png'
                   alt="nav logo"
                   priority
-                  width={120}
-                  height={120}
+                  width={100}
+                  height={100}
+                  className="w-20 h-auto"
                 />
               </Link>
-              <ul className="flex flex-col space-y-2">
+              <ul className="flex flex-col space-y-3">
                 {navLinks.map((link) => (
                   <li key={link.href}>
                     <SheetClose asChild>
                       <Navlink
                         href={link.href}
-                        className="block text-sm font-medium text-gray-700 hover:text-green-600 transition-colors py-2"
-                        onClick={closeNav}
-                        >
+                        className="block text-sm font-medium text-gray-700 hover:text-green-600 py-2 px-3 transition-colors duration-300"
+                        onClick={closeNav}>
                         {link.label}
                       </Navlink>
                     </SheetClose>
@@ -86,7 +87,7 @@ export const Navbar = () => {
                 ))}
               </ul>
 
-              <div className="flex items-center justify-center">
+              <div className="flex justify-center">
                 <UserButton />
               </div>
             </div>

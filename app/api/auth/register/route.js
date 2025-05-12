@@ -7,7 +7,6 @@ export async function POST(request) {
     try {
         await connectDB();
         const body = await request.json();
-
         const { username, email, password } = body
         if (!username || !email || !password) {
             return NextResponse.json(
@@ -26,7 +25,6 @@ export async function POST(request) {
         if (password.length < 8) {
             return NextResponse.json({ message: "Password must be at least 8 characters long" }, { status: 400 });
         }
-        console.log(`Raw password for: ${email} : ${password}`)
         const existingUser = await User.findOne({ email }).lean()
         if (existingUser) {
             return NextResponse.json(
@@ -35,7 +33,6 @@ export async function POST(request) {
             )
         }
         const hashedPassword = await bcrypt.hash(password.trim(), 10)
-        console.log(`Hashed password for ${email} : ${hashedPassword}`)
         const newUser = await User.create({
             username,
             email,
@@ -50,12 +47,13 @@ export async function POST(request) {
             { status: 201 }
         )
     } catch (error) {
-    console.error('User registration failure!', error)
-    return NextResponse.json(
-        {
-            error: 'Error occurred.Try again!',
-            details: error.message
-        },
-        { status: 500 }
-    )
-}}
+        console.error('User registration failure!', error)
+        return NextResponse.json(
+            {
+                error: 'Error occurred.Try again!',
+                details: error.message
+            },
+            { status: 500 }
+        )
+    }
+}

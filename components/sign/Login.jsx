@@ -48,10 +48,10 @@ export const SignIn = () => {
 
   return (
     <div className='min-h-screen bg-transparent'>
-      <div className='flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8'>
+      <div className='flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8'>
         <div className='w-full max-w-4xl bg-white shadow-xl mt-20 rounded-xl overflow-hidden flex flex-col md:flex-row'>
           <div className="md:w-1/2 relative h-64 md:h-auto bg-green-100/30 flex flex-col items-center justify-center p-8">
-            <span className="text-[2rem] m-0 p-0 text-green-600">𝒲𝑒𝓁𝒸𝑜𝓂𝑒 𝐵𝒶𝒸𝓀 𝒯𝑜 𝒲𝒶𝒽𝑜𝓂𝑒 𝒫𝓇𝑒𝓂𝒾𝓊𝓂 𝒫𝒾𝑔𝓈</span>
+            <span className="text-[2rem] mt-4 p-0 text-green-600">𝒲𝑒𝓁𝒸𝑜𝓂𝑒 𝐵𝒶𝒸𝓀 𝒯𝑜 𝒲𝒶𝒽𝑜𝓂𝑒 𝒫𝓇𝑒𝓂𝒾𝓊𝓂 𝒫𝒾𝑔𝓈</span>
             <Image
               src="/sign-in.svg"
               alt="Wahome Premium Pigs Farm Illustration"

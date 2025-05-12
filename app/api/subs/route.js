@@ -37,7 +37,7 @@ export async function POST(request) {
             subject: "Welcome to Wahome Premium Farm!",
             html: `
                 <h1>Thank You for Subscribing!</h1>
-                <p>You'll receive farm updates, exclusive recipes, farm events, and special discounts.</p>
+                <p>You'll receive farm updates, exclusive farm products, farm events, and special discounts.</p>
                 <p>It is a great chance to learn more about affordable farming and farming tips.</p>
                 <p><a href="onboarding@resend.dev/unsubscribe?email=${email}">Unsubscribe</a></p>
             `,

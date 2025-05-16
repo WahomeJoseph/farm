@@ -32,14 +32,14 @@ export async function POST(request) {
         // Send notification to the user
         const resend = new Resend(process.env.RESEND_API_KEY);
         await resend.emails.send({
-            from: "Wahome Farm <onboarding@resend.dev>",
+            from: "Wahome Farm <mail.wahomepigs.co.ke>",
             to: email,
-            subject: "Welcome to Wahome Premium Farm!",
+            subject: "Welcome to Wahome Premium Pigs!",
             html: `
                 <h1>Thank You for Subscribing!</h1>
                 <p>You'll receive farm updates, exclusive farm products, farm events, and special discounts.</p>
                 <p>It is a great chance to learn more about affordable farming and farming tips.</p>
-                <p><a href="onboarding@resend.dev/unsubscribe?email=${email}">Unsubscribe</a></p>
+                <p><a href="mail.wahomepigs.co.ke/unsubscribe?email=${email}">Unsubscribe</a></p>
             `,
         });
         return NextResponse.json({ message: "Subscription successful" }, { status: 200 });

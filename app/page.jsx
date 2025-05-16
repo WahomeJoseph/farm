@@ -39,7 +39,7 @@ const slides = [
       "Raised on 100% organic, high-quality feed for optimal growth and sustainability"
     ],
     cta: "View Our Breeding Stock",
-    ctaLink: "/shop",
+    ctaLink: "/gallery",
   },
   {
     image: "https://media.istockphoto.com/id/685883666/photo/kids-petting-piglets.jpg?s=612x612&w=0&k=20&c=NzYQ753CjFdBJyl7T_GxtMXWNpi3lf5VIzhqpl6ciMA=",
@@ -610,7 +610,7 @@ export default function Home() {
               asChild
               variant="outline"
               className="border-green-600 text-green-600 hover:bg-green-50 hover:text-green-700 font-semibold rounded-full px-8 py-3 transition-colors duration-300">
-              <Link href="/about" target="_blank">
+              <Link href="/gallery" target="_blank">
                 Explore More
               </Link>
             </Button>

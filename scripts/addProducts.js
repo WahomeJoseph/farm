@@ -194,15 +194,6 @@ const products = [
       description: "Quality Hampshire sow with excellent mothering instincts.",
     },
   
-    // Manure (2 entries)
-    {
-      name: "Duroc Breed Manure",
-      category: "Manure",
-      price: 600,
-      weight: "50kg bag",
-      image: "https://media.istockphoto.com/id/1488312382/photo/a-manure-pile-in-the-country.jpg?s=612x612&w=0&k=20&c=4mVqE1JvZHiFq6aRRm80Q-pqqM9HePyxWs7VKFhdDc4=",
-      description: "Premium composted manure from Duroc breeding stock.",
-    },
     {
       name: "Mixed Breed Manure",
       category: "Manure",

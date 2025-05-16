@@ -24,9 +24,9 @@ export default function About() {
           priority
         />
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white rounded backdrop-blur-xs p-4">
-            <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">About Wahome Premium Pigs</h1>
-            <p className="text-lg text-white md:text-xl max-w-2xl mx-auto">
+          <div className="text-center text-white rounded backdrop-blur-xl p-4">
+            <h1 className="text-4xl text-white md:text-5xl font-medium mb-4">About Wahome Premium Pigs</h1>
+            <p className="text-lg text-white font-light md:text-xl max-w-2xl mx-auto">
               Discover our passion for sustainable, eco-friendly farming and premium pig rearing.
             </p>
           </div>

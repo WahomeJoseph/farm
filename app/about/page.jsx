@@ -17,7 +17,7 @@ export default function About() {
     <div className="min-h-screen bg-transparent">
       <section className="relative h-96 md:h-[28rem] flex items-center justify-center overflow-hidden">
         <Image
-          src="https://media.istockphoto.com/id/1280715716/photo/germany-stuttgart-magical-orange-sunset-sky-above-ripe-grain-field-nature-landscape-in-summer.jpg?s=612x612&w=0&k=20&c=TukToGq-LkmpxvEXEomC3d11prf_hDRSwA7pYsLYG50="
+          src="https://media.istockphoto.com/id/1248963859/photo/pig-farms-in-confinement-mode.jpg?s=612x612&w=0&k=20&c=WvY9pkZW75vzmevYzXxTSKo9oe1I5KjL4v1djBXtbUg="
           alt="Wahome Premium Farm"
           fill
           className="object-cover"

@@ -229,7 +229,7 @@ export default function Gallery() {
                     <p className="text-[1.2rem] font-light text-white max-w-2xl mx-auto mb-8 drop-shadow-md">
                         Discover our premium pig breeds, learn about different categories, and get expert farming tips
                     </p>
-                    <div className="flex flex-wrap gap-4 justify-center">
+                    {/* <div className="flex flex-wrap gap-4 justify-center">
                         <Button
                             size="lg"
                             className="bg-green-600 hover:bg-green-700 text-white rounded-full px-8 transition-all duration-300 shadow-lg hover:shadow-xl">
@@ -241,7 +241,7 @@ export default function Gallery() {
                             className="flex items-center justify-center border border-green-100 bg-white text-green-600 font-medium backdrop-blur-sm rounded-full px-8 transition-all duration-300 shadow-lg hover:shadow-xl hover:bg-green-100">
                             Contact Us
                         </Link>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 

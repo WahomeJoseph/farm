@@ -95,14 +95,14 @@ export const SignUp = () => {
     <div className='min-h-screen bg-transparent flex items-center justify-center px-4 py-6 sm:px-6 lg:px-8'>
         <div className='w-full max-w-4xl bg-white shadow-xl mt-20 rounded-xl overflow-hidden flex flex-col md:flex-row'>
           {/* image */}
-          <div className="w-full md:w-1/2 relative h-auto bg-green-100/30 flex flex-col items-center justify-center p-8">
-            <span className="flex flex-grow-1 text-[2rem] text-green-600">𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑻𝒐 𝑾𝒂𝒉𝒐𝒎𝒆 𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑷𝒊𝒈𝒔. 𝑬𝒏𝒋𝒐𝒚 𝑶𝒖𝒓 𝑷𝒓𝒐𝒅𝒖𝒄𝒆.</span>
+          <div className="w-full md:w-1/2 relative h-auto bg-green-100/30 flex flex-col items-center justify-center p-6">
+            <span className="flex flex-grow-1 text-[2rem] text-green-600">𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑻𝒐 𝑾𝒂𝒉𝒐𝒎𝒆 𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑷𝒊𝒈𝒔.</span>
             <Image
-              src="/sign-up.svg"
+              src="https://media.istockphoto.com/id/186545442/photo/pig-farming.jpg?s=612x612&w=0&k=20&c=rs9-Bo0ErK95gwono_iLMHjPNISJ3a_nRKxyLJRk3Jg="
               alt="Wahome Premium Pigs Farm Illustration"
               width={400}
               height={400}
-              className="object-contain object-center w-full h-full"
+              className="object-contain object-cover w-full h-full"
               priority
             />
           </div>

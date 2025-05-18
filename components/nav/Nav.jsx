@@ -20,7 +20,7 @@ export const Navbar = () => {
     setIsMobileMenuOpen(false);
   }
   return (
-    <header className="fixed top-0 w-full h-20 md:h-28 z-50 bg:white/30 backdrop-blur-3xl shadow-xs transition-all duration-300">
+    <header className="fixed top-0 w-full h-20 md:h-28 z-50 bg:white/30 backdrop-blur-sm shadow-xs transition-all duration-300">
       <nav className="container mx-auto flex items-center justify-between px-2 sm:px-4 md:px-6 py-2 max-w-7xl">
         <Link href="/" className="flex items-center">
           <Image
@@ -29,7 +29,7 @@ export const Navbar = () => {
             priority
             width={100}
             height={100}
-            className="w-16 scale-150 bg-white sm:w-20 md:w-24"
+            className="w-16 scale-110 bg-white sm:w-20 md:w-24"
           />
         </Link>
         <ul className="hidden md:flex items-center space-x-4">
@@ -37,7 +37,7 @@ export const Navbar = () => {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-base font-bold text-black hover:bg-green-100 cursor-pointer px-3 py-2 rounded-sm hover:text-green-600 transition-colors duration-300">
+                className="text-base font-semi-bold bg-white border border-green-600 text-black hover:bg-green-100 cursor-pointer px-3 py-2 rounded-sm hover:text-green-600 transition-colors duration-300">
                 {link.label}
               </Link>
             </li>
@@ -61,7 +61,7 @@ export const Navbar = () => {
             <div className="flex flex-col space-y-4 pt-4">
               <Link
                 href="/"
-                onClick={closeNav}
+                onClick={(e) => closeNav()}
                 className="flex items-center">
                 <Image
                   src='/logo-remove.png'
@@ -79,7 +79,7 @@ export const Navbar = () => {
                       <Navlink
                         href={link.href}
                         className="block text-sm font-medium text-gray-700 hover:text-green-600 py-2 px-3 transition-colors duration-300"
-                        onClick={closeNav}>
+                        onClick={(e) => closeNav()}>
                         {link.label}
                       </Navlink>
                     </SheetClose>

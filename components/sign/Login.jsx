@@ -27,11 +27,10 @@ export const SignIn = () => {
         return
       }
       const res = await signIn('credentials', {
-        email,
-        password,
         redirect: false,
+        email, 
+        password,
       })
-      console.log('Response Login', res)
       if (res?.ok) {
         toast.success('Login successful', { duration: 3000 })
         router.push('/shop')
@@ -50,14 +49,14 @@ export const SignIn = () => {
     <div className='min-h-screen bg-transparent flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8'>
       <div className='w-full max-w-4xl bg-white shadow-xl mt-20 rounded-xl overflow-hidden flex flex-col md:flex-row'>
         {/* image */}
-        <div className="w-full md:w-1/2 relative h-auto bg-green-100/30 flex flex-col items-center justify-center p-6">
+        <div className="w-full md:w-1/2 relative h-auto bg-green-100/30 flex flex-col p-6 items-center justify-center">
           <span className="flex flex-grow-1 text-[2rem] text-green-600">𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑩𝒂𝒄𝒌 𝑻𝒐 𝑾𝒂𝒉𝒐𝒎𝒆 𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑷𝒊𝒈𝒔</span>
           <Image
-            src="/sign-in.svg"
+            src="https://media.istockphoto.com/id/186545442/photo/pig-farming.jpg?s=612x612&w=0&k=20&c=rs9-Bo0ErK95gwono_iLMHjPNISJ3a_nRKxyLJRk3Jg="
             alt="Wahome Premium Pigs Farm Illustration"
             width={400}
             height={400}
-            className="object-contain object-center w-full h-full"
+            className="object-cover p-0 w-full h-full"
             priority
           />
         </div>

@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { Search, Loader2, ChevronRight, Info, Award, Leaf, CircleCheckBig } from "lucide-react"
+import { Search, ChevronRight, Info, Award, Leaf, CircleCheckBig } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -9,10 +9,13 @@ import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import { Loader } from "./loader/Loader"
+import { GalleryCard } from "./products/GalleryCard"
 
 export default function Gallery() {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
+    const [products, setProducts] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
     const [activeCategory, setActiveCategory] = useState("All")
     const [isScrolled, setIsScrolled] = useState(false)
@@ -27,89 +30,23 @@ export default function Gallery() {
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
 
-    // Mock products data - in a real app, this would come from an API
-    const products = [
-        {
-            id: 1,
-            name: "Large White Piglet",
-            description: "Fast-growing piglet breed with excellent meat quality and feed conversion ratio.",
-            category: "Piglets",
-            weight: "25-30kg",
-            age: "8-10 weeks",
-            image: "https://media.istockphoto.com/id/484079237/photo/piglets.jpg?s=612x612&w=0&k=20&c=vXoSvsGARbyXfChANm_LI61PqDWINDB7tT3JDmyuFEQ=",
-            featured: true,
-        },
-        {
-            id: 2,
-            name: "Landrace Gilt",
-            description: "Young female pig known for large litters and excellent mothering abilities.",
-            category: "Gilts",
-            weight: "120-140kg",
-            age: "6-8 months",
-            image: "https://media.istockphoto.com/id/1399570485/photo/cool-hand-luke.jpg?s=612x612&w=0&k=20&c=qfaDe19-fx3CJG8LLngBDw3dzSqIFJ4JWKvzBElyVRc=",
-            featured: false,
-        },
-        {
-            id: 3,
-            name: "Duroc Boar",
-            description: "Premium breeding boar with excellent growth rate and meat quality traits.",
-            category: "Boars",
-            weight: "250-300kg",
-            age: "12-18 months",
-            image: "https://media.istockphoto.com/id/1591489609/photo/pig-of-the-mangalica-breed.jpg?s=612x612&w=0&k=20&c=eY-BmpvNFrYbDZQ9KApi5IvdAX97WxfOkSqS8jSS85U=",
-            featured: true,
-        },
-        {
-            id: 4,
-            name: "Yorkshire Sow",
-            description: "Mature female pig with proven breeding record and large litter sizes.",
-            category: "Sows",
-            weight: "200-220kg",
-            age: "18-24 months",
-            image: "https://media.istockphoto.com/id/594468710/photo/sow-with-piglets-nursing.jpg?s=612x612&w=0&k=20&c=1ExTaFoOYaZQ-OUyApXcoYzClrGbnAkMblWII-thOCo=",
-            featured: false,
-        },
-        {
-            id: 5,
-            name: "Hampshire Piglet",
-            description: "Black piglet with white belt, known for lean meat and hardiness.",
-            category: "Piglets",
-            weight: "20-25kg",
-            age: "6-8 weeks",
-            image: "https://media.istockphoto.com/id/1388917283/photo/piglets-feeding.jpg?s=612x612&w=0&k=20&c=c7asNl-dMjF4VmEDkjoOZsMIt1DZN3C_1rkIudcUqKw=",
-            featured: false,
-        },
-        {
-            id: 6,
-            name: "Berkshire Gilt",
-            description: "Black gilt with white points, known for premium pork quality.",
-            category: "Gilts",
-            weight: "110-130kg",
-            age: "7-9 months",
-            image: "https://media.istockphoto.com/id/1388917287/photo/piglets-farm-life.jpg?s=612x612&w=0&k=20&c=klHekk-wxbzsQY8F5CK3msot48DuPLGMnUgiaYd_46s=",
-            featured: true,
-        },
-        {
-            id: 7,
-            name: "Pietrain Boar",
-            description: "Heavily muscled boar with excellent carcass quality and low fat content.",
-            category: "Boars",
-            weight: "220-260kg",
-            age: "14-20 months",
-            image: "https://media.istockphoto.com/id/1002114214/photo/nature-in-its-autumn-colors.jpg?s=612x612&w=0&k=20&c=kEROThkGZhM1GBJTUjlA6H1KkxLUB5z7aTeJRAEn-us=",
-            featured: false,
-        },
-        {
-            id: 8,
-            name: "Duroc Sow",
-            description: "Heavily muscled boar with excellent carcass quality and low fat content.",
-            category: "Boars",
-            weight: "180-210kg",
-            age: "16-22 months",
-            image: "https://media.istockphoto.com/id/517802359/photo/pig-on-farm.jpg?s=612x612&w=0&k=20&c=YQCZLpy7LeqN0A0ILSOk6yrE_66hH_1D-ZxT39fVI5U=",
-            featured: false,
-        },
-    ]
+    useEffect(() => {
+        async function fetchProducts() {
+            try {
+                setLoading(true)
+                const result = await fetch('/api/products', { cache: 'no-store' })
+                const data = await result.json()
+                setProducts(data.products.slice(0, 23) || [])
+
+            } catch (error) {
+                console.error('Error fetching products:', error)
+                setError('Failed to fetch products!')
+            } finally {
+                setLoading(false)
+            }
+        }
+        fetchProducts()
+    }, [])
 
     const breedImages = {
         LargeWhite: "/images/large-white.png",
@@ -117,16 +54,7 @@ export default function Gallery() {
         Duroc: "https://media.istockphoto.com/id/518170848/photo/duroc-pig.jpg?s=612x612&w=0&k=20&c=z_vRF8sOD0ZFvoLS8SiCOUTA70b0BRL9LHTjyyGAspw=",
         Hampshire: "https://media.istockphoto.com/id/1388917287/photo/piglets-farm-life.jpg?s=612x612&w=0&k=20&c=klHekk-wxbzsQY8F5CK3msot48DuPLGMnUgiaYd_46s=",
         Pietrain: "https://media.istockphoto.com/id/1365154357/photo/young-spotted-female-pietrain-pig-with-black-spots-on-farm-field.jpg?s=612x612&w=0&k=20&c=nhL0zrlkkWMItM03jrFdYzu81yMaw0E5Txr8mFhxwWY=",
-      }
-
-    // Simulate API loading
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false)
-        }, 1000)
-
-        return () => clearTimeout(timer)
-    }, [])
+    }
 
     // Filter products
     const filteredProducts = products.filter((product) => {
@@ -229,19 +157,6 @@ export default function Gallery() {
                     <p className="text-[1.2rem] font-light text-white max-w-2xl mx-auto mb-8 drop-shadow-md">
                         Discover our premium pig breeds, learn about different categories, and get expert farming tips
                     </p>
-                    {/* <div className="flex flex-wrap gap-4 justify-center">
-                        <Button
-                            size="lg"
-                            className="bg-green-600 hover:bg-green-700 text-white rounded-full px-8 transition-all duration-300 shadow-lg hover:shadow-xl">
-                            View Catalog
-                        </Button>
-                        <Link
-                            href='/contact'
-                            variant="outline"
-                            className="flex items-center justify-center border border-green-100 bg-white text-green-600 font-medium backdrop-blur-sm rounded-full px-8 transition-all duration-300 shadow-lg hover:shadow-xl hover:bg-green-100">
-                            Contact Us
-                        </Link>
-                    </div> */}
                 </div>
             </div>
 
@@ -286,6 +201,35 @@ export default function Gallery() {
             </div>
 
             <div className="container mx-auto px-4 py-12">
+                {/* Error and Loading States */}
+                {error && (
+                    <div className="bg-red-50 border border-red-200 text-red-700 px-6 py-4 rounded-lg mb-8" role="alert">
+                        <p className="font-medium">Error</p>
+                        <p>{error}</p>
+                    </div>
+                )}
+
+                {/* Products Grid */}
+                <section className="mb-20">
+                    <div className="flex items-center mb-8">
+                        <div className="h-1 bg-green-200 flex-grow rounded-full"></div>
+                        <h2 className="text-2xl font-bold text-gray-800 px-4">Our Pig Breeds & Products</h2>
+                        <div className="h-1 bg-green-200 flex-grow rounded-full"></div>
+                    </div>
+
+                    {loading ? <Loader /> : (
+                        filteredProducts.length === 0 ? (
+                            <p className='text-center text-red-600'>No products found!</p>
+                        ) : (
+                            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:gap-12 sm:gap-8 sm:p-8 mt-0 md:p-12'>
+                                {filteredProducts.map((item) => (
+                                    <GalleryCard key={item._id} item={item}/>
+                                ))}
+                            </div>
+                        )
+                    )}
+                </section>
+
                 {/* Featured Products Carousel */}
                 {!loading && featuredProducts.length > 0 && (
                     <section className="mb-16">
@@ -345,92 +289,6 @@ export default function Gallery() {
                                 </Card>
                             ))}
                         </div>
-                    </section>
-                )}
-
-                {/* Error and Loading States */}
-                {error && (
-                    <div className="bg-red-50 border border-red-200 text-red-700 px-6 py-4 rounded-lg mb-8" role="alert">
-                        <p className="font-medium">Error</p>
-                        <p>{error}</p>
-                    </div>
-                )}
-                {loading && (
-                    <div className="flex flex-col items-center justify-center py-20">
-                        <Loader2 className="h-12 w-12 animate-spin text-green-600 mb-4" />
-                        <p className="text-gray-600">Loading premium pig breeds...</p>
-                    </div>
-                )}
-
-                {/* Products Grid */}
-                {!loading && (
-                    <section className="mb-20">
-                        <div className="flex items-center mb-8">
-                            <div className="h-1 bg-green-200 flex-grow rounded-full"></div>
-                            <h2 className="text-2xl font-bold text-gray-800 px-4">Our Pig Breeds & Products</h2>
-                            <div className="h-1 bg-green-200 flex-grow rounded-full"></div>
-                        </div>
-
-                        {filteredProducts.length === 0 ? (
-                            <div className="bg-green-50 border border-green-200 text-green-800 px-6 py-10 rounded-lg text-center">
-                                <p className="text-lg mb-4">No products found matching your criteria.</p>
-                                <Button
-                                    variant="outline"
-                                    className="border-green-300 text-green-700 hover:bg-green-100"
-                                    onClick={() => {
-                                        setSearchTerm("")
-                                        setActiveCategory("All")
-                                    }}>
-                                    Reset Filters
-                                </Button>
-                            </div>
-                        ) : (
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                                {filteredProducts.map((product) => (
-                                    <Card
-                                        key={product.id}
-                                        className="group overflow-hidden bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-green-200">
-                                        <div className="relative">
-                                            <div className="absolute top-2 right-2 z-10">
-                                                <Badge
-                                                    className={cn(
-                                                        "font-medium px-2 py-1 bg-green-100")}>
-                                                    {product.category}
-                                                </Badge>
-                                            </div>
-                                            <div className="relative h-48 overflow-hidden">
-                                                <Image
-                                                    src={product.image || "/placeholder.svg"}
-                                                    alt={product.name}
-                                                    fill
-                                                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                                />
-                                            </div>
-                                        </div>
-                                        <CardContent className="p-4">
-                                            <div className="flex justify-between items-start mb-2">
-                                                <h3 className="text-lg font-semibold text-gray-800 line-clamp-1">{product.name}</h3>
-                                            </div>
-                                            <p className="text-gray-600 text-sm line-clamp-2 mb-3">{product.description}</p>
-                                            <div className="grid grid-cols-2 gap-2 text-xs text-gray-500 mb-4">
-                                                <div className="flex items-center">
-                                                    <span className="font-medium mr-1">Weight:</span> {product.weight}
-                                                </div>
-                                                <div className="flex items-center">
-                                                    <span className="font-medium mr-1">Age:</span> {product.age}
-                                                </div>
-                                            </div>
-                                            <Button
-                                                className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-sm"
-                                                size="sm">
-                                                View Details
-                                            </Button>
-                                        </CardContent>
-                                    </Card>
-                                ))}
-                            </div>
-                        )}
                     </section>
                 )}
 
@@ -570,7 +428,7 @@ export default function Gallery() {
                                                 />
                                                 <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent md:bg-gradient-to-t"></div>
                                                 <div className="absolute bottom-0 left-0 p-6 md:p-8">
-                                                    
+
                                                     <h3 className="text-2xl font-bold text-white drop-shadow-sm">Large White</h3>
                                                 </div>
                                             </div>
@@ -657,7 +515,7 @@ export default function Gallery() {
                                                     />
                                                     <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent md:bg-gradient-to-t"></div>
                                                     <div className="absolute bottom-0 left-0 p-6 md:p-8">
-                                                        
+
                                                         <h3 className="text-2xl font-bold text-white drop-shadow-sm">{breed}</h3>
                                                     </div>
                                                 </div>
@@ -860,8 +718,7 @@ export default function Gallery() {
                 {/* Call to Action */}
                 <section className="mb-12">
                     <div className="relative rounded-2xl overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-green-400"></div>
-                        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=200&width=200')] bg-repeat opacity-10"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-green-500"></div>
                         <div className="relative z-10 px-6 py-12 md:py-16 text-center">
                             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                                 Ready to Start Your Pig Farming Journey?
@@ -871,19 +728,9 @@ export default function Gallery() {
                                 expanding your pig farm.
                             </p>
                             <div className="flex flex-wrap gap-4 justify-center">
-                                <Button
-                                    size="lg"
-                                    className="bg-white text-green-600 hover:bg-green-50 rounded-full px-8 shadow-lg hover:shadow-xl"
-                                >
-                                    Contact Us
-                                </Button>
-                                <Button
-                                    size="lg"
-                                    variant="outline"
-                                    className="border-white text-white hover:bg-white/10 rounded-full px-8"
-                                >
-                                    View Catalog
-                                </Button>
+                                <Link href='/contact' className="bg-white text-green-600 hover:bg-green-50 rounded-full px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300">
+                                    <span className="font-semibold">Contact us</span>
+                                </Link>
                             </div>
                         </div>
                     </div>

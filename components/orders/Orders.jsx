@@ -6,14 +6,12 @@ import { Loader } from "@/components/loader/Loader";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { toast } from "sonner";
-import { Package, Calendar, Truck, ArrowLeft, AlertCircle, ShoppingBag } from "lucide-react";
+import { toast, Toaster } from "sonner";
+import { Calendar, Truck, ArrowLeft, AlertCircle, ShoppingBag } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-// import { useParams } from "next/navigation";
 
 export default function Orders() {
-    // const params = useParams();
     const { data: session, status } = useSession();
     const router = useRouter();
     const [orders, setOrders] = useState([]);
@@ -56,6 +54,7 @@ export default function Orders() {
     if (error) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-gray-50">
+                <Toaster />
                 <Card className="max-w-md">
                     <CardContent className="pt-6 text-center">
                         <AlertCircle className="h-8 w-8 text-red-500 mx-auto mb-4" />

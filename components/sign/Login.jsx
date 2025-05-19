@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardDescription, CardContent, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { toast } from 'sonner'
+import { toast, Toaster } from 'sonner'
 import { TriangleAlert } from 'lucide-react'
 import { signIn } from 'next-auth/react'
 
@@ -27,7 +27,7 @@ export const SignIn = () => {
       }
       const res = await signIn('credentials', {
         redirect: false,
-        email, 
+        email,
         password,
       })
       if (res?.ok) {
@@ -46,18 +46,26 @@ export const SignIn = () => {
 
   return (
     <div className='min-h-screen bg-transparent flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8'>
+      <Toaster />
       <div className='w-full max-w-4xl bg-white shadow-xl mt-20 rounded-xl overflow-hidden flex flex-col md:flex-row'>
-        {/* image */}
-        <div className="w-full md:w-1/2 relative h-auto bg-green-100/30 flex flex-col p-6 items-center justify-center">
-          <span className="flex flex-grow-1 text-[2rem] text-green-600">𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑩𝒂𝒄𝒌 𝑻𝒐 𝑾𝒂𝒉𝒐𝒎𝒆 𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑷𝒊𝒈𝒔</span>
-          <Image
-            src="https://media.istockphoto.com/id/186545442/photo/pig-farming.jpg?s=612x612&w=0&k=20&c=rs9-Bo0ErK95gwono_iLMHjPNISJ3a_nRKxyLJRk3Jg="
-            alt="Wahome Premium Pigs Farm Illustration"
-            width={400}
-            height={400}
-            className="object-cover p-0 w-full h-full"
-            priority
-          />
+        <div className="w-full md:w-1/2 relative bg-green-50 flex flex-col items-center justify-center p-6 md:p-8 lg:p-10 overflow-hidden rounded-lg shadow-sm">
+          <h1 className="text-[2rem] font-bold text-green-700 text-center mb-6 md:mb-8 font-serif tracking-wide">
+          𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑻𝒐 𝑾𝒂𝒉𝒐𝒎𝒆 𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑷𝒊𝒈𝒔.
+          </h1>
+
+          <div className="relative w-full h-64 md:h-80 lg:h-96 rounded-xl overflow-hidden border-2 border-green-200 shadow-md">
+            <Image
+              src="https://media.istockphoto.com/id/2096466604/photo/pigs-eating-healthy-food-in-a-biodynamic-farm.jpg?s=612x612&w=0&k=20&c=9X5aNZzqmq9S6O81qUJFLRAIin48L1W6CWbjG3xDTkA="
+              alt="Happy pigs grazing at Wahome Premium Pigs farm"
+              fill
+              priority
+              className="object-cover transition-transform duration-500 hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={85}
+            />
+          </div>
+
+          
         </div>
 
         <Card className='md:w-1/2 bg-white/95 p-6 sm:p-8 border-none'>

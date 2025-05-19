@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio";
 import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
+import { toast, Toaster } from "sonner";
 import { TriangleAlert } from "lucide-react";
 import { redirect } from "next/dist/server/api-utils";
 
@@ -105,227 +105,235 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-transparent flex items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
-        <div className="w-full max-w-4xl bg-white shadow-xl pt-20 rounded-xl overflow-hidden flex flex-col md:flex-row">
-          {/* image */}
-          <div className="w-full md:w-1/2 relative h-auto bg-green-100/30 flex flex-col items-center justify-center p-8">
-            <span className="text-[2rem] mt-12 p-0 text-green-600">𝑭𝒐𝒓 𝒂𝒏𝒚 𝑰𝒏𝒒𝒖𝒊𝒓𝒊𝒆𝒔, 𝑹𝒆𝒂𝒄𝒉 𝑶𝒖𝒕 𝑻𝒐 𝑾𝒂𝒉𝒐𝒎𝒆 𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑷𝒊𝒈𝒔</span>
+      <Toaster />
+      <div className="w-full max-w-4xl bg-white shadow-xl mt-20 rounded-xl overflow-hidden flex flex-col md:flex-row">
+        <div className="w-full md:w-1/2 relative bg-green-50 flex flex-col items-center justify-center p-6 md:p-8 lg:p-10 overflow-hidden rounded-lg shadow-sm">
+          <h1 className="text-[2rem] font-bold text-green-700 text-center mb-6 md:mb-8 font-serif tracking-wide">
+            𝑭𝒐𝒓 𝒂𝒏𝒚 𝑰𝒏𝒒𝒖𝒊𝒓𝒊𝒆𝒔, 𝑹𝒆𝒂𝒄𝒉 𝑶𝒖𝒕 𝑻𝒐 𝑾𝒂𝒉𝒐𝒎𝒆 𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑷𝒊𝒈𝒔
+          </h1>
+          <div className="relative w-full h-64 md:h-80 lg:h-96 rounded-xl overflow-hidden border-2 border-green-200 shadow-md">
             <Image
-              src="/contact-us.svg"
-              alt="Wahome Premium Pigs Farm Illustration"
-              width={400}
-              height={400}
-              className="object-contain object-center w-full h-full"
+              src="https://media.istockphoto.com/id/2096466604/photo/pigs-eating-healthy-food-in-a-biodynamic-farm.jpg?s=612x612&w=0&k=20&c=9X5aNZzqmq9S6O81qUJFLRAIin48L1W6CWbjG3xDTkA="
+              alt="Happy pigs grazing at Wahome Premium Pigs farm"
+              fill
               priority
+              className="object-cover transition-transform duration-500 hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={85}
             />
           </div>
+          <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-green-200 rounded-full opacity-20"></div>
+          <div className="absolute -top-2 -left-2 w-24 h-24 bg-green-100 rounded-full opacity-30"></div>
+        </div>
+        {/* 𝑭𝒐𝒓 𝒂𝒏𝒚 𝑰𝒏𝒒𝒖𝒊𝒓𝒊𝒆𝒔, 𝑹𝒆𝒂𝒄𝒉 𝑶𝒖𝒕 𝑻𝒐 𝑾𝒂𝒉𝒐𝒎𝒆 𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑷𝒊𝒈𝒔 */}
 
-          <Card className="md:w-1/2 bg-white/95 p-6 sm:p-8 border-none">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-bold text-green-700">
-                Contact Us
-              </CardTitle>
-              <CardDescription className="text-sm font-light text-gray-600">
-                Have any inquiries or want to book a farm tour? We'd love to hear from you.
-              </CardDescription>
-            </CardHeader>
+        <Card className="md:w-1/2 bg-white/95 p-6 sm:p-8 border-none">
+          <CardHeader className="text-center">
+            <CardTitle className="text-2xl font-bold text-green-700">
+              Contact Us
+            </CardTitle>
+            <CardDescription className="text-sm font-light text-gray-600">
+              Have any inquiries or want to book a farm tour? We'd love to hear from you.
+            </CardDescription>
+          </CardHeader>
 
-            <CardContent className="space-y-6 px-4 sm:px-6">
-              <form onSubmit={handleSubmit} className="space-y-2">
-                <div className="space-y-2">
-                  <Label className="text-sm font-bold text-gray-700">What would you like to do?</Label>
-                  <RadioGroup
-                    value={form.type}
-                    onValueChange={(value) => setForm({ ...form, type: value })}
-                    className="flex space-x-4"
-                    disabled={pending}>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="inquiry" id="inquiry" />
-                      <Label htmlFor="inquiry" className="text-sm text-gray-700">
-                        Make inquiries
-                      </Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="tour" id="tour" />
-                      <Label htmlFor="tour" className="text-sm text-gray-700">
-                        Book a Farm Tour
-                      </Label>
-                    </div>
-                  </RadioGroup>
-                </div>
+          <CardContent className="space-y-6 px-4 sm:px-6">
+            <form onSubmit={handleSubmit} className="space-y-2">
+              <div className="space-y-2">
+                <Label className="text-sm font-bold text-gray-700">What would you like to do?</Label>
+                <RadioGroup
+                  value={form.type}
+                  onValueChange={(value) => setForm({ ...form, type: value })}
+                  className="flex space-x-4"
+                  disabled={pending}>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="inquiry" id="inquiry" />
+                    <Label htmlFor="inquiry" className="text-sm text-gray-700">
+                      Make inquiries
+                    </Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="tour" id="tour" />
+                    <Label htmlFor="tour" className="text-sm text-gray-700">
+                      Book a Farm Tour
+                    </Label>
+                  </div>
+                </RadioGroup>
+              </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="name" className="text-sm font-medium text-gray-700">
-                    Name <span className="text-red-500">*</span>
-                  </Label>
-                  <Input
-                    id="name"
-                    type="text"
-                    placeholder="Your name"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    disabled={pending}
-                    required
-                    aria-required="true"
-                    className="border-gray-300 focus:ring-green-500 focus:border-green-500"
-                  />
-                  {errors.name && (
-                    <div className="flex items-center gap-x-1 text-sm text-red-600" role="alert">
-                      <TriangleAlert className="h-4 w-4" />
-                      <span>{errors.name}</span>
-                    </div>
-                  )}
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-sm font-medium text-gray-700">
-                    Email <span className="text-red-500">*</span>
-                  </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="you@example.com"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    disabled={pending}
-                    required
-                    aria-required="true"
-                    className="border-gray-300 focus:ring-green-500 focus:border-green-500"
-                  />
-                  {errors.email && (
-                    <div className="flex items-center gap-x-1 text-sm text-red-600" role="alert">
-                      <TriangleAlert className="h-4 w-4" />
-                      <span>{errors.email}</span>
-                    </div>
-                  )}
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="phone" className="text-sm font-medium text-gray-700">
-                    Phone Number <span className="text-red-500">*</span>
-                  </Label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    placeholder="0712345678"
-                    value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    disabled={pending}
-                    required
-                    aria-required="true"
-                    pattern="^\+?\d{10,15}$"
-                    title="Phone number should be in the format +254712345678 or 0712345678"
-                    className="border-gray-300 focus:ring-green-500 focus:border-green-500"
-                  />
-                  {errors.phone && (
-                    <div className="flex items-center gap-x-1 text-sm text-red-600" role="alert">
-                      <TriangleAlert className="h-4 w-4" />
-                      <span>{errors.phone}</span>
-                    </div>
-                  )}
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message" className="text-sm font-medium text-gray-700">
-                    Message <span className="text-red-500">*</span>
-                  </Label>
-                  <Textarea
-                    id="message"
-                    placeholder={
-                      form.type === "tour"
-                        ? "Tell us about your group or any special requests"
-                        : "Your message or inquiry"
-                    }
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    disabled={pending}
-                    required
-                    aria-required="true"
-                    rows={5}
-                    className="border-gray-300 focus:ring-green-500 focus:border-green-500"
-                  />
-                  {errors.message && (
-                    <div className="flex items-center gap-x-1 text-sm text-red-600" role="alert">
-                      <TriangleAlert className="h-4 w-4" />
-                      <span>{errors.message}</span>
-                    </div>
-                  )}
-                </div>
-
-                {form.type === "tour" && (
-                  <div className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="tourDate" className="text-sm font-medium text-gray-700">
-                        Preferred Tour Date <span className="text-red-500">*</span>
-                      </Label>
-                      <Input
-                        id="tourDate"
-                        type="date"
-                        value={form.tourDate}
-                        onChange={(e) => setForm({ ...form, tourDate: e.target.value })}
-                        disabled={pending}
-                        required
-                        aria-required="true"
-                        min={new Date().toISOString().split("T")[0]}
-                        className="border-gray-300 focus:ring-green-500 focus:border-green-500"
-                      />
-                      {errors.tourDate && (
-                        <div className="flex items-center gap-x-1 text-sm text-red-600" role="alert">
-                          <TriangleAlert className="h-4 w-4" />
-                          <span>{errors.tourDate}</span>
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="visitors" className="text-sm font-medium text-gray-700">
-                        Number of Visitors <span className="text-red-500">*</span>
-                      </Label>
-                      <Input
-                        id="visitors"
-                        type="number"
-                        placeholder="e.g., 5"
-                        value={form.visitors}
-                        onChange={(e) => setForm({ ...form, visitors: e.target.value })}
-                        disabled={pending}
-                        required
-                        aria-required="true"
-                        min="1"
-                        max="10"
-                        className="border-gray-300 focus:ring-green-500 focus:border-green-500"
-                      />
-                      {errors.visitors && (
-                        <div className="flex items-center gap-x-1 text-sm text-red-600" role="alert">
-                          <TriangleAlert className="h-4 w-4" />
-                          <span>{errors.visitors}</span>
-                        </div>
-                      )}
-                    </div>
+              <div className="space-y-2">
+                <Label htmlFor="name" className="text-sm font-medium text-gray-700">
+                  Name <span className="text-red-500">*</span>
+                </Label>
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="Your name"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  disabled={pending}
+                  required
+                  aria-required="true"
+                  className="border-gray-300 focus:ring-green-500 focus:border-green-500"
+                />
+                {errors.name && (
+                  <div className="flex items-center gap-x-1 text-sm text-red-600" role="alert">
+                    <TriangleAlert className="h-4 w-4" />
+                    <span>{errors.name}</span>
                   </div>
                 )}
+              </div>
 
-                <Button
-                  type="submit"
-                  className="w-full bg-green-600 hover:bg-green-700 text-white"
-                  size="lg"
-                  disabled={pending}>
-                  {pending
-                    ? form.type === "tour"
-                      ? "Submitting Booking..."
-                      : "Sending..."
-                    : form.type === "tour"
-                      ? "Book Farm Tour"
-                      : "Send Message"}
-                </Button>
-              </form>
+              <div className="space-y-2">
+                <Label htmlFor="email" className="text-sm font-medium text-gray-700">
+                  Email <span className="text-red-500">*</span>
+                </Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  disabled={pending}
+                  required
+                  aria-required="true"
+                  className="border-gray-300 focus:ring-green-500 focus:border-green-500"
+                />
+                {errors.email && (
+                  <div className="flex items-center gap-x-1 text-sm text-red-600" role="alert">
+                    <TriangleAlert className="h-4 w-4" />
+                    <span>{errors.email}</span>
+                  </div>
+                )}
+              </div>
 
-              {submitted && (
-                <div className="mt-4 text-sm text-green-600">
-                  {submitted}
+              <div className="space-y-2">
+                <Label htmlFor="phone" className="text-sm font-medium text-gray-700">
+                  Phone Number <span className="text-red-500">*</span>
+                </Label>
+                <Input
+                  id="phone"
+                  type="tel"
+                  placeholder="0712345678"
+                  value={form.phone}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  disabled={pending}
+                  required
+                  aria-required="true"
+                  pattern="^\+?\d{10,15}$"
+                  title="Phone number should be in the format +254712345678 or 0712345678"
+                  className="border-gray-300 focus:ring-green-500 focus:border-green-500"
+                />
+                {errors.phone && (
+                  <div className="flex items-center gap-x-1 text-sm text-red-600" role="alert">
+                    <TriangleAlert className="h-4 w-4" />
+                    <span>{errors.phone}</span>
+                  </div>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="message" className="text-sm font-medium text-gray-700">
+                  Message <span className="text-red-500">*</span>
+                </Label>
+                <Textarea
+                  id="message"
+                  placeholder={
+                    form.type === "tour"
+                      ? "Tell us about your group or any special requests"
+                      : "Your message or inquiry"
+                  }
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  disabled={pending}
+                  required
+                  aria-required="true"
+                  rows={5}
+                  className="border-gray-300 focus:ring-green-500 focus:border-green-500"
+                />
+                {errors.message && (
+                  <div className="flex items-center gap-x-1 text-sm text-red-600" role="alert">
+                    <TriangleAlert className="h-4 w-4" />
+                    <span>{errors.message}</span>
+                  </div>
+                )}
+              </div>
+
+              {form.type === "tour" && (
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="tourDate" className="text-sm font-medium text-gray-700">
+                      Preferred Tour Date <span className="text-red-500">*</span>
+                    </Label>
+                    <Input
+                      id="tourDate"
+                      type="date"
+                      value={form.tourDate}
+                      onChange={(e) => setForm({ ...form, tourDate: e.target.value })}
+                      disabled={pending}
+                      required
+                      aria-required="true"
+                      min={new Date().toISOString().split("T")[0]}
+                      className="border-gray-300 focus:ring-green-500 focus:border-green-500"
+                    />
+                    {errors.tourDate && (
+                      <div className="flex items-center gap-x-1 text-sm text-red-600" role="alert">
+                        <TriangleAlert className="h-4 w-4" />
+                        <span>{errors.tourDate}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="visitors" className="text-sm font-medium text-gray-700">
+                      Number of Visitors <span className="text-red-500">*</span>
+                    </Label>
+                    <Input
+                      id="visitors"
+                      type="number"
+                      placeholder="e.g., 5"
+                      value={form.visitors}
+                      onChange={(e) => setForm({ ...form, visitors: e.target.value })}
+                      disabled={pending}
+                      required
+                      aria-required="true"
+                      min="1"
+                      max="10"
+                      className="border-gray-300 focus:ring-green-500 focus:border-green-500"
+                    />
+                    {errors.visitors && (
+                      <div className="flex items-center gap-x-1 text-sm text-red-600" role="alert">
+                        <TriangleAlert className="h-4 w-4" />
+                        <span>{errors.visitors}</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
               )}
-            </CardContent>
-          </Card>
-        </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-green-600 hover:bg-green-700 text-white"
+                size="lg"
+                disabled={pending}>
+                {pending
+                  ? form.type === "tour"
+                    ? "Submitting Booking..."
+                    : "Sending..."
+                  : form.type === "tour"
+                    ? "Book Farm Tour"
+                    : "Send Message"}
+              </Button>
+            </form>
+
+            {submitted && (
+              <div className="mt-4 text-sm text-green-600">
+                {submitted}
+              </div>
+            )}
+          </CardContent>
+        </Card>
       </div>
+    </div>
   );
 }

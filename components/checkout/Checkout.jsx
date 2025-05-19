@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { toast } from 'sonner'
+import { toast, Toaster } from 'sonner'
 import { clearCart } from '@/lib/features/cart/Cartslice'
 
 export const Checkout = () => {
@@ -104,6 +104,7 @@ export const Checkout = () => {
 
   return (
     <div className='min-h-screen bg-gradient-to-b from-green-50 to-green-100 py-12 px-4 sm:px-6 lg:px-8'>
+      <Toaster />
       <h1 className='text-3xl font-bold text-green-700 text-center mb-8'>Checkout</h1>
       <div className='max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8'>
         {/* Shipping Info */}

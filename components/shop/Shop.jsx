@@ -8,7 +8,7 @@ import { Loader } from '@/components/loader/Loader'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Search } from 'lucide-react'
-import { toast } from 'sonner'
+import { toast, Toaster } from 'sonner'
 
 export default function Shop() {
   const router = useRouter()
@@ -56,6 +56,7 @@ export default function Shop() {
   return (
     <>
       <main className='pt-20'>
+        <Toaster />
         <div className='min-h-screen bg-transparent py-12 px-4 sm:px-6 lg:px-8'>
           {session && (
             console.log('Session data:', session),

@@ -258,7 +258,7 @@ export default function Home() {
                       <h1 className="text-[2rem] md:text-[2.5rem] font-bold capitalize mb-3 tracking-tight text-gray-900 focus-in">
                         {slide.title}
                       </h1>
-                      <p className="text-md p-2 w-full backdrop-blur-sm bg-[#ddd6cb]/30 montserrat md:text-lg leading-relaxed rounded-sm bg-text-gray-900 mb-6 focus-in">
+                      <p className="text-md p-2 w-3/4 backdrop-blur-sm bg-[#ddd6cb]/30 montserrat md:text-lg leading-relaxed rounded-sm bg-text-gray-900 mb-6 focus-in">
                         {slide.description}
                       </p>
                       {/* highlights */}

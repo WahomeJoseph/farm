@@ -1,10 +1,10 @@
-import connectDB from '@/lib/db'
 import { NextResponse } from 'next/server'
 import Order from '@/models/Order';
+import connectDB from '@/lib/db';
 
 export async function POST(request) {
     try {
-        await connectDB();
+        await connectDB()
         const body = await request.json();
         const { userId, userEmail, items, shippingInfo, total, status = 'pending' } = body;
 

@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
     try {
-        await connectDB();
+        await connectDB()
         const body = await request.json();
         const { username, email, password } = body
         if (!username || !email || !password) {

@@ -2,14 +2,13 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { signIn } from 'next-auth/react'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardDescription, CardContent, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { toast } from 'sonner'
 import { TriangleAlert } from 'lucide-react'
 import Image from 'next/image'
-import axios from 'axios'
+import { signIn } from 'next-auth/react'
 
 export const SignUp = () => {
   const [form, setForm] = useState({

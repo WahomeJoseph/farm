@@ -1,5 +1,5 @@
-import Product from '@/models/Product'
 import connectDB from '@/lib/db'
+import Product from '@/models/Product'
 import { NextResponse } from 'next/server'
 
 // Add a new product

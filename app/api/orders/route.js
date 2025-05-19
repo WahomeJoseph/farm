@@ -1,10 +1,10 @@
-import connectDB from '@/lib/db'
 import { NextResponse } from 'next/server'
 import Order from '@/models/Order';
+import connectDB from '@/lib/db';
 
 export async function POST(request) {
     try {
-        await connectDB();
+        await connectDB()
         const body = await request.json();
         const { userId, userEmail, items, shippingInfo, total, status = 'pending' } = body;
 
@@ -58,7 +58,7 @@ export async function POST(request) {
 export async function GET(request) {
     try {
         await connectDB();
-        
+
         const { searchParams } = new URL(request.url);
         const userId = searchParams.get("userId");
         const userEmail = searchParams.get("userEmail");
@@ -85,7 +85,7 @@ export async function GET(request) {
             .lean();
 
         return NextResponse.json(
-            { 
+            {
                 success: true,
                 orders: orders.map(order => ({
                     id: order._id.toString(),
@@ -102,7 +102,7 @@ export async function GET(request) {
     } catch (error) {
         console.error("Failed to fetch orders:", error);
         return NextResponse.json(
-            { 
+            {
                 success: false,
                 message: "Failed to fetch orders",
                 error: process.env.NODE_ENV === 'development' ? error.message : undefined

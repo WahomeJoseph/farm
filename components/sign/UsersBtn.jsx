@@ -1,12 +1,12 @@
 'use client'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
-import { useSession, signOut } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { LogOut, ShoppingBag, User } from 'lucide-react'
-import { toast } from 'sonner'
+import { LogOut, ShoppingBag } from 'lucide-react'
+import { toast, Toaster } from 'sonner'
 
 const UserButton = () => {
   const { data: session, status } = useSession()
@@ -30,6 +30,7 @@ const UserButton = () => {
 
   return (
     <nav className='flex items-center'>
+      <Toaster />
       {session ? (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>

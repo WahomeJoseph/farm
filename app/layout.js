@@ -1,6 +1,6 @@
 import "./globals.css";
-import StoreProvider from "./Provider";
 import { SessionProvider } from "next-auth/react";
+import StoreProvider from "./Provider";
 import { Navbar } from "@/components/nav/Nav";
 
 export const metadata = {

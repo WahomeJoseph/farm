@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
-    await connectDB();
+    await connectDB()
     const { type, name, email, phone, message, tourDate, visitors } = await request.json();
 
     if (!type || !name || !email ||!phone || !message) {

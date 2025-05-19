@@ -9,7 +9,6 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Search } from 'lucide-react'
 import { toast } from 'sonner'
-import checkSession from '@/lib/checksession'
 
 export default function Shop() {
   const router = useRouter()
@@ -21,8 +20,6 @@ export default function Shop() {
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [searchTerm, setSearchTerm] = useState('')
   const categories = ['All', 'Piglets', 'Gilts', 'Boars', 'Sows', 'Manure']
-
-  checkSession()
 
   useEffect(() => {
     if (status === 'unauthenticated') {

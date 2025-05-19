@@ -2,16 +2,16 @@ import NextAuth from 'next-auth'
 import { MongoDBAdapter } from '@auth/mongodb-adapter'
 import Credentials from 'next-auth/providers/credentials'
 import bcrypt from 'bcryptjs'
-import clientPromise from '@/lib/mongodb'
-import User from '@/models/User'
-import connectDB from '@/lib/db'
+import clientPromise from './lib/mongo'
+import User from './models/User'
+import connectDB from './lib/db'
 
-export const { auth, handlers, signIn } = NextAuth({
+export const { auth, handlers, signIn, signOut } = NextAuth({
     adapter: MongoDBAdapter(clientPromise),
     secret: process.env.NEXTAUTH_SECRET,
     session: {
         strategy: 'jwt',
-        maxAge: 60 * 60,
+        maxAge: 3600,
         encrypt: true,
     },
     providers: [
@@ -82,3 +82,4 @@ export const { auth, handlers, signIn } = NextAuth({
     trustHost: true,
     debug: process.env.NODE_ENV === 'development',
 })
+

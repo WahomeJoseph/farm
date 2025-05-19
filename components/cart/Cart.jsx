@@ -37,8 +37,8 @@ export const Cart = () => {
       <SheetTrigger asChild>
         <Button
           variant='outline'
-          className='fixed bottom-4 right-4 bg-green-600 text-white hover:bg-green-700 hover:text-white rounded-full p-3 shadow-lg flex items-center gap-2'>
-          <ShoppingCart className='h-5 w-5' />
+          className='fixed top-30 right-6 bg-green-600 text-white hover:bg-green-700 hover:text-white rounded-full p-3 shadow-lg flex items-center gap-2'>
+          <ShoppingCart size={30}/>
           Cart ({items.length})
         </Button>
       </SheetTrigger>

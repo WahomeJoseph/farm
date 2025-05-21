@@ -125,7 +125,6 @@ export default function Contact() {
           <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-green-200 rounded-full opacity-20"></div>
           <div className="absolute -top-2 -left-2 w-24 h-24 bg-green-100 rounded-full opacity-30"></div>
         </div>
-        {/* 𝑭𝒐𝒓 𝒂𝒏𝒚 𝑰𝒏𝒒𝒖𝒊𝒓𝒊𝒆𝒔, 𝑹𝒆𝒂𝒄𝒉 𝑶𝒖𝒕 𝑻𝒐 𝑾𝒂𝒉𝒐𝒎𝒆 𝑷𝒓𝒆𝒎𝒊𝒖𝒎 𝑷𝒊𝒈𝒔 */}
 
         <Card className="md:w-1/2 bg-white/95 p-6 sm:p-8 border-none">
           <CardHeader className="text-center">

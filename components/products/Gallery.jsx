@@ -6,11 +6,11 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import { Loader } from "./loader/Loader"
-import { GalleryCard } from "./products/GalleryCard"
+import { Loader } from "../loader/Loader"
+import { GalleryCard } from "./GalleryCard"
 
 export default function Gallery() {
     const [loading, setLoading] = useState(true)

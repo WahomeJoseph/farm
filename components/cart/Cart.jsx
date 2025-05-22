@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+'use client'
+
+import React, { useState, useEffect } from 'react'
 import { useFormStatus } from 'react-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Toaster, toast } from 'sonner'
-import CartIcon from './CartIcon'
+import { toast } from 'sonner'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '../../components/ui/sheet'
 import { Button } from '../ui/button'
 import { Trash2, Minus, Plus, ShoppingCart } from 'lucide-react'
@@ -10,52 +11,59 @@ import { Input } from '../ui/input'
 import Link from 'next/link'
 import Image from 'next/image'
 import { clearCart, removeItem, updateQuantity } from '@/lib/features/cart/Cartslice'
+import { Separator } from '../ui/separator'
 
 export default function Cart() {
   const [openCart, setOpenCart] = useState(false)
+  const [itemCount, setItemCount] = useState(0)
   const { pending } = useFormStatus()
   const dispatch = useDispatch()
   const items = useSelector((state) => state.cart.items)
   const total = items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
 
+  useEffect(() => {
+    const totalItems = items.reduce((total, item) => total + item.quantity, 0)
+    setItemCount(totalItems)
+  }, [items])
+
   const handleUpdateQuantity = (id, quantity) => {
     if (quantity < 1) return
     dispatch(updateQuantity({ id, quantity: Number(quantity) }))
+    toast.success("Item quantity has been updated", {duration: 3000,})
   }
 
   const handleRemoveItem = (id) => {
     dispatch(removeItem(id))
-    toast.success('Item removed from cart')
+    toast.success('Item removed from cart', { duration: 3000 })
   }
 
   const handleClearCart = () => {
     dispatch(clearCart())
-    toast.success('Cart has been cleared!')
+    toast.success('Cart has been cleared!', { duration: 3000 })
   }
-
-  const itemCount = items.reduce((count, item) => count + item.quantity, 0)
 
   return (
     <>
-      <Toaster position="top-right" richColors />
       <Sheet open={openCart} onOpenChange={setOpenCart}>
         <SheetTrigger asChild>
           <Button
-            className="fixed top-30 right-6 text-white rounded-full p-3 shadow-lg flex items-center gap-2 relative"
+            className="fixed top-6 right-6 z-50 bg-green-600 hover:bg-green-700 text-white rounded-full p-3 shadow-lg flex items-center justify-center h-12 w-12"
             aria-label="Shopping Cart">
-            <CartIcon className="h-5 w-5" />
+            <ShoppingCart className="h-5 w-5" />
             {itemCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-amber-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                 {itemCount}
               </span>
             )}
           </Button>
         </SheetTrigger>
 
-        <SheetContent className="flex flex-col">
+        <SheetContent className="flex flex-col left-[50%] overflow-y-auto translate-x-[-50%] w-full max-w-[90vw] md:max-w-2xl lg:max-w-3xl rounded-lg top-[50%] translate-y-[-50%] shadow-xl h-[90vh] max-h-[800px] bg-white border border-amber-600/10 text-gray-900">
           <SheetHeader>
             <SheetTitle className="text-xl font-bold">Your Shopping Cart</SheetTitle>
           </SheetHeader>
+
+          <Separator className="my-4 bg-green-600/20" />
 
           {items.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-center text-gray-600">
@@ -64,7 +72,7 @@ export default function Cart() {
               <p className="text-sm mb-6">Start shopping to add items</p>
               <Button
                 asChild
-                className="mt-4 bg-amber-600 text-white hover:bg-amber-700">
+                className="mt-4 bg-green-600 text-white hover:bg-green-700">
                 <Link href="/shop">Shop Now</Link>
               </Button>
             </div>
@@ -95,11 +103,10 @@ export default function Cart() {
                           size="sm"
                           onClick={() => handleUpdateQuantity(item.id, item.quantity - 1)}
                           disabled={item.quantity <= 1 || pending}
-                          className="h-8 w-8">
-                          <Minus className="h-3 w-3" />
+                          className="h-8 w-10">
+                          <Minus size={24}/>
                         </Button>
                         <Input
-                          type="number"
                           min="1"
                           max={item.stockQuantity}
                           value={item.quantity}
@@ -113,13 +120,13 @@ export default function Cart() {
                           size="sm"
                           onClick={() => handleUpdateQuantity(item.id, item.quantity + 1)}
                           disabled={item.quantity >= item.stockQuantity || pending}
-                          className="h-8 w-8">
-                          <Plus className="h-3 w-3" />
+                          className="h-8 w-10">
+                          <Plus size={24} />
                         </Button>
                       </div>
                     </div>
                     <div className="flex flex-col items-end">
-                      <p className="font-medium text-amber-600">
+                      <p className="font-medium text-green-600">
                         KES {(item.price * item.quantity).toLocaleString()}
                       </p>
                       <Button
@@ -137,7 +144,7 @@ export default function Cart() {
               <div className="border-t border-gray-200 pt-4">
                 <div className="flex justify-between items-center mb-4">
                   <p className="text-gray-600">Subtotal ({itemCount} items)</p>
-                  <p className="text-lg font-bold text-amber-700">
+                  <p className="text-lg font-bold text-green-700">
                     KES {total.toLocaleString()}
                   </p>
                 </div>
@@ -150,7 +157,7 @@ export default function Cart() {
                   </Button>
                   <Button
                     asChild
-                    className="flex-1 bg-amber-600 hover:bg-amber-700 text-white">
+                    className="flex-1 bg-green-600 hover:bg-green-700 text-white">
                     <Link href="/checkout">
                       Proceed to Checkout
                     </Link>

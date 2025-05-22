@@ -20,7 +20,7 @@ export const Navbar = () => {
     setIsMobileMenuOpen(false);
   }
   return (
-    <header className="fixed top-0 w-full h-20 md:h-28 z-50 bg:white/30 backdrop-blur-sm shadow-xs transition-all duration-300">
+    <header className="absolute top-0 w-full h-20 md:h-28 z-50 bg:white/30 backdrop-blur-sm shadow-xs transition-all duration-300">
       <nav className="container mx-auto flex items-center justify-between px-2 sm:px-4 md:px-6 py-2 max-w-7xl">
         <Link href="/" className="flex items-center">
           <Image
@@ -37,7 +37,7 @@ export const Navbar = () => {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-base font-semi-bold bg-white border border-green-600 text-black hover:bg-green-100 cursor-pointer px-3 py-2 rounded-sm hover:text-green-600 transition-colors duration-300">
+                className="text-base font-semi-bold bg-white/60 border border-green-600/20 text-black hover:bg-green-100 cursor-pointer px-3 py-2 rounded-sm hover:text-green-600 transition-colors duration-300">
                 {link.label}
               </Link>
             </li>

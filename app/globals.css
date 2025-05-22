@@ -6,6 +6,14 @@
 .dark * {
   --variant: dark;
 }
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .overflow-wrap-anywhere {
+    overflow-wrap: anywhere;
+  }
+}
 
 :root {
   --color-background: var(--background);

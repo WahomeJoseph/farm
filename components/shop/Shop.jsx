@@ -3,12 +3,13 @@ import { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { ProductCard } from '@/components/products/ProductCard'
-import { Cart } from '@/components/cart/Cart'
+import Cart from '../cart/Cart'
 import { Loader } from '@/components/loader/Loader'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Search } from 'lucide-react'
 import { toast, Toaster } from 'sonner'
+import Chatbot from '../chat/Chatbot'
 
 export default function Shop() {
   const router = useRouter()
@@ -55,8 +56,9 @@ export default function Shop() {
 
   return (
     <>
+      <Toaster position='top-center' richColors />
       <main className='pt-20'>
-        <Toaster />
+        <Chatbot className='fixed bottom-20 right-8 z-100'/>
         <div className='min-h-screen bg-transparent py-12 px-4 sm:px-6 lg:px-8'>
           {session && (
             console.log('Session data:', session),

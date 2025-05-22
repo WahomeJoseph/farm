@@ -12,7 +12,7 @@ export const ProductCard = ({ product }) => {
   const handleCart = () => {
     dispatch(
       addItem({
-        productId: product._id,
+        id: product._id,
         name: product.name,
         price: product.price,
         weight: product.weight,
@@ -20,13 +20,11 @@ export const ProductCard = ({ product }) => {
         image: product.image,
       })
     );
-    toast.success(`${product.name} added to cart`, {
-      position: "top-right",
-      duration: 3000,
-    });
+    toast.success(`${product.name} added to cart`, { duration: 3000 });
   };
 
   return (
+    <>
     <Card className="group relative flex flex-col overflow-hidden bg-white shadow-sm transition-all hover:shadow-xl border border-gray-100 rounded-xl">
       <CardHeader className="p-0">
         <div className="relative h-56 w-full overflow-hidden">
@@ -59,5 +57,6 @@ export const ProductCard = ({ product }) => {
         </Button>
       </CardFooter>
     </Card>
+    </>
   );
 };

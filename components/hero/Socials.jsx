@@ -8,10 +8,10 @@ export const Socials = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="fixed right-5 bottom-10 z-50 flex flex-col-reverse items-center">
+    <div className="fixed right-4 bottom-4 z-50 flex flex-col-reverse items-center">
       <Button
         onClick={() => setIsOpen(!isOpen)}
-        className={`bg-green-700/80 text-white w-12 h-12 mt-3 shadow-lg rounded-full hover:bg-green-700/90 cursor-pointer transition-all duration-300 ${isOpen ? 'rotate-180' : ''}`}
+        className={`bg-green-700 text-white w-12 h-12 mt-3 shadow-lg rounded-full hover:bg-green-700/90 cursor-pointer transition-all duration-300 ${isOpen ? 'rotate-180' : ''}`}
         aria-label={isOpen ? 'Close Socials' : 'Open Socials'}>
         {isOpen ? <X size={24}/> : <MessageSquareShare size={24}/>}
       </Button>

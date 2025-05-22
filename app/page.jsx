@@ -12,6 +12,7 @@ import { Socials } from "@/components/hero/Socials";
 import { FaPhone } from "react-icons/fa";
 import { Newsletter } from "@/components/hero/Newsletter";
 import { CircleCheckBig } from "lucide-react";
+import Chatbot from "@/components/chat/Chatbot";
 
 console.log('Welcome To Wahome Premium Pigs')
 
@@ -223,6 +224,7 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50">
       <AosInitializer />
       <Socials />
+      <Chatbot />
 
       {/* Hero Slider Section */}
       <section aria-label="Hero Slider" className="relative w-full h-screen overflow-hidden focus-in">

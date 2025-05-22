@@ -1,12 +1,13 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import UserButton from "../sign/UsersBtn";
 import Navlink from "./Navlink";
+
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
@@ -15,38 +16,55 @@ const navLinks = [
 ];
 
 export const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const closeNav = () => {
     setIsMobileMenuOpen(false);
-  }
+  };
+
   return (
-    <header className="absolute top-0 w-full h-20 md:h-28 z-50 bg:white/30 backdrop-blur-sm shadow-xs transition-all duration-300">
-      <nav className="container mx-auto flex items-center justify-between px-2 sm:px-4 md:px-6 py-2 max-w-7xl">
-        <Link href="/" className="flex items-center">
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "h-20 md:h-20 bg-white shadow-md" : "h-20 md:h-24 bg-white/90 backdrop-blur-sm"
+      }`}>
+      <nav className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-full max-w-7xl">
+        {/* Logo */}
+        <Link href="/" className="flex items-center group">
           <Image
             src='/logo-remove.png'
-            alt="nav logo"
+            alt="Company Logo"
             priority
-            width={100}
-            height={100}
-            className="w-16 scale-110 bg-white sm:w-20 md:w-24"
+            width={120}
+            height={120}
+            className={`transition-all duration-300 ${scrolled ? "w-16 h-16" : "w-18 h-18"
+              } group-hover:scale-105`}
           />
         </Link>
-        <ul className="hidden md:flex items-center space-x-4">
+
+        {/* Desktop Navigation - Now using Navlink */}
+        <ul className="hidden md:flex items-center space-x-1">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <Link
-                href={link.href}
-                className="text-base font-semi-bold bg-white/60 border border-green-600/20 text-black hover:bg-green-100 cursor-pointer px-3 py-2 rounded-sm hover:text-green-600 transition-colors duration-300">
+              <Navlink href={link.href}>
                 {link.label}
-              </Link>
+              </Navlink>
             </li>
           ))}
         </ul>
+
+        {/* User Button - Desktop */}
         <div className="hidden md:block">
           <UserButton />
         </div>
-        {/* mobile menu */}
+
+        {/* Mobile Menu Button */}
         <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
           <SheetTrigger asChild>
             <Button
@@ -54,41 +72,63 @@ export const Navbar = () => {
               size="icon"
               className="md:hidden"
               aria-label="Toggle mobile menu">
-              <Menu className="h-7 w-7 hover:text-amber-600 hover:bg-green-100 transition-all" />
+
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="bg-white/90 w-3/4 max-w-[300px] border-l border-amber-600/20">
-            <div className="flex flex-col space-y-4 pt-4">
-              <Link
-                href="/"
-                onClick={(e) => closeNav()}
-                className="flex items-center">
-                <Image
-                  src='/logo-remove.png'
-                  alt="nav logo"
-                  priority
-                  width={100}
-                  height={100}
-                  className="w-20 h-auto"
-                />
-              </Link>
-              <ul className="flex flex-col space-y-3">
-                {navLinks.map((link) => (
-                  <li key={link.href}>
-                    <SheetClose asChild>
-                      <Navlink
-                        href={link.href}
-                        className="block text-sm font-medium text-gray-700 hover:text-green-600 py-2 px-3 transition-colors duration-300"
-                        onClick={(e) => closeNav()}>
-                        {link.label}
-                      </Navlink>
-                    </SheetClose>
-                  </li>
-                ))}
-              </ul>
 
-              <div className="flex justify-center">
-                <UserButton />
+          {/* Mobile Menu Content */}
+          <SheetContent
+            side="right"
+            className="bg-white/95 w-full max-w-xs border-l border-gray-200 p-0"
+            onInteractOutside={closeNav}>
+            <div className="flex flex-col h-full">
+              {/* Mobile Header */}
+              <div className="flex items-center justify-between p-4 border-b border-gray-200">
+                <Link href="/" onClick={closeNav}>
+                  <Image
+                    src='/logo-remove.png'
+                    alt="Company Logo"
+                    width={80}
+                    height={80}
+                    className="w-16 h-16"
+                  />
+                </Link>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={closeNav}
+                  className="text-gray-500 hover:text-gray-700">
+                  <X className="h-5 w-5" />
+                </Button>
+              </div>
+
+              {/* Mobile Navigation Links */}
+              <nav className="flex-1 overflow-y-auto p-4">
+                <ul className="space-y-2">
+                  {navLinks.map((link) => (
+                    <li key={link.href}>
+                      <SheetClose asChild>
+                        <Navlink
+                          href={link.href}
+                          onClick={closeNav}
+                          className="w-full text-left">
+                          {link.label}
+                        </Navlink>
+                      </SheetClose>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              <div className="p-4 border-t border-gray-200">
+                <div className="flex justify-center">
+                  <UserButton />
+                </div>
               </div>
             </div>
           </SheetContent>

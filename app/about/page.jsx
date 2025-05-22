@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Leaf, CircleCheckBig } from "lucide-react";
+import Chatbot from "@/components/chat/Chatbot";
 
 export async function generateMetadata() {
   return {
@@ -15,6 +16,7 @@ export async function generateMetadata() {
 export default function About() {
   return (
     <div className="min-h-screen bg-transparent">
+      <Chatbot />
       <section className="relative h-96 md:h-[28rem] flex items-center justify-center overflow-hidden">
         <Image
           src="https://media.istockphoto.com/id/1248963859/photo/pig-farms-in-confinement-mode.jpg?s=612x612&w=0&k=20&c=WvY9pkZW75vzmevYzXxTSKo9oe1I5KjL4v1djBXtbUg="

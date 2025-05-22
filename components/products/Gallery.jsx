@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import { Loader } from "../loader/Loader"
 import { GalleryCard } from "./GalleryCard"
+import Chatbot from "../chat/Chatbot"
 
 export default function Gallery() {
     const [loading, setLoading] = useState(true)
@@ -21,7 +22,6 @@ export default function Gallery() {
     const [isScrolled, setIsScrolled] = useState(false)
     const categories = ["All", "Piglets", "Gilts", "Boars", "Sows"]
 
-    // Handle scroll for sticky header effect
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50)
@@ -146,6 +146,7 @@ export default function Gallery() {
 
     return (
         <div id="gallery" className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+            <Chatbot />
             <div className="relative h-[500px] w-full overflow-hidden">
                 <div className="absolute inset-0 bg-black/40 z-10" />
                 <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
@@ -201,7 +202,6 @@ export default function Gallery() {
             </div>
 
             <div className="container mx-auto px-4 py-12">
-                {/* Error and Loading States */}
                 {error && (
                     <div className="bg-red-50 border border-red-200 text-red-700 px-6 py-4 rounded-lg mb-8" role="alert">
                         <p className="font-medium">Error</p>
@@ -209,7 +209,6 @@ export default function Gallery() {
                     </div>
                 )}
 
-                {/* Products Grid */}
                 <section className="mb-20">
                     <div className="flex items-center mb-8">
                         <div className="h-1 bg-green-200 flex-grow rounded-full"></div>

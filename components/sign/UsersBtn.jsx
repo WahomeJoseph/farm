@@ -21,7 +21,7 @@ const UserButton = () => {
     try {
       await signOut({ redirect: false })
       toast.success('Signed out successfully!', { duration: 3000 })
-      router.push('/sign-in')
+      router.push('/login')
     } catch (error) {
       console.error('Sign out error:', error)
       toast.error('Failed to sign out. Please try again.', { duration: 4000 })

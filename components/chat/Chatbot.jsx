@@ -80,14 +80,14 @@ export default function Chatbot() {
       {!openChat && (
         <button
           onClick={() => setOpenChat(true)}
-          className="fixed right-4 bottom-20 z-50 bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition-all">
+          className="fixed right-3 bottom-10 z-50 bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition-all">
           <MessageCircle className="h-6 w-6" />
         </button>
       )}
 
       {/* Chat Panel */}
       {openChat && (
-        <div className="fixed right-4 bottom-24 z-50 w-80 h-[70vh] transition-all duration-300">
+        <div className="fixed right-4 bottom-20 z-50 w-80 h-[70vh] transition-all duration-300">
           <Card className="w-full h-full border-green-200 bg-gradient-to-b from-green-50 to-white flex flex-col">
             <CardHeader className="bg-green-700 text-white rounded-t-lg py-3 px-4">
               <div className="flex justify-between items-center">

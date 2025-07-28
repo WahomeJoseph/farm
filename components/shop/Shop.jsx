@@ -8,7 +8,7 @@ import { Loader } from '@/components/loader/Loader'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Search } from 'lucide-react'
-import { toast, Toaster } from 'sonner'
+import { Toaster } from 'sonner'
 import Chatbot from '../chat/Chatbot'
 
 export default function Shop() {
@@ -23,10 +23,7 @@ export default function Shop() {
   const categories = ['All', 'Piglets', 'Gilts', 'Boars', 'Sows', 'Manure']
 
   useEffect(() => {
-    if (status === 'unauthenticated') {
-      toast.success('Please sign in to access the shop', { duration: 3000 })
-      router.push('/sign-in')
-    } else if (status === 'authenticated') {
+    
       async function fetchProducts() {
         try {
           setLoading(true)
@@ -42,7 +39,6 @@ export default function Shop() {
         }
       }
       fetchProducts()
-    }
   }, [status, router])
 
   // filter products by category and search term
@@ -56,9 +52,9 @@ export default function Shop() {
 
   return (
     <>
-      <Toaster position='top-center' richColors />
       <main className='pt-20'>
-        <Chatbot className='fixed bottom-20 right-8 z-100'/>
+      <Toaster position='top-right' richColors />
+        <Chatbot className='fixed bottom-10 right-8 z-100'/>
         <div className='min-h-screen bg-transparent py-12 px-4 sm:px-6 lg:px-8'>
           {session && (
             console.log('Session data:', session),

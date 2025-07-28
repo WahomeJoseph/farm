@@ -1,65 +1,151 @@
-import { useState } from "react";
-import { FaInstagram, FaWhatsapp, FaYoutube } from "react-icons/fa";
-import { FaXTwitter, FaFacebookF, FaTiktok } from "react-icons/fa6";
-import { Button } from "../ui/button";
-import { MessageSquareShare, X } from "lucide-react";
+"use client"
 
-export const Socials = () => {
-  const [isOpen, setIsOpen] = useState(false)
+import { useState } from "react"
+import Link from "next/link"
+import { Phone, Mail } from "lucide-react"
+import { FaFacebookF, FaWhatsapp } from "react-icons/fa"
+import { BsTwitterX } from "react-icons/bs"
+import { SiTiktok } from "react-icons/si"
+import { Share } from "lucide-react"
+import { X } from "lucide-react"
+
+const socialLinks = [
+  {
+    name: "Facebook",
+    href: "https://facebook.com/wahomepremium",
+    icon: FaFacebookF,
+    color: "hover:text-blue-600",
+  },
+  {
+    name: "TikTok",
+    href: "https://instagram.com/wahomepremium",
+    icon: SiTiktok,
+    color: "hover:text-pink-600",
+  },
+  {
+    name: "Twitter",
+    href: "https://twitter.com/wahomepremium",
+    icon: BsTwitterX,
+    color: "hover:text-gray-900",
+  },
+  {
+    name: "WhatsApp",
+    href: "https://wa.me/254711430249?text=Hello%20Wahome%20Premium%20Pigs%2C%20I%20would%20like%20to%20inquire%20about...",
+    icon: FaWhatsapp,
+    color: "hover:text-green-600",
+  },
+]
+
+export function Socials() {
+  const [isExpanded, setIsExpanded] = useState(false)
 
   return (
-    <div className="fixed right-4 bottom-4 z-50 flex flex-col-reverse items-center">
-      <Button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`bg-green-700 text-white w-12 h-12 mt-3 shadow-lg rounded-full hover:bg-green-700/90 cursor-pointer transition-all duration-300 ${isOpen ? 'rotate-180' : ''}`}
-        aria-label={isOpen ? 'Close Socials' : 'Open Socials'}>
-        {isOpen ? <X size={24}/> : <MessageSquareShare size={24}/>}
-      </Button>
+    <>
+      {/* Desktop Version */}
+      <div className="hidden md:block fixed top-28 right-4 z-50">
+        <div className="bg-white/90 backdrop-blur-sm rounded-full shadow-lg p-2">
+          <div className="flex items-center gap-2">
+            {/* Social Links */}
+            <div className="flex items-center gap-1">
+              {socialLinks.map((social) => (
+                <Link
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`p-2 rounded-full text-gray-600 ${social.color} transition-colors duration-200 hover:bg-gray-100`}
+                  aria-label={`Follow us on ${social.name}`}
+                >
+                  <social.icon className="h-4 w-4" />
+                </Link>
+              ))}
+            </div>
 
-      {isOpen && (
-        <div className="flex flex-col space-y-3 animate-fade-in">
-          <a
-            href="https://wa.me/254711430249?text=Hello%20Wahome%20Premium%20Pigs%2C%20I%20would%20like%20to%20inquire%20about..."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors"
-            aria-label="WhatsApp">
-            <FaWhatsapp size={20} />
-          </a>
-          <a
-            href="https://facebook.com/yourpage"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors"
-            aria-label="Facebook">
-            <FaFacebookF size={20} />
-          </a>
-          <a
-            href="https://instagram.com/yourprofile"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-pink-600 text-white p-3 rounded-full shadow-lg hover:opacity-90 transition-colors"
-            aria-label="Instagram">
-            <FaInstagram size={20} />
-          </a>
-          <a
-            href="https://tiktok.com/@yourprofile"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-black text-white p-3 rounded-full shadow-lg hover:bg-gray-800 transition-colors"
-            aria-label="TikTok">
-            <FaTiktok size={20} />
-          </a>
-          <a
-            href="https://x.com/WachiraJoseph17"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-black text-white p-3 rounded-full shadow-lg hover:bg-gray-800 transition-colors"
-            aria-label="X (Twitter)">
-            <FaXTwitter size={20} />
-          </a>
+            {/* Divider */}
+            <div className="w-px h-6 bg-gray-300" />
+
+            {/* Contact Links */}
+            <div className="flex items-center gap-1">
+              <Link
+                href="tel:+254711430249"
+                className="p-2 rounded-full text-green-600 hover:text-green-700 hover:bg-green-50 transition-colors duration-200"
+                aria-label="Call us"
+              >
+                <Phone className="h-4 w-4" />
+              </Link>
+              <Link
+                href="mailto:info@wahomepremium.com"
+                className="p-2 rounded-full text-amber-800 hover:text-amber-900 hover:bg-amber-50 transition-colors duration-200"
+                aria-label="Email us"
+              >
+                <Mail className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
         </div>
-      )}
-    </div>
-  );
-};
+      </div>
+
+      {/* Mobile Version */}
+      <div className="md:hidden fixed bottom-4 right-4 z-50">
+        <div className="relative">
+          {/* Main Floating Button */}
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="bg-white/90 hover:bg-green-600 hover:text-white backdrop-blur-sm rounded-full shadow-lg p-3 flex items-center justify-center"
+            aria-label={isExpanded ? "Close social links" : "Open social links"}
+          >
+            {isExpanded ? (
+              <X className="h-5 w-5 text-gray-700 hover:text-white" />
+            ) : (
+              <Share className="h-5 w-5 text-gray-700 hover:text-white" />
+            )}
+          </button>
+
+          {/* Expanded Menu */}
+          {isExpanded && (
+            <div className="absolute bottom-full right-0 mb-2 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-2 flex flex-col gap-2 w-[180px]">
+              {/* Social Links */}
+              {socialLinks.map((social) => (
+                <Link
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`p-3 rounded-lg text-gray-600 ${social.color} transition-colors duration-200 hover:bg-gray-100 flex items-center gap-3 text-sm`}
+                  aria-label={`Follow us on ${social.name}`}
+                  onClick={() => setIsExpanded(false)}
+                >
+                  <social.icon className="h-4 w-4 flex-shrink-0" />
+                  <span>{social.name}</span>
+                </Link>
+              ))}
+
+              {/* Divider */}
+              <div className="w-full h-px bg-gray-300 my-1" />
+
+              {/* Contact Links */}
+              <Link
+                href="tel:+254711430249"
+                className="p-3 rounded-lg text-green-600 hover:text-green-700 hover:bg-green-50 transition-colors duration-200 flex items-center gap-3 text-sm"
+                aria-label="Call us"
+                onClick={() => setIsExpanded(false)}
+              >
+                <Phone className="h-4 w-4 flex-shrink-0" />
+                <span>Call Us</span>
+              </Link>
+              <Link
+                href="mailto:info@wahomepremium.com"
+                className="p-3 rounded-lg text-amber-800 hover:text-amber-900 hover:bg-amber-50 transition-colors duration-200 flex items-center gap-3 text-sm"
+                aria-label="Email us"
+                onClick={() => setIsExpanded(false)}
+              >
+                <Mail className="h-4 w-4 flex-shrink-0" />
+                <span>Email Us</span>
+              </Link>
+            </div>
+          )}
+        </div>
+      </div>
+    </>
+  )
+}

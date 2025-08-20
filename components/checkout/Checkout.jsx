@@ -76,7 +76,7 @@ export const Checkout = () => {
           userId: session?.user?.id || null,
           userEmail: shippingInfo.email,
           items: cartItems.map((item) => ({
-            productId: item.productId,
+            productId: item.id,
             name: item.name,
             price: item.price,
             quantity: item.quantity,

@@ -74,7 +74,7 @@ const farmingTips = [
     content:
       "Provide balanced feed with appropriate protein levels for each growth stage. Piglets need 20-24% protein, growers 16-18%, and finishers 14-16%. Always ensure fresh, clean water is available.",
     image:
-      "https://images.unsplash.com/photo-1560493676-04071c5f467b?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1560493676-04071c5f467b",
     icon: <span className="text-xl sm:text-2xl">🌾</span>,
   },
   {
@@ -88,20 +88,20 @@ const farmingTips = [
     title: "Housing & Environment",
     content:
       "Provide adequate space, proper ventilation, and comfortable temperatures. Clean, dry bedding and appropriate flooring prevent injuries and disease transmission.",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    image: "https://images.unsplash.com/photo-1657856636736-e93a84e63673?w=600",
     icon: <span className="text-xl sm:text-2xl">🏠</span>,
   },
 ]
 
 const breedImages = {
   Landrace:
-    "https://media.istockphoto.com/id/1919843360/photo/large-white.jpg?s=612x612&w=0&k=20&c=TsI1OxSPEc5LJJeBQP14REyrsJak-FxYOLhZ-i_ZLFw=",
+    "https://images.unsplash.com/photo-1682525269849-f0816cab7716",
   Duroc:
-    "https://media.istockphoto.com/id/1919843360/photo/large-white.jpg?s=612x612&w=0&k=20&c=TsI1OxSPEc5LJJeBQP14REyrsJak-FxYOLhZ-i_ZLFw=",
+    "https://media.istockphoto.com/id/515449339/photo/pig-farm-in-highland-scotland.jpg?s=612x612&w=0&k=20&c=C4Bc0IItIYvlxs2I7HjwikikaifmavtdxGxArgRFgLo=",
   Hampshire:
-    "https://media.istockphoto.com/id/1919843360/photo/large-white.jpg?s=612x612&w=0&k=20&c=TsI1OxSPEc5LJJeBQP14REyrsJak-FxYOLhZ-i_ZLFw=",
+    "https://media.istockphoto.com/id/89915541/photo/freerange-pig-hampshire-england.jpg?s=612x612&w=0&k=20&c=D5tww5eZK5r7nQetutRX0h_Z3s-VRQ9XE39ErMS-rUo=",
   Pietrain:
-    "https://media.istockphoto.com/id/1919843360/photo/large-white.jpg?s=612x612&w=0&k=20&c=TsI1OxSPEc5LJJeBQP14REyrsJak-FxYOLhZ-i_ZLFw=",
+    "https://media.istockphoto.com/id/488596864/photo/happy-fatty.jpg?s=612x612&w=0&k=20&c=vvbE-i6YLmYCHvbQQ67As4Obs8lYNwLcATUw4M-bYIs=",
 }
 
 export default function Blog() {
@@ -303,7 +303,7 @@ export default function Blog() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
                   {Object.keys(breedInfo).map((category) => (
                     <Card
                       key={category}

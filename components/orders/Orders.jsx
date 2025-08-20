@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { toast, Toaster } from "sonner";
-import { Calendar, Truck, ArrowLeft, AlertCircle, ShoppingBag } from "lucide-react";
+import { Calendar, Truck, ArrowLeft, AlertCircle, ShoppingBag, Eye, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -47,6 +47,15 @@ export default function Orders() {
         }
     }, [status, session, router]);
 
+    // Function to generate WhatsApp message for an order
+    const generateWhatsAppMessage = (order) => {
+        const itemsText = order.items.map(item =>
+            `${item.name} x${item.quantity} - KES ${(item.price * item.quantity).toLocaleString()}`
+        ).join('%0A');
+
+        return `Hello! I'd like to place an order:%0A%0AOrder ID: ${order._id}%0ATotal: KES ${order.total.toLocaleString()}%0A%0AItems:%0A${itemsText}%0A%0AShipping Info:%0AName: ${order.shippingInfo.name}%0AAddress: ${order.shippingInfo.address}${order.shippingInfo.phone ? `%0APhone: ${order.shippingInfo.phone}` : ''}`;
+    };
+
     if (status === "loading" || loading) {
         return <Loader />;
     }
@@ -75,11 +84,13 @@ export default function Orders() {
             <div className="max-w-4xl mx-auto">
                 <div className="flex items-center justify-between mb-6 md:mt-22 sm:mt-12">
                     <h1 className="text-3xl font-bold text-green-600">Your Orders</h1>
-                    <Button asChild variant="link" className="text-green-600 hover:text-green-700">
-                        <Link href="/shop">
-                            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Shop
-                        </Link>
-                    </Button>
+                    <div className="flex gap-4">
+                        <Button asChild variant="link" className="text-green-600 hover:text-green-700">
+                            <Link href="/shop">
+                                <ArrowLeft className="mr-2 h-4 w-4" /> Back to Shop
+                            </Link>
+                        </Button>
+                    </div>
                 </div>
 
                 {orders.length === 0 ? (
@@ -93,9 +104,17 @@ export default function Orders() {
                                 className="mx-auto mb-6"
                             />
                             <p className="text-gray-600 mb-4">No orders found</p>
-                            <Button asChild className="bg-green-600 hover:bg-green-700 text-white">
-                                <Link href="/shop">Start Shopping</Link>
-                            </Button>
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                <Button asChild className="bg-green-600 hover:bg-green-700 text-white">
+                                    <Link href="/shop">Start Shopping</Link>
+                                </Button>
+                                <Button asChild variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
+                                    <Link href="https://wa.me/254711430249" target="_blank" rel="noopener noreferrer">
+                                        <MessageCircle className="mr-2 h-4 w-4" />
+                                        Order via WhatsApp
+                                    </Link>
+                                </Button>
+                            </div>
                         </CardContent>
                     </Card>
                 ) : (
@@ -105,34 +124,29 @@ export default function Orders() {
                                 <CardHeader>
                                     <div className="flex justify-between items-center">
                                         <CardTitle className="text-lg font-semibold text-green-700">
-                                            Order #{order.id ? order.id.slice(-6) : 'NA'}
+                                            Order #No. {order.id ? order.id.slice(-6) : 'NA'}
                                         </CardTitle>
                                         <span
-                                            className={`px-2 py-1 rounded text-white text-sm ${order.status === "Confirmed"
+                                            className={`px-2 py-1 rounded text-white text-sm ${order.status === "confirmed"
                                                 ? "bg-green-500"
-                                                : order.status === "Cancelled"
+                                                : order.status === "cancelled"
                                                     ? "bg-red-500"
                                                     : "bg-yellow-500"
                                                 }`}
                                         >
-                                            {order.status}
+                                            {order.status?.charAt(0).toUpperCase() + order.status?.slice(1)}
                                         </span>
                                     </div>
                                     <p className="text-sm text-muted-foreground flex items-center gap-2">
                                         <Calendar className="h-5 w-5 text-green-600" />
-                                        Placed on {new Date(order.createdAt).toLocaleDateString()} at
+                                        Placed on {new Date(order.createdAt).toLocaleDateString()} at {new Date(order.createdAt).toLocaleTimeString()}
                                     </p>
                                 </CardHeader>
                                 <CardContent className="space-y-4">
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div>
                                             <p className="text-sm text-muted-foreground">Total</p>
-                                            <p className="font-medium">KES {order.total.toLocaleString()}</p>
-                                        </div>
-                                        <div>
-                                            <p className="text-sm text-muted-foreground">Order ID</p>
-                                            {order.id}
-                                            {/* <p className="font-medium">{order._id ? order._id.slice(-6) : 'NA'}</p> */}
+                                            <p className="font-medium">KES {order.total?.toLocaleString()}</p>
                                         </div>
                                     </div>
                                     <Separator />
@@ -141,18 +155,19 @@ export default function Orders() {
                                             <Truck className="h-5 w-5 text-green-600" />
                                             Shipping Address
                                         </p>
-                                        <div className="bg-green-100/20 p-2 shadow-xs">
+                                        <div className="bg-green-100/20 p-3 rounded-md">
                                             <p className="font-light text-md">
-                                                <span className="text-sm text-green-600">Name:</span>
-                                                {order.shippingInfo.name || "N/A"}
+                                                <span className="text-sm text-green-600 font-medium">Name: </span>
+                                                {order.shippingInfo?.name || "N/A"}
                                             </p>
                                             <p className="font-light text-muted-foreground">
-                                                <span className="text-sm text-green-600">Addres:</span>
-                                                {order.shippingInfo.address || "N/A"}
+                                                <span className="text-sm text-green-600 font-medium">Address: </span>
+                                                {order.shippingInfo?.address || "N/A"}
                                             </p>
-                                            {order.shippingInfo.phone && (
+                                            {order.shippingInfo?.phone && (
                                                 <p className="font-light text-muted-foreground">
-                                                    <span className="text-sm text-green-600">Phone: </span>{order.shippingInfo.phone}
+                                                    <span className="text-sm text-green-600 font-medium">Phone: </span>
+                                                    {order.shippingInfo.phone}
                                                 </p>
                                             )}
                                         </div>
@@ -160,20 +175,21 @@ export default function Orders() {
                                     <Separator />
                                     <div>
                                         <p className="text-sm text-muted-foreground uppercase font-medium flex items-center gap-2 mb-2">
-                                            <ShoppingBag className="h-5 w-5 text-green-600" /> Items
+                                            <ShoppingBag className="h-5 w-5 text-green-600" />
+                                            Items ({order.items?.length || 0})
                                         </p>
-                                        <div className="space-y-4 mt-1 p-2 bg-green-100/20 shadow-xs rounded">
-                                            {order.items.map((item, index) => (
-                                                <div key={item.productId}>
+                                        <div className="space-y-4 mt-1 p-3 bg-green-100/20 rounded-md">
+                                            {order.items?.map((item, index) => (
+                                                <div key={item.productId || index}>
                                                     <div className="flex justify-between items-center">
                                                         <div>
                                                             <p className="font-medium">{item.name}</p>
                                                             <p className="text-sm text-muted-foreground">
-                                                                Quantity: {item.quantity}
+                                                                Quantity: {item.quantity} × KES {item.price?.toLocaleString()}
                                                             </p>
                                                         </div>
                                                         <p className="font-medium">
-                                                            KES {(item.price * item.quantity).toLocaleString()}
+                                                            KES {(item.price * item.quantity)?.toLocaleString()}
                                                         </p>
                                                     </div>
                                                     {index < order.items.length - 1 && (
@@ -184,13 +200,25 @@ export default function Orders() {
                                         </div>
                                     </div>
 
-                                    {/* <div className="flex justify-start mt-4">
-                                        <Button className="bg-green-600 hover:bg-green-700 text-white">
-                                            <Link href={`/orders/${params?.id}`}>
+                                    <div className="flex flex-col sm:flex-row gap-3 justify-start pt-4">
+                                        {/* <Button asChild className="bg-green-600 hover:bg-green-700 text-white">
+                                            <Link href={`/orders/${order._id}`}>
+                                                <Eye className="mr-2 h-4 w-4" />
                                                 View Order Details
                                             </Link>
+                                        </Button> */}
+
+                                        <Button asChild variant="outline" className="border-green-600 text-green-600 hover:bg-green-50">
+                                            <Link
+                                                href={`https://wa.me/254711430249?text=${generateWhatsAppMessage(order)}`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <MessageCircle className="mr-2 h-4 w-4" />
+                                                Order via WhatsApp
+                                            </Link>
                                         </Button>
-                                    </div> */}
+                                    </div>
                                 </CardContent>
                             </Card>
                         ))}

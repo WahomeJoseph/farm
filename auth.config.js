@@ -7,14 +7,13 @@ import User from './models/User'
 import connectDB from './lib/db'
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
-    adapter: MongoDBAdapter(clientPromise),
-    secret: process.env.NEXTAUTH_SECRET,
     session: {
         strategy: 'jwt',
         maxAge: 60 * 60,
         updateAge: 24 * 60 * 60,
-        encrypt: true,
     },
+    adapter: MongoDBAdapter(clientPromise),
+    secret: process.env.NEXTAUTH_SECRET,
     providers: [
         Credentials({
             name: 'Credentials',
@@ -81,6 +80,5 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         signIn: '/sign-in',
     },
     trustHost: true,
-    debug: process.env.NODE_ENV === 'development',
+    // debug: process.env.NODE_ENV === 'development',
 })
-

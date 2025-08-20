@@ -7,11 +7,20 @@ import Footer from "@/components/hero/Footer";
 
 export const metadata = {
   title: {
-    default: "Wahome Premium Pigs",
+    default: "Wahome Premium Pigs - Organic Pig Farming | Antibiotic-Free Pork | Profitable Pig Farming Tips ",
+    template: "%s | Wahome Premium Pigs"
   },
-  description: "Wahome Premium Pigs - Your leading source for premium pig breeds in Kenya and quality pork suppliers. Get scalable pig farming tips make profits with our expert advice and resources.",
-  keywords: "Wahome Premium Pigs, pig farming, premium pigs, pork suppliers, Kenya, pig breeds, scalable farming, farming tips, quality pork, profitable farming",
-  authors: [{ name: "Wahome Premium Pigs" }],
+  description: "Wahome Premium Pigs - Kenya's leading organic pig farm specializing in antibiotic-free pork production. Certified breeding stock, farm tours, and sustainable pig farming training in Nyeri.",
+  keywords: [
+    "organic pig farming Kenya",
+    "antibiotic-free pigs",
+    "piglets for sale Nyeri",
+    "pig breeding stock",
+    "sustainable pig farming",
+    "Kenya pig farm",
+    "premium pork Kenya"
+  ],
+  authors: [{ name: "Wahome Joseph", url: "https://joseph-wachira-portfolio.vercel.app/" }],
   creator: "Wahome Premium Pigs",
 }
 

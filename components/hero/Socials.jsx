@@ -9,6 +9,13 @@ import { SiTiktok } from "react-icons/si"
 import { Share } from "lucide-react"
 import { X } from "lucide-react"
 
+export async function generateMetadata() {
+  return {
+    title: 'Checkout | Wahome Premium Pigs Products',
+    description: 'Your leading source for premium pig breeds in Kenya and quality pork suppliers. Get scalable pig farming tips make profits with our expert advice and resources.',
+  }
+}
+
 const socialLinks = [
   {
     name: "Facebook",
@@ -24,7 +31,7 @@ const socialLinks = [
   },
   {
     name: "Twitter",
-    href: "https://twitter.com/wahomepremium",
+    href: "https://x.com/WachiraJoseph17",
     icon: BsTwitterX,
     color: "hover:text-gray-900",
   },
@@ -134,7 +141,7 @@ export function Socials() {
                 <span>Call Us</span>
               </Link>
               <Link
-                href="mailto:info@wahomepremium.com"
+                href="mailto:josephwachira589@gmail.com"
                 className="p-3 rounded-lg text-amber-800 hover:text-amber-900 hover:bg-amber-50 transition-colors duration-200 flex items-center gap-3 text-sm"
                 aria-label="Email us"
                 onClick={() => setIsExpanded(false)}

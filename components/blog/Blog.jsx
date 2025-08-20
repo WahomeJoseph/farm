@@ -13,6 +13,13 @@ import Image from "next/image"
 import Link from "next/link"
 import Chatbot from "../chat/Chatbot"
 
+export async function generateMetadata() {
+  return {
+    title: 'Blogs | Wahome Premium Pigs Knowledge Hub - Increase your pig rearing knowledge and our latest updates on sustainable pig farming',
+    description: 'Your leading source for premium pig breeds in Kenya and quality pork suppliers. Get scalable pig farming tips make profits with our expert advice and resources.',
+  }
+}
+
 // Educational Data
 const breedInfo = {
   Piglets: {

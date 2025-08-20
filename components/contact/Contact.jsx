@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -9,7 +10,14 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio";
 import { Textarea } from "@/components/ui/textarea";
 import { toast, Toaster } from "sonner";
 import { TriangleAlert } from "lucide-react";
-import { redirect } from "next/dist/server/api-utils";
+import { redirect } from "next/navigation";
+
+export async function generateMetadata() {
+  return {
+    title: 'Contact Us | Wahome Premium Pigs - Reach out to us and get the best pig rearing practices',
+    description: 'Your leading source for premium pig breeds in Kenya and quality pork suppliers. Get scalable pig farming tips make profits with our expert advice and resources.',
+  }
+}
 
 export default function Contact() {
   const [form, setForm] = useState({

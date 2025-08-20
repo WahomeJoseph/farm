@@ -1,17 +1,30 @@
-import { auth } from "../auth.config";
+import { auth } from "@/auth.config";
 import { NextResponse } from "next/server";
 
-export async function middleware(req) {
-  const session = await auth(req);
+export default auth((req) => {
+  const { pathname } = req.nextUrl;
+  
+  // Public routes that don't require authentication
+  const publicPaths = [
+    '/',
+    '/sign-in',
+    '/sign-up',
+    '/api/auth/(.*)',
+    '/_next/(.*)',
+    '/favicon.ico'
+  ];
 
-  // Optional: redirect unauthenticated users
-  if (!session) {
-    return NextResponse.redirect(new URL("/login", req.url));
+  if (publicPaths.some(path => pathname.startsWith(path))) {
+    return NextResponse.next();
+  }
+
+  if (!req.auth) {
+    return NextResponse.redirect(new URL('/sign-in', req.url));
   }
 
   return NextResponse.next();
-}
-// Match routes (everything except static/assets/api)
+});
+
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 };

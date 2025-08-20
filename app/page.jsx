@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -91,7 +92,7 @@ const testimonials = [
   },
   {
     name: "John Smith",
-    role: "Restaurant Owner",
+    role: "Hotel Owner",
     quote: "The pork cuts from Wahome are unmatched in quality. Our customers love the flavor!",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=60",
   },

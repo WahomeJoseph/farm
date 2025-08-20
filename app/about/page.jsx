@@ -8,7 +8,7 @@ import Chatbot from "@/components/chat/Chatbot";
 
 export async function generateMetadata() {
   return {
-    title: 'About Us | Wahome Premium Pigs',
+    title: 'About Us | Wahome Premium Pigs - Learn more about profitable pig farming practices and commitment to quality',
     description: 'Learn about our sustainable farming practices and commitment to quality.',
   }
 }

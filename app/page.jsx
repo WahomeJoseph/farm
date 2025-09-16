@@ -137,53 +137,6 @@ const galleryImages = [
   { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c", alt: "Farm produce", caption: "Fresh organic products" },
 ];
 
-const slideVariants = {
-  initial: (direction) => ({
-    x: direction > 0 ? "100%" : "-100%",
-    opacity: 0,
-    scale: 0.95,
-  }),
-  animate: {
-    x: 0,
-    opacity: 1,
-    scale: 1,
-    transition: {
-      x: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-        duration: 0.6
-      },
-      opacity: { duration: 0.6 },
-      scale: { duration: 0.6 }
-    }
-  },
-  exit: (direction) => ({
-    x: direction > 0 ? "-100%" : "100%",
-    opacity: 0,
-    scale: 0.95,
-    transition: {
-      x: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-        duration: 0.6
-      },
-      opacity: { duration: 0.3 },
-      scale: { duration: 0.6 }
-    }
-  })
-};
-
-const contentVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut", staggerChildren: 0.2 },
-  },
-};
-
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);

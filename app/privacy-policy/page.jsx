@@ -8,7 +8,49 @@ import Link from "next/link"
 export async function generateMetadata() {
     return {
         title: "Privacy Policy | Wahome Premium Pigs",
-        description: "Understand how Wahome Premium Pigs collects, uses, and protects your personal data.",
+        description: "Understand how Wahome Premium Pigs collects, uses, and protects your personal data abiding by the data protection act.",
+        keywords: [
+            "privacy policy wahome premium pigs",
+            "data protection wahome pigs",
+            "personal information wahome pigs",
+            "user privacy wahome pigs",
+            "data security wahome pigs",
+            "pig farming privacy policy",
+            "premium pig sales data protection",
+        ],
+        robots: "index, follow",
+        openGraph: {
+            title: "Privacy Policy | Wahome Premium Pigs",
+            description: "Understand how Wahome Premium Pigs collects, uses, and protects your personal data abiding by the data protection act.",
+            url: "https://farm-orpin-mu.vercel.app/privacy-policy",
+            siteName: "Wahome Premium Pigs",
+            images: [
+                {
+                    url: "https://farm-orpin-mu.vercel.app/logo-remove.png",
+                    width: 800,
+                    height: 600,
+                },
+                {
+                    url: "https://farm-orpin-mu.vercel.app/logo-remove.png",
+                    width: 1800,
+                    height: 1600,
+                    alt: "Wahome Premium Pigs",
+                },
+            ],
+            locale: "en-US",
+            type: "website",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: "Privacy Policy | Wahome Premium Pigs",
+            description: "Understand how Wahome Premium Pigs collects, uses, and protects your personal data abiding by the data protection act.",
+            images: ["https://farm-orpin-mu.vercel.app/logo-remove.png"],
+            site: "@WahomePigs",
+            creator: "@WahomePigs",
+        },
+        authors: [{ name: "Wahome Joseph", url: "https://joseph-wachira-portfolio.vercel.app/" }],
+        creator: "Wahome Premium Pigs",
+        publisher: "Wahome Premium Pigs",
     }
 }
 

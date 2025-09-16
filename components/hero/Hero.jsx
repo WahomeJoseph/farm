@@ -35,7 +35,7 @@ const slides = [
         subtitle: "Sustainable • Eco-Friendly",
         description: "Kenya's first SDGs-certified pig farm. Eco-friendly operations and policies with minimal environmental impact.",
         cta: "Learn More",
-        ctaLink: "/gallery",
+        ctaLink: "/our-farm-gallery",
         badge: "SDGs Certified",
         stats: { waste: "Zero Waste", energy: "60% Biogas", trees: "1000+ Planted" },
     },

@@ -142,7 +142,7 @@ export const SignIn = () => {
             <p className='text-center text-sm text-gray-600'>
               Don’t have an account?{' '}
               <Link
-                href='/sign-up'
+                href='/register-new-account'
                 className='text-green-600 hover:underline font-medium'
               >
                 Sign up

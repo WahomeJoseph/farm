@@ -9,6 +9,48 @@ export async function generateMetadata() {
   return {
     title: "Terms & Conditions | Wahome Premium Pigs",
     description: "Read the terms and conditions for using Wahome Premium Pigs services and website.",
+    keywords: [
+      "terms and conditions wahome premium pigs",
+      "legal information wahome pigs",
+      "user agreement wahome pigs",
+      "website terms wahome pigs",
+      "service terms wahome pigs",
+      "pig farming terms and conditions",
+      "premium pig sales terms",
+    ],
+    robots: "index, follow",
+    openGraph: {
+      title: "Terms & Conditions | Wahome Premium Pigs",
+      description: "Read the terms and conditions for using Wahome Premium Pigs services and website.",
+      url: "https://farm-orpin-mu.vercel.app/terms-of-service",
+      siteName: "Wahome Premium Pigs",
+      images: [
+        {
+          url: "https://farm-orpin-mu.vercel.app/logo-remove.png",
+          width: 800,
+          height: 600,
+        },
+        {
+          url: "https://farm-orpin-mu.vercel.app/logo-remove.png",
+          width: 1800,
+          height: 1600,
+          alt: "Wahome Premium Pigs",
+        },
+      ],
+      locale: "en-US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Terms & Conditions | Wahome Premium Pigs",
+      description: "Read the terms and conditions for using Wahome Premium Pigs services and website.",
+      images: ["https://farm-orpin-mu.vercel.app/logo-remove.png"],
+      site: "@WahomePigs",
+      creator: "@WahomePigs",
+    },
+    authors: [{ name: "Wahome Joseph", url: "https://joseph-wachira-portfolio.vercel.app/" }],
+    creator: "Wahome Premium Pigs",
+    publisher: "Wahome Premium Pigs",
   }
 }
 

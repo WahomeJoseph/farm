@@ -1,16 +1,16 @@
 import React from 'react'
-import { SignIn } from '@/components/sign/Login'
+import { SignUp } from '@/components/sign/Register'
 import { Suspense } from 'react'
 import { Loader } from '@/components/loader/Loader'
 
 export async function generateMetadata() {
   return {
-    title: 'Sign In | Wahome Premium Pigs',
-    description: 'Login to access your accounta and explore our premium products and services.',
+    title: 'Register New Account | Wahome Premium Pigs',
+    description: 'Create a ane account to explore our premium products and services.',
     openGraph: {
-      title: 'Sign In | Wahome Premium Pigs',
-      description: 'Login to access your account and explore our premium products and services.',
-      url: 'https://farm-orpin-mu.vercel.app/sign-in',
+      title: 'Register New Account | Wahome Premium Pigs',
+      description: 'Create a new account to explore our premium products and services.',
+      url: 'https://farm-orpin-mu.vercel.app/register-new-account',
       siteName: 'Wahome Premium Pigs',
       images: [
         {
@@ -26,8 +26,8 @@ export async function generateMetadata() {
     robots: 'index, follow',
     twitter: {
       card: 'summary_large_image',
-      title: 'Sign In | Wahome Premium Pigs',
-      description: 'Login to access your account and explore our premium products and services.',
+      title: 'Register New Account | Wahome Premium Pigs',
+      description: 'Create a new account to explore our premium products and services.',
       images: ['https://farm-orpin-mu.vercel.app/logo-remove.png'],
       site: '@WahomePigs',
       creator: '@WahomePigs',
@@ -41,7 +41,7 @@ export async function generateMetadata() {
 export default function page() {
   return (
     <Suspense fallback={<div><Loader /></div>}>
-      <SignIn />
+        <SignUp />
     </Suspense>
   )
 }

@@ -5,8 +5,50 @@ import Chatbot from "@/components/chat/Chatbot"
 
 export async function generateMetadata() {
   return {
-    title: "FAQ | Wahome Premium Pigs",
+    title: "FAQs | Wahome Premium Pigs",
     description: "Find answers to common questions about Wahome Premium Pigs, our products, and services.",
+    keywords: [
+      "FAQs wahome premium pigs",
+      "common questions wahome pigs",
+      "pig farming FAQs",
+      "organic pig farming questions",
+      "sustainable pig farming FAQs",
+      "pig breeding stock questions",
+      "premium pork FAQs",
+    ],
+    robots: "index, follow",
+    openGraph: {
+      title: "FAQs | Wahome Premium Pigs",
+      description: "Find answers to common questions about Wahome Premium Pigs, our products, and services.",
+      url: "https://farm-orpin-mu.vercel.app/faqs",
+      siteName: "Wahome Premium Pigs",
+      images: [
+        {
+          url: "https://farm-orpin-mu.vercel.app/logo-remove.png",
+          width: 800,
+          height: 600,
+        },
+        {
+          url: "https://farm-orpin-mu.vercel.app/logo-remove.png",
+          width: 1800,
+          height: 1600,
+          alt: "Wahome Premium Pigs",
+        },
+      ],
+      locale: "en-US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "FAQs | Wahome Premium Pigs",
+      description: "Find answers to common questions about Wahome Premium Pigs, our products, and services.",
+      images: ["https://farm-orpin-mu.vercel.app/logo-remove.png"],
+      site: "@WahomePigs",
+      creator: "@WahomePigs",
+    },
+    authors: [{ name: "Wahome Joseph", url: "https://joseph-wachira-portfolio.vercel.app/" }],
+    creator: "Wahome Premium Pigs",
+    publisher: "Wahome Premium Pigs",
   }
 }
 

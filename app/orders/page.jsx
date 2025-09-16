@@ -4,7 +4,7 @@ import { Loader } from '@/components/loader/Loader'
 
 export async function generateMetadata() {
   return {
-    title: 'Orders | Wahome Premium Pigs',
+    title: 'My Orders | Wahome Premium Pigs',
     description: 'Manage and view your orders for our premium pigs and farm products.',
   }
 }

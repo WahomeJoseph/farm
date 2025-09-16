@@ -11,15 +11,15 @@ import { X } from "lucide-react"
 
 export async function generateMetadata() {
   return {
-    title: 'Checkout | Wahome Premium Pigs Products',
-    description: 'Your leading source for premium pig breeds in Kenya and quality pork suppliers. Get scalable pig farming tips make profits with our expert advice and resources.',
+    title: 'Keep in touch on our socials | Wahome Premium Pigs Products',
+    description: 'Your leading source for premium pig breeds in Kenya and quality pork suppliers. Reach out to get scalable pig farming tips make profits with our expert advice and resources.',
   }
 }
 
 const socialLinks = [
   {
     name: "Facebook",
-    href: "https://facebook.com/wahomepremium",
+    href: "https://www.facebook.com/joseph.steve.397501/",
     icon: FaFacebookF,
     color: "hover:text-blue-600",
   },

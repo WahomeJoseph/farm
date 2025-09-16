@@ -77,7 +77,7 @@ export default function Footer() {
                                     asChild
                                     size="sm"
                                     className="mt-4 sm:mt-6 bg-white flex justify-center items-center gap-2 hover:animate-bounce transition-all duration-300 shadow-lg text-green-600 hover:bg-white/90 w-full sm:w-auto text-sm sm:text-base">
-                                    <Link href="/contact">
+                                    <Link href="/contact-us">
                                         <Send size={16} className="flex-shrink-0" />
                                         Send Message
                                     </Link>
@@ -87,7 +87,7 @@ export default function Footer() {
                                     asChild
                                     size="sm"
                                     className="mt-4 sm:mt-6 bg-white flex justify-center items-center gap-2 hover:animate-bounce transition-all duration-300 shadow-lg text-green-600 hover:bg-white/90 w-full sm:w-auto text-sm sm:text-base">
-                                    <Link href="/shop">
+                                    <Link href="/shop-with-us">
                                         <ShoppingBag size={16} className="flex-shrink-0" />
                                         Shop Products
                                     </Link>
@@ -113,7 +113,7 @@ export default function Footer() {
                             <Link href="/terms-of-service" target="_blank" className="text-xs sm:text-sm text-[#a3e9bb] hover:text-white transition-colors">
                                 Terms of Service
                             </Link>
-                            <Link href="/blog" className="text-xs sm:text-sm text-[#a3e9bb] hover:text-white transition-colors">
+                            <Link href="/our-blogs" className="text-xs sm:text-sm text-[#a3e9bb] hover:text-white transition-colors">
                                 Blogs
                             </Link>
                             <Link href="/faqs" className="text-xs sm:text-sm text-[#a3e9bb] hover:text-white transition-colors">

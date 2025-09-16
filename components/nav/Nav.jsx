@@ -10,10 +10,10 @@ import Navlink from "./Navlink";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-  { href: "/shop", label: "Shop" },
-  { href: "/blogs", label: "Blogs" },
+  { href: "/about-us", label: "About" },
+  { href: "/contact-us", label: "Contact" },
+  { href: "/shop-with-us", label: "Shop" },
+  { href: "/our-blogs", label: "Blogs" },
 ];
 
 export const Navbar = () => {
@@ -58,7 +58,7 @@ export const Navbar = () => {
             width={120}
             height={120}
             className={`transition-all duration-300 ${
-              scrolled ? "w-12 h-12 md:w-16 scale-150 md:h-16" : "w-14 h-14 md:w-18 md:h-18"
+              scrolled ? "w-12 h-12 md:w-16 scale-150 md:h-16" : "w-14 h-14 scale-180 md:w-18 md:h-18"
             } group-hover:scale-150`}
           />
         </Link>

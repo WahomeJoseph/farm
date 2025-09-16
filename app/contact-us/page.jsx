@@ -1,25 +1,25 @@
+import Contact from '@/components/contact-us/Contact'
 import { Suspense } from 'react'
 import { Loader } from '@/components/loader/Loader'
-import { Checkout } from '@/components/checkout/Checkout'
 
 export async function generateMetadata() {
   return {
-    title: 'Checkout | Wahome Premium Pigs',
-    description: 'Complete your purchase and enjoy our premium products. Thank you for chhosing Wahome Premium Pigs. Welcome back! ',
+    title: 'Contact Us | Wahome Premium Pigs',
+    description: 'Get in touch with us for inquiries, orders, and more.',
     keywords: [
-      "checkout wahome premium pigs",
-      "purchase wahome pigs",
-      "order completion wahome pigs",
+      "contact wahome premium pigs",
+      "inquiries wahome pigs",
+      "orders wahome pigs",
       "customer support wahome pigs",
-      "secure checkout wahome pigs",
-      "premium pork purchase",
-      "sustainable pig farming order"
+      "farm tours contact",
+      "pig breeding stock inquiries",
+      "sustainable pig farming contact"
     ],
     robots: "index, follow",
     openGraph: {
-      title: 'Checkout | Wahome Premium Pigs',
-      description: 'Complete your purchase and enjoy our premium products. Thank you for chhosing Wahome Premium Pigs. Welcome back! ',
-      url: "https://farm-orpin-mu.vercel.app/checkout",
+      title: 'Contact Us | Wahome Premium Pigs',
+      description: 'Get in touch with us for inquiries, orders, and more.',
+      url: "https://farm-orpin-mu.vercel.app/contact-us",
       siteName: "Wahome Premium Pigs",
       images: [
         {
@@ -39,8 +39,8 @@ export async function generateMetadata() {
     },
     twitter: {
       card: "summary_large_image",
-      title: 'Checkout | Wahome Premium Pigs',
-      description: 'Complete your purchase and enjoy our premium products. Thank you for chhosing Wahome Premium Pigs. Welcome back! ',
+      title: 'Contact Us | Wahome Premium Pigs',
+      description: 'Get in touch with us for inquiries, orders, and more.',
       images: ["https://farm-orpin-mu.vercel.app/logo-remove.png"],
       site: "@WahomePigs",
       creator: "@WahomePigs",
@@ -51,10 +51,10 @@ export async function generateMetadata() {
   }
 }
 
-export default function CheckoutPage() {
+export default function page() {
   return (
     <Suspense fallback={<div><Loader /></div>}>
-      <Checkout />
+      <Contact />
     </Suspense>
   )
 }

@@ -1,16 +1,15 @@
-import React from 'react'
-import { SignIn } from '@/components/sign/Login'
+import Shop from '@/components/shop/Shop'
 import { Suspense } from 'react'
 import { Loader } from '@/components/loader/Loader'
 
 export async function generateMetadata() {
   return {
-    title: 'Sign In | Wahome Premium Pigs',
-    description: 'Login to access your accounta and explore our premium products and services.',
+    title: 'Our Shop | Wahome Premium Pigs',
+    description: 'Explore and purchase our premium pigs and farm products. Place your order now.',
     openGraph: {
-      title: 'Sign In | Wahome Premium Pigs',
-      description: 'Login to access your account and explore our premium products and services.',
-      url: 'https://farm-orpin-mu.vercel.app/sign-in',
+      title: 'Our Shop | Wahome Premium Pigs',
+      description: 'Explore and purchase our premium pigs and farm products. Place your order now.',
+      url: 'https://farm-orpin-mu.vercel.app/shop-with-us',
       siteName: 'Wahome Premium Pigs',
       images: [
         {
@@ -26,8 +25,8 @@ export async function generateMetadata() {
     robots: 'index, follow',
     twitter: {
       card: 'summary_large_image',
-      title: 'Sign In | Wahome Premium Pigs',
-      description: 'Login to access your account and explore our premium products and services.',
+      title: 'Our Shop | Wahome Premium Pigs',
+      description: 'Explore and purchase our premium pigs and farm products. Place your order now.',
       images: ['https://farm-orpin-mu.vercel.app/logo-remove.png'],
       site: '@WahomePigs',
       creator: '@WahomePigs',
@@ -38,10 +37,10 @@ export async function generateMetadata() {
   }
 }
 
-export default function page() {
+export default function ShopPage() {
   return (
     <Suspense fallback={<div><Loader /></div>}>
-      <SignIn />
+      <Shop />
     </Suspense>
   )
 }

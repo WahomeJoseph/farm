@@ -5,26 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Leaf, CircleCheckBig, MapPin, PiggyBank, HeartHandshake } from "lucide-react";
 import Chatbot from "@/components/chat/Chatbot";
-
-export async function generateMetadata() {
-  return {
-    title: 'About Us | Wahome Premium Pigs - Learn more about profitable pig farming practices and commitment to quality',
-    description: 'Learn about our sustainable farming practices and commitment to quality.',
-  }
-}
+import { StructuredData } from "@/components/SEO/AboutUsSEO";
 
 export default function About() {
   const teamMembers = [
     {
       name: "John Wahome",
       role: "Owner Founder & Lead Farmer",
-      bio: "John's passion for farming started in childhood, and he now leads our team with over 5 years of experience. He drives our eco-friendly initiatives, from waste management to sustainable feed sourcing.",
-      image: "/john.jpeg"
-    },
-    {
-      name: "John",
-      role: "Farm Manager & Farm Hand",
-      bio: "John oversees daily operations, ensuring our pigs are raised with care and our farm runs smoothly. He ensures the pigs are fed and does basic veterinary work including pigs breeding and farrowing.",
+      bio: "John's passion for farming started in childhood, and he now leads our team with over 5 years of experience. He drives our eco-friendly initiatives, from waste management to sustainable feed sourcing. He oversees daily operations, ensuring our pigs are raised with care and the farm runs smoothly. He ensures the pigs are fed and does basic veterinary work including pigs breeding and farrowing. ",
       image: "/john.jpeg"
     }
   ];
@@ -49,6 +37,7 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-white">
+      <StructuredData />
       <Chatbot />
 
       {/* Hero Section */}
@@ -65,7 +54,9 @@ export default function About() {
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
             About Wahome Premium Pigs
           </h1>
-          <p className="text-xl text-white max-w-2xl mx-auto mb-8 drop-shadow-md">
+          <p className="text-xl text-white max-w-3xl mx-auto mb-8 drop-shadow-md">
+            Raising pigs with purpose from farm to fork, we bring you closer to the source.
+            <br />
             Discover our passion for sustainable, eco-friendly farming and premium pig rearing
           </p>
           <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 text-white shadow-lg">
@@ -156,8 +147,10 @@ export default function About() {
 
       {/* Team Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-green-700 text-center mb-12">Meet Our Team</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <h2 className="text-3xl font-bold text-green-700 text-center mb-2
+        ">Meet Our Team</h2>
+        <span className="flex items-center justify-center text-md text-center italic">𝒯𝒽𝑒 𝒻𝒶𝓇𝓂 𝒷𝓇𝒶𝒾𝓃𝓈</span>
+        <div className="grid md:grid-cols-1 gap-8">
           {teamMembers.map((member, index) => (
             <Card key={index} className="border-none shadow-md hover:shadow-lg duration-300 transition-all"
             >
@@ -175,7 +168,7 @@ export default function About() {
                 <div>
                   <h3 className="text-xl font-bold text-gray-800">{member.name}</h3>
                   <p className="text-green-600 font-medium mb-3">{member.role}</p>
-                  <p className="text-gray-600">{member.bio}</p>
+                  <p className="text-gray-600 text-justify">{member.bio}</p>
                 </div>
               </CardContent>
             </Card>

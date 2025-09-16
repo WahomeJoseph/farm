@@ -76,7 +76,7 @@ const UserButton = () => {
           <Button
             asChild
             className='bg-green-600 text-white hover:bg-green-700'>
-            <Link href='/sign-up'>Sign Up</Link>
+            <Link href='/register-new-account'>Sign Up</Link>
           </Button>
         </div>
       )}

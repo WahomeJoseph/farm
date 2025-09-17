@@ -1,6 +1,7 @@
-import { blogPosts } from '../data/blogPosts.js';
+import { NextResponse } from 'next/server';
+import { blogPosts } from '@/data/blogPosts'; // adjust path if needed
 
-export default function sitemap() {
+export async function GET() {
   const baseUrl = 'https://farm-orpin-mu.vercel.app';
 
   // Static pages
@@ -93,5 +94,30 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...blogPages];
+  const allUrls = [...staticPages, ...blogPages];
+
+  // Build the XML string manually
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  ${allUrls
+    .map(
+      (url) => `
+    <url>
+      <loc>${url.url}</loc>
+      <lastmod>${url.lastModified.toISOString()}</lastmod>
+      <changefreq>${url.changeFrequency}</changefreq>
+      <priority>${url.priority}</priority>
+    </url>`
+    )
+    .join('')}
+</urlset>`;
+
+  // Return response with XML headers
+  return new NextResponse(sitemap, {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/xml',
+      'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate',
+    },
+  });
 }

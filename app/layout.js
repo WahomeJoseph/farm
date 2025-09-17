@@ -55,13 +55,14 @@ export const metadata = {
     creator: "@WahomePigs",
   },
 
-  // google site verification
   authors: [{ name: "Wahome Joseph", url: "https://joseph-wachira-portfolio.vercel.app/" }],
   creator: "Wahome Premium Pigs",
   publisher: "Wahome Joseph",
+  
+  // google site verification
   verification: {
-    'google-site-verification': "Lc_S4Dhiz8Yq2NnzllOqQSGeK_0AFLLb2oVmoB44jy4",
-  },
+    google: "Lc_S4Dhiz8Yq2NnzllOqQSGeK_0AFLLb2oVmoB44jy4",
+  }
 }
 
 export default function RootLayout({ children }) {

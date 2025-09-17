@@ -4,6 +4,7 @@ import StoreProvider from "./Provider";
 import { Navbar } from "@/components/nav/Nav";
 import CheckSession from "@/components/sign/CheckSession";
 import Footer from "@/components/hero/Footer";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata = {
   title: {
@@ -57,18 +58,22 @@ export const metadata = {
   // google site verification
   authors: [{ name: "Wahome Joseph", url: "https://joseph-wachira-portfolio.vercel.app/" }],
   creator: "Wahome Premium Pigs",
+  publisher: "Wahome Joseph",
+  verification: {
+    'google-site-verification': "Lc_S4Dhiz8Yq2NnzllOqQSGeK_0AFLLb2oVmoB44jy4",
+  },
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="translated-ltr">
-      <meta name="google-site-verification" content="Lc_S4Dhiz8Yq2NnzllOqQSGeK_0AFLLb2oVmoB44jy4" />
       <SessionProvider>
         <StoreProvider>
           <body>
             <CheckSession />
             <Navbar />
             {children}
+            <SpeedInsights />
             <Footer />
           </body>
         </StoreProvider>

@@ -62,13 +62,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="translated-ltr">
+      <meta name="google-site-verification" content="Lc_S4Dhiz8Yq2NnzllOqQSGeK_0AFLLb2oVmoB44jy4" />
       <SessionProvider>
         <StoreProvider>
           <body>
             <CheckSession />
             <Navbar />
             {children}
-            <Footer/>
+            <Footer />
           </body>
         </StoreProvider>
       </SessionProvider>

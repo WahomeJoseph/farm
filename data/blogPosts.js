@@ -1,6 +1,7 @@
 export const blogPosts = [
   {
     id: "1",
+    sub_title: "essential-nutrition-guidelines-for-growing-pigs",
     title: "Essential Nutrition Guidelines for Growing Pigs",
     excerpt: "Learn about the fundamental nutritional requirements for healthy pig growth, including protein, energy, and mineral needs at different life stages.",
     content: `
@@ -61,6 +62,7 @@ Remember, proper nutrition directly impacts profitability through improved feed 
   },
   {
     id: "2", 
+    sub_title: "building-the-perfect-pig-housing-system",
     title: "Building the Perfect Pig Housing System",
     excerpt: "Discover the key elements of designing comfortable, efficient pig housing that promotes health, reduces stress, and maximizes productivity.",
     content: `
@@ -152,6 +154,7 @@ A well-designed housing system pays for itself through improved feed conversion,
   },
   {
     id: "3",
+    sub_title: "disease-prevention-and-health-management-in-pig-farming",
     title: "Disease Prevention and Health Management in Pig Farming",
     excerpt: "A comprehensive guide to maintaining pig health through preventive care, vaccination schedules, and early disease detection strategies.",
     content: `
@@ -273,6 +276,7 @@ A proactive approach to health management reduces treatment costs, improves anim
   },
   {
     id: "4",
+    sub_title: "sustainable-waste-management-for-pig-farms",
     title: "Sustainable Waste Management for Pig Farms",
     excerpt: "Explore environmentally responsible methods for managing pig waste, including composting, biogas production, and nutrient management strategies.",
     content: `
@@ -415,6 +419,7 @@ Sustainable waste management transforms potential problems into valuable resourc
   },
   {
     id: "5",
+    sub_title: "breeding-strategies-for-improved-pig-genetics",
     title: "Breeding Strategies for Improved Pig Genetics",
     excerpt: "Learn advanced breeding techniques to enhance genetic traits, improve litter sizes, and boost overall herd productivity.",
     content: `
@@ -521,6 +526,7 @@ A well-designed breeding program delivers genetic progress that compounds over t
   },
   {
     id: "6",
+    sub_title: "organic-pig-farming-certification-and-best-practices",
     title: "Organic Pig Farming: Certification and Best Practices",
     excerpt: "A complete guide to transitioning to organic pig production, including certification requirements, feed options, and health management.",
     content: `
@@ -637,6 +643,7 @@ Organic pig farming requires commitment to sustainable practices but can deliver
   },
   {
     id: "7",
+    sub_title: "piglet-management-from-birth-to-weaning",
     title: "Piglet Management: From Birth to Weaning",
     excerpt: "Essential techniques for ensuring piglet survival and growth, including colostrum management, creep feeding, and health monitoring.",
     content: `
@@ -742,6 +749,7 @@ Excellent piglet management establishes the foundation for efficient growth, red
   },
   {
     id: "8",
+    sub_title: "financial-planning-for-profitable-pig-farming",
     title: "Financial Planning for Profitable Pig Farming",
     excerpt: "Key financial metrics, budgeting strategies, and economic considerations for running a successful pig farming operation.",
     content: `

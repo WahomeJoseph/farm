@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Leaf, CircleCheckBig, MapPin, PiggyBank, HeartHandshake } from "lucide-react";
 import Chatbot from "@/components/chat/Chatbot";
-import { StructuredData } from "@/components/SEO/AboutUsSEO";
 
 export default function About() {
   const teamMembers = [
@@ -37,7 +36,6 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-white">
-      <StructuredData />
       <Chatbot />
 
       {/* Hero Section */}
